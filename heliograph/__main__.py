@@ -47,12 +47,15 @@ def main():
     (DOCS / "feed.xml").write_text(feed.build(store.recent_findings(), ts))
 
     from . import render_html
-    history = {name: store.series(name, limit=96) for name in
+    history = {name: store.series(name, limit=400) for name in
                ("network.tps", "network.slot_time_ms", "economics.sol_price_usd",
                 "economics.tvl_usd", "validators.delinquent_stake_pct",
                 "economics.dex_volume_24h_usd")}
+    alert_marks = {}
+    for fts, metric, severity, _, _ in store.recent_findings(limit=200):
+        alert_marks.setdefault(metric, []).append((fts, severity))
     (DOCS / "index.html").write_text(
-        render_html.build(sections, findings, baseline, status, ts, history)
+        render_html.build(sections, findings, baseline, status, ts, history, alert_marks)
     )
 
     worst = findings[0]["severity"] if findings else "quiet"

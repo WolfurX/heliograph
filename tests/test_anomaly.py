@@ -3,7 +3,23 @@
 import unittest
 
 from heliograph import anomaly
+from heliograph.render_html import nice_ticks
 from heliograph.store import Store
+
+
+class TestNiceTicks(unittest.TestCase):
+    def test_round_hundred_span(self):
+        # span 100 over ~4 ticks -> step 20: 0,20,40,60,80,100 by hand
+        self.assertEqual(nice_ticks(0, 100), [0, 20, 40, 60, 80, 100])
+
+    def test_tps_band(self):
+        # span 400 -> step 100: 3900..4300 by hand
+        self.assertEqual(nice_ticks(3900, 4300), [3900, 4000, 4100, 4200, 4300])
+
+    def test_flat_input_widens(self):
+        ticks = nice_ticks(5, 5)
+        self.assertGreaterEqual(len(ticks), 2)
+        self.assertTrue(all(4 <= t <= 6 for t in ticks))
 
 
 class TestZScore(unittest.TestCase):
@@ -77,6 +93,25 @@ class TestRelativeRules(unittest.TestCase):
         self.assertEqual(by_metric["network.tps"]["severity"], "warn")
         self.assertIn("dropped", by_metric["network.tps"]["headline"])
         self.assertEqual(baseline["status"], "active")
+
+    def test_high_z_but_immaterial_move_stays_silent(self):
+        # jitter baseline: mean 100.05, stdev 0.0535 -> z(100.4) ≈ 6.5,
+        # but the move is 0.35% < 0.5% floor, so no finding
+        store = Store(":memory:")
+        for ts, v in enumerate([100.0, 100.1, 100.0, 100.1, 100.0, 100.1, 100.0, 100.1], start=1):
+            store.save(ts, {"network": {"tps": v}})
+        store.save(9, {"network": {"tps": 100.4}})
+        findings, _ = anomaly.analyze({"network": {"tps": 100.4}}, store, ts=9)
+        self.assertEqual([f for f in findings if f["metric"] == "network.tps"], [])
+
+    def test_high_z_and_material_move_flagged(self):
+        # same baseline, current 101: move 0.95% >= floor, z ≈ 17.8 -> flagged
+        store = Store(":memory:")
+        for ts, v in enumerate([100.0, 100.1, 100.0, 100.1, 100.0, 100.1, 100.0, 100.1], start=1):
+            store.save(ts, {"network": {"tps": v}})
+        store.save(9, {"network": {"tps": 101.0}})
+        findings, _ = anomaly.analyze({"network": {"tps": 101.0}}, store, ts=9)
+        self.assertTrue(any(f["metric"] == "network.tps" for f in findings))
 
     def test_steady_tps_stays_silent(self):
         store = Store(":memory:")
