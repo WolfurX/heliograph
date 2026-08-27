@@ -4,10 +4,13 @@ The "Signal" direction: the verdict is the page. A status-colored glow and
 an oversized count lead; findings sit in plain ledger rows (hairline rules,
 a small colored dot + plain-weight label - never a tinted callout box);
 the metrics are large bare tiles with accent sparklines; tables carry the
-full detail. Craft rules: hierarchy from weight+size+leading, negative
-tracking on display sizes, tabular figures only in columns, staggered
-entrances on a strong ease-out, reduced-motion and reduced-transparency
-fallbacks, hover effects only on hover-capable pointers.
+full detail. SOL price rides in the hero as a ticker - the one number a
+regular user came for, above the fold. Craft rules: hierarchy from
+weight+size+leading, negative tracking on display sizes, tabular figures
+only in columns, in-view reveals as interruptible transitions on a strong
+ease-out (55ms stagger), reduced-motion and reduced-transparency fallbacks,
+hover effects only on hover-capable pointers. Radius rule: surfaces 14px,
+interactive chips full-pill.
 """
 
 import html
@@ -48,6 +51,11 @@ body { background: var(--page); color: var(--ink-2);
 .hero .row { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; position: relative; }
 .hero .n { font-size: clamp(110px, 17vw, 170px); font-weight: 700;
   letter-spacing: -.05em; line-height: .9; }
+.ticker { position: absolute; right: 0; top: 140px; text-align: right; }
+.ticker .l { color: var(--muted); font-size: 13px; }
+.ticker .p { color: var(--ink); font-size: 46px; font-weight: 700;
+  letter-spacing: -.03em; line-height: 1.15; }
+.ticker .win { color: var(--muted); font-size: 13px; font-weight: 400; margin-left: 6px; }
 .badge { font-size: 12px; font-weight: 700; letter-spacing: .14em; }
 .badge::before { content: ""; display: inline-block; width: 8px; height: 8px;
   border-radius: 50%; margin-right: 7px; background: currentColor; }
@@ -63,12 +71,14 @@ body { background: var(--page); color: var(--ink-2);
 .detail { color: var(--muted); font-size: 13px; margin-top: 6px;
   font-variant-numeric: tabular-nums; }
 
-h2 { display: flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: 12px;
-  font-weight: 650; letter-spacing: .1em; text-transform: uppercase; margin: 56px 0 22px; }
+h2 { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: var(--ink-2);
+  font-size: 12px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase;
+  margin: 56px 0 22px; }
 h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
 .secnote { color: var(--muted); font-size: 13px; margin: -12px 0 18px; }
 
-.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px 34px; }
+.tiles { display: grid; gap: 30px 34px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
 .tile .l { color: var(--muted); font-size: 13px; }
 .tile .v { color: var(--ink); font-size: 42px; font-weight: 700; letter-spacing: -.03em;
   line-height: 1.1; margin: 4px 0 8px; }
@@ -88,13 +98,16 @@ h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
 .sw[aria-pressed="true"] { color: var(--ink); border-color: var(--edge);
   background: rgba(255,255,255,.05); }
 .chartcard { padding: 20px 12px 10px; }
+.cpane { transition: opacity 200ms var(--ease), transform 200ms var(--ease); }
+@starting-style { .cpane { opacity: 0; transform: translateY(6px); } }
 .bigchart { display: block; width: 100%; height: auto;
   min-width: 840px; }  /* on narrow screens the card scrolls; ticks stay legible */
 .bigchart .tick { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .bigchart .endlabel { fill: var(--ink); font-size: 13px; font-weight: 600;
   font-variant-numeric: tabular-nums; }
 .nochart { color: var(--muted); font-size: 13px; padding: 26px 18px; }
-.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.duo { display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 11px 18px; font-size: 14px; }
 th { color: var(--muted); font-size: 11.5px; font-weight: 650; letter-spacing: .08em;
@@ -121,23 +134,40 @@ footer .thesis { flex: 1 1 100%; }
   footer a:hover { color: var(--accent); }
   .sw:hover { color: var(--ink-2); border-color: var(--edge); }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .rise { animation: rise 400ms var(--ease) backwards; }
-  .tiles .tile:nth-child(1) { animation-delay: 60ms; }
-  .tiles .tile:nth-child(2) { animation-delay: 110ms; }
-  .tiles .tile:nth-child(3) { animation-delay: 160ms; }
-  .tiles .tile:nth-child(4) { animation-delay: 210ms; }
-  .tiles .tile:nth-child(5) { animation-delay: 260ms; }
-  .tiles .tile:nth-child(6) { animation-delay: 310ms; }
+@media (pointer: coarse) {
+  .sw { padding: 9px 15px; }
 }
-@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+
+/* in-view reveal: a head script stamps .pre on <html> before paint (so no-JS
+   stays visible), the IntersectionObserver in the footer script adds .in with
+   a staggered delay. Transitions, not keyframes: interruptible by design. */
+.rise { transition: opacity 480ms var(--ease), transform 480ms var(--ease); }
+.pre .rise { opacity: 0; transform: translateY(10px); }
+.pre .rise.in { opacity: 1; transform: none; }
+
 @keyframes focusin { from { opacity: 0; filter: blur(6px); transform: scale(.985); } }
 @keyframes fade { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
-  .rise, .hero-in { animation: fade 180ms ease backwards; }
+  .hero-in { animation: fade 180ms ease backwards; }
+  .pre .rise { transform: none; transition: opacity 200ms ease; }
+  .cpane { transition: opacity 160ms ease; }
+  @starting-style { .cpane { transform: none; } }
 }
 @media (prefers-reduced-transparency: reduce) {
   #tip { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--page); }
+}
+@media print {
+  .pre .rise { opacity: 1; transform: none; }
+}
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px 56px; }
+  .hero { padding: 40px 0 20px; }
+  .ticker { position: static; text-align: left; margin-top: 22px; }
+  .ticker .p { font-size: 38px; }
+  h2 { margin: 44px 0 18px; }
+  th, td { padding: 10px 12px; }
+  .tiles { gap: 26px; }
 }
 """
 
@@ -196,6 +226,22 @@ document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => 
     p.hidden = (String(i) !== b.dataset.c));
   hideCrosshairs();
 }));
+if (window.IntersectionObserver) {
+  const io = new IntersectionObserver(entries => {
+    let i = 0;
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const el = e.target;
+      el.style.transitionDelay = Math.min(i++ * 55, 330) + 'ms';
+      el.classList.add('in');
+      el.addEventListener('transitionend', () => { el.style.transitionDelay = ''; }, {once: true});
+      io.unobserve(el);
+    }
+  }, {rootMargin: '0px 0px -8% 0px'});
+  document.querySelectorAll('.rise').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.rise').forEach(el => el.classList.add('in'));
+}
 """
 
 GLYPH = (
@@ -405,6 +451,9 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
     sup = sections.get("supply", {})
     eos = sections.get("ecosystem", {})
     when = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    # the strip stays quiet in steady state; "baseline forming" is worth a slot
+    baseline_note = ("" if baseline["status"] == "active"
+                     else f' · baseline {html.escape(str(baseline["status"]))}')
 
     n = len(findings)
     worst = findings[0]["severity"] if findings else None
@@ -417,6 +466,17 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
                if n == 0 else
                "Read the findings below, then stop. The rest of the page is evidence.")
 
+    price = eco.get("sol_price_usd")
+    ticker = ""
+    if price is not None:
+        chg = eco.get("sol_24h_change_pct")
+        chip = ""
+        if chg is not None and abs(chg) >= 0.05:
+            cls = "d-good" if chg > 0 else "d-bad"
+            chip = f'<span class="delta {cls}">{chg:+.1f}%</span><span class="win">24h</span>'
+        ticker = (f'<div class="ticker hero-in"><div class="l">SOL price</div>'
+                  f'<div class="p">${price:,.2f}{chip}</div></div>')
+
     finding_html = "".join(
         f'<div class="finding rise" style="--sc:var(--{SEV_COLOR[f["severity"]]})">'
         f'<span class="sev">{SEV_WORD[f["severity"]]}</span>'
@@ -425,16 +485,17 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
         for f in findings
     )
 
+    # regular-user metrics lead the grid; operator metrics follow
     tiles = "".join([
-        tile("Transactions per second", compact(net.get("tps")), history.get("network.tps", [])),
-        tile("Slot time", f"{net.get('slot_time_ms', 'n/a')} ms",
-             history.get("network.slot_time_ms", []), up_good=False),
         tile("SOL price", f"${compact(eco.get('sol_price_usd'))}",
              history.get("economics.sol_price_usd", [])),
         tile("Total value locked", usd(eco.get("tvl_usd")),
              history.get("economics.tvl_usd", [])),
         tile("DEX volume 24h", usd(eco.get("dex_volume_24h_usd")),
              history.get("economics.dex_volume_24h_usd", [])),
+        tile("Transactions per second", compact(net.get("tps")), history.get("network.tps", [])),
+        tile("Slot time", f"{net.get('slot_time_ms', 'n/a')} ms",
+             history.get("network.slot_time_ms", []), up_good=False),
         tile("Delinquent stake", f"{val.get('delinquent_stake_pct', 'n/a')}%",
              history.get("validators.delinquent_stake_pct", []), up_good=False),
     ])
@@ -475,8 +536,8 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
     ]
     charts = []
     for key, name, kind in (
-        ("network.tps", "TPS", "plain"),
         ("economics.sol_price_usd", "SOL price", "usd"),
+        ("network.tps", "TPS", "plain"),
         ("economics.tvl_usd", "TVL", "usd"),
     ):
         series = history.get(key, [])
@@ -516,19 +577,21 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="Heliograph findings" href="feed.xml">
 <style>{CSS}</style>
+<script>document.documentElement.classList.add('pre')</script>
 </head><body>
 <div id="tip"></div>
 <div class="wrap">
 
 <div class="bar">
   <span class="brand">{GLYPH} Heliograph</span>
-  <span class="meta">{when} · run #{baseline["runs"]} · baseline {baseline["status"]}</span>
+  <span class="meta">{when} · run #{baseline["runs"]}{baseline_note}</span>
 </div>
 
 <section class="hero">
   <div class="glow" style="--glowc:{glow}"></div>
   <div class="row hero-in"><span class="n" style="color:{hero_color}">{n}</span>{badge}</div>
   <div class="verdict">thing{"s" if n != 1 else ""} need{"" if n != 1 else "s"} your attention. {verdict}</div>
+  {ticker}
 </section>
 
 {finding_html}
