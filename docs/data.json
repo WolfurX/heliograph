@@ -1,41 +1,35 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T08:56:11+00:00",
-  "generated_ts": 1787820971,
+  "generated_at": "2026-08-27T09:04:36+00:00",
+  "generated_ts": 1787821476,
   "baseline": {
-    "runs": 17,
+    "runs": 18,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
-      "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 8.1% in 24h to $104.57. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +8.1%, threshold warn>=8% crit>=15%"
-    },
-    {
-      "severity": "warn",
       "metric": "validators.delinquent_stake_pct",
-      "headline": "Delinquent stake spiked to 0%, 3.8 standard deviations above its recent norm of 0%.",
-      "detail": "baseline n=16, mean=0.0, current=0.1, z=+3.75"
+      "headline": "Delinquent stake spiked to 0%, 3.2 standard deviations above its recent norm of 0%.",
+      "detail": "baseline n=17, mean=0.0, current=0.1, z=+3.16"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 442068252,
-    "block_height": 420116527,
+    "slot": 442069633,
+    "block_height": 420117908,
     "epoch": 1023,
-    "epoch_progress_pct": 30.61,
-    "tx_count_total": 542328553556,
-    "tps": 3597.5,
-    "nonvote_tps": 1727.3,
-    "slot_time_ms": 365.3,
+    "epoch_progress_pct": 30.93,
+    "tx_count_total": 542330318509,
+    "tps": 3494.6,
+    "nonvote_tps": 1618.3,
+    "slot_time_ms": 364.6,
     "node_version": "4.2.0"
   },
   "validators": {
     "active": 686,
     "delinquent": 11,
-    "delinquent_stake_pct": 0.08,
+    "delinquent_stake_pct": 0.09,
     "total_stake_sol": 436884837,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -104,15 +98,15 @@
     ]
   },
   "supply": {
-    "total_sol": 632969686,
-    "circulating_sol": 584062870,
+    "total_sol": 632969682,
+    "circulating_sol": 584062866,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 104.57,
-    "sol_24h_change_pct": 8.06,
-    "market_cap_usd": 61074769890,
-    "volume_24h_usd": 4853522709,
+    "sol_price_usd": 104.49,
+    "sol_24h_change_pct": 7.85,
+    "market_cap_usd": 60971683310,
+    "volume_24h_usd": 4872170381,
     "tvl_usd": 5775536941,
     "dex_volume_24h_usd": 2481205722,
     "dex_volume_change_1d_pct": -15.46,
@@ -151,7 +145,28 @@
         "prerelease": false
       }
     ],
-    "recent_simds": [],
+    "recent_simds": [
+      {
+        "title": "SIMD-0553: Resource and Inclusion Fee",
+        "date": "2026-07-20"
+      },
+      {
+        "title": "SIMD-0550: Double disinflation",
+        "date": "2026-07-23"
+      },
+      {
+        "title": "re-amend SIMD-0340: additional inter- and intra- validation",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0433: Loader V3: Set Program Data to ELF Length",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0266: Efficient Token program",
+        "date": "2026-03-13"
+      }
+    ],
     "daily_active_wallets": 2676760,
     "daily_active_wallets_date": "2026-08-26",
     "daily_active_wallets_fetched_at": 1787820911

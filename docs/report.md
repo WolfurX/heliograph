@@ -1,36 +1,34 @@
 # Heliograph
 
-Solana state report · generated 2026-08-27 08:56 UTC · run #17 · baseline active
+Solana state report · generated 2026-08-27 09:04 UTC · run #18 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 8.1% in 24h to $104.57. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +8.1%, threshold warn>=8% crit>=15%
-- 🟠 **Delinquent stake spiked to 0%, 3.8 standard deviations above its recent norm of 0%.**
-  - evidence: baseline n=16, mean=0.0, current=0.1, z=+3.75
+- 🟠 **Delinquent stake spiked to 0%, 3.2 standard deviations above its recent norm of 0%.**
+  - evidence: baseline n=17, mean=0.0, current=0.1, z=+3.16
 
 ## Network
 
-The chain looks healthy: 3,598 TPS (1,727 non-vote) at 365.3 ms per slot, epoch 1023 is 30.61% done.
+The chain looks healthy: 3,495 TPS (1,618 non-vote) at 364.6 ms per slot, epoch 1023 is 30.93% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,068,252 |
-| Block height | 420,116,527 |
-| Epoch | 1023 (30.61% complete) |
-| TPS (all / non-vote) | 3,597.5 / 1,727.3 |
-| Slot time | 365.3 ms |
+| Slot | 442,069,633 |
+| Block height | 420,117,908 |
+| Epoch | 1023 (30.93% complete) |
+| TPS (all / non-vote) | 3,494.6 / 1,618.3 |
+| Slot time | 364.6 ms |
 | Node version | 4.2.0 |
 
 ## Validators
 
-686 validators are voting, 11 are delinquent (0.08% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+686 validators are voting, 11 are delinquent (0.09% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
 | Active / delinquent | 686 / 11 |
-| Delinquent stake | 0.08% |
+| Delinquent stake | 0.09% |
 | Total stake | 436,884,837 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -38,12 +36,12 @@ The chain looks healthy: 3,598 TPS (1,727 non-vote) at 365.3 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $104.57 (+8.1% 24h), $5.78B locked, $2.48B traded on DEXs.
+A moving day: SOL at $104.49 (+7.8% 24h), $5.78B locked, $2.48B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $104.57 (+8.1% 24h) |
-| Market cap | $61.07B |
+| SOL price | $104.49 (+7.8% 24h) |
+| Market cap | $60.97B |
 | TVL | $5.78B |
 | DEX volume 24h | $2.48B (-15.5% 1d) |
 | Chain fees 24h | $14.92M |
@@ -54,9 +52,9 @@ A volatile day: SOL at $104.57 (+8.1% 24h), $5.78B locked, $2.48B traded on DEXs
 
 | metric | value |
 |---|---|
-| Circulating | 584,062,870 SOL |
+| Circulating | 584,062,866 SOL |
 | Non-circulating | 48,906,816 SOL |
-| Total | 632,969,686 SOL |
+| Total | 632,969,682 SOL |
 
 ## Ecosystem
 
@@ -74,6 +72,11 @@ Recent agave client releases:
 
 Recently accepted SIMDs (upcoming protocol changes):
 
+- SIMD-0553: Resource and Inclusion Fee · 2026-07-20
+- SIMD-0550: Double disinflation · 2026-07-23
+- re-amend SIMD-0340: additional inter- and intra- validation · 2026-07-31
+- SIMD-0433: Loader V3: Set Program Data to ELF Length · 2026-07-31
+- SIMD-0266: Efficient Token program · 2026-03-13
 
 ## Sources
 
