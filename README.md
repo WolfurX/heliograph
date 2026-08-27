@@ -37,7 +37,9 @@ Each run regenerates four views of the same snapshot in `docs/`:
 - `data.json`: stable machine-readable schema, versioned, for anyone who wants to build on top or point their own agent at it
 - `feed.xml`: an RSS feed of findings only. Subscribe and the anomalies come to you; on quiet days it stays silent
 
-On a critical finding, the GitHub Actions run also opens an issue on this repo, so anyone watching it gets paged by GitHub's own notifications. That is the thesis working end to end: you never check the page; the page checks Solana and interrupts you when it must.
+On a critical finding, the GitHub Actions run also opens an issue on this repo (`scripts/alert.sh`), so anyone watching it gets paged by GitHub's own notifications. That is the thesis working end to end: you never check the page; the page checks Solana and interrupts you when it must.
+
+Since a real critical finding is rare and you should not have to trust an untested alarm, that path has a self-test: run the workflow manually with `alert_test` enabled and it fires the alert step against `tests/fixtures/critical_snapshot.json`. Repeated findings are deduplicated by exact issue title, so a condition lasting several hours pages you once rather than every 30 minutes.
 
 ## Anomaly detection
 
