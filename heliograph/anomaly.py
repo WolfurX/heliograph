@@ -14,6 +14,9 @@ import statistics
 
 MIN_BASELINE = 8  # prior points needed before z-score rules speak
 Z_FLAG = 2.5
+MIN_REL_CHANGE = 0.005  # z alone is not enough: a near-flat baseline makes
+                        # microscopic wiggles score huge z; the move must
+                        # also be >= 0.5% away from the mean to matter
 
 
 def zscore(history, current):
@@ -39,6 +42,9 @@ def _relative(findings, store, ts, metric, label, unit="", down_is_bad=True):
         return
     z = zscore(pts, cur)
     if z is None or abs(z) < Z_FLAG:
+        return
+    mean_ = statistics.fmean(pts)
+    if mean_ != 0 and abs(cur - mean_) / abs(mean_) < MIN_REL_CHANGE:
         return
     direction = "dropped" if z < 0 else "spiked"
     bad = (z < 0) == down_is_bad

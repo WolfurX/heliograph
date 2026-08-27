@@ -12,6 +12,7 @@ fallbacks, hover effects only on hover-capable pointers.
 
 import html
 import json
+import math
 from datetime import datetime, timezone
 
 from .report import usd
@@ -78,6 +79,20 @@ h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
 .card { background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
   border: 1px solid var(--border); border-top-color: var(--edge); border-radius: 14px;
   overflow-x: auto; }
+.switch { display: flex; gap: 6px; margin-left: auto; }
+.sw { border: 1px solid var(--border); background: none; color: var(--muted);
+  font: inherit; font-size: 12px; letter-spacing: .02em; padding: 5px 13px;
+  border-radius: 999px; cursor: pointer;
+  transition: color 140ms var(--ease), border-color 140ms var(--ease), transform 140ms var(--ease); }
+.sw:active { transform: scale(.97); }
+.sw[aria-pressed="true"] { color: var(--ink); border-color: var(--edge);
+  background: rgba(255,255,255,.05); }
+.chartcard { padding: 20px 12px 10px; }
+.bigchart { display: block; width: 100%; height: auto; }
+.bigchart .tick { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.bigchart .endlabel { fill: var(--ink); font-size: 13px; font-weight: 600;
+  font-variant-numeric: tabular-nums; }
+.nochart { color: var(--muted); font-size: 13px; padding: 26px 18px; }
 .duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 11px 18px; font-size: 14px; }
@@ -103,6 +118,7 @@ footer .thesis { flex: 1 1 100%; }
 
 @media (hover: hover) and (pointer: fine) {
   footer a:hover { color: var(--accent); }
+  .sw:hover { color: var(--ink-2); border-color: var(--edge); }
 }
 @media (prefers-reduced-motion: no-preference) {
   .rise { animation: rise 400ms var(--ease) backwards; }
@@ -126,21 +142,59 @@ footer .thesis { flex: 1 1 100%; }
 
 JS = """
 const tip = document.getElementById('tip');
+const fmtTime = t => new Date(t * 1000).toISOString().slice(5, 16).replace('T', ' ') + ' UTC';
+function fmtVal(v, kind) {
+  if (kind === 'usd') {
+    for (const [d, s] of [[1e12,'T'],[1e9,'B'],[1e6,'M'],[1e3,'K']])
+      if (Math.abs(v) >= d) return '$' + (v / d).toLocaleString('en-US', {maximumFractionDigits: 2}) + s;
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }
+  return v.toLocaleString('en-US', {maximumFractionDigits: 1});
+}
+function hideCrosshairs() {
+  document.querySelectorAll('.bigchart .ch, .bigchart .chd')
+    .forEach(el => el.setAttribute('visibility', 'hidden'));
+}
+function showTip(e, text) {
+  tip.textContent = text;
+  tip.style.left = (e.clientX + 12) + 'px';
+  tip.style.top = (e.clientY - 30) + 'px';
+  tip.style.display = 'block';
+  requestAnimationFrame(() => tip.style.opacity = '1');
+}
 document.addEventListener('mousemove', e => {
+  const big = e.target.closest ? e.target.closest('.bigchart') : null;
+  if (big && big.dataset.pts) {
+    const pts = JSON.parse(big.dataset.pts);  // [t, v, x, y] in viewBox units
+    const r = big.getBoundingClientRect();
+    const mx = (e.clientX - r.left) / (r.width / big.viewBox.baseVal.width);
+    let best = pts[0];
+    for (const p of pts) if (Math.abs(p[2] - mx) < Math.abs(best[2] - mx)) best = p;
+    const ch = big.querySelector('.ch'), chd = big.querySelector('.chd');
+    ch.setAttribute('x1', best[2]); ch.setAttribute('x2', best[2]);
+    ch.setAttribute('visibility', 'visible');
+    chd.setAttribute('cx', best[2]); chd.setAttribute('cy', best[3]);
+    chd.setAttribute('visibility', 'visible');
+    showTip(e, fmtVal(best[1], big.dataset.kind) + ' · ' + fmtTime(best[0]));
+    return;
+  }
+  hideCrosshairs();
   const svg = e.target.closest ? e.target.closest('.spark') : null;
   if (!svg || !svg.dataset.points) { tip.style.opacity = '0'; tip.style.display = 'none'; return; }
   const pts = JSON.parse(svg.dataset.points);
   const r = svg.getBoundingClientRect();
   const i = Math.min(pts.length - 1, Math.max(0,
     Math.round((e.clientX - r.left) / r.width * (pts.length - 1))));
-  const [t, v] = pts[i];
-  tip.textContent = v.toLocaleString(undefined, {maximumFractionDigits: 1}) +
-    ' · ' + new Date(t * 1000).toISOString().slice(5, 16).replace('T', ' ') + ' UTC';
-  tip.style.left = (e.clientX + 12) + 'px';
-  tip.style.top = (e.clientY - 30) + 'px';
-  tip.style.display = 'block';
-  requestAnimationFrame(() => tip.style.opacity = '1');
+  showTip(e, pts[i][1].toLocaleString(undefined, {maximumFractionDigits: 1}) +
+    ' · ' + fmtTime(pts[i][0]));
 });
+document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.sw').forEach(x =>
+    x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+  document.querySelectorAll('.cpane').forEach((p, i) =>
+    p.hidden = (String(i) !== b.dataset.c));
+  hideCrosshairs();
+}));
 """
 
 GLYPH = (
@@ -201,6 +255,116 @@ def sparkline(points, w=300, h=60):
     )
 
 
+def nice_ticks(lo, hi, target=4):
+    """Round tick values covering [lo, hi]: steps of 1/2/5 × 10^k."""
+    if hi == lo:
+        lo, hi = lo - 1, hi + 1
+    span = hi - lo
+    step = 10 ** math.floor(math.log10(span / target))
+    for m in (1, 2, 5, 10):
+        if span / (step * m) <= target + 1:
+            step *= m
+            break
+    ticks = []
+    t = math.ceil(lo / step) * step
+    while t <= hi + step * 1e-6:
+        ticks.append(round(t, 10))
+        t += step
+    return ticks
+
+
+def _fmt_value(v, kind):
+    """Endpoint label: the current value, compact."""
+    if kind == "usd":
+        if abs(v) < 1000:
+            return f"${v:,.10g}"
+        return usd(v)
+    return f"{v:,.10g}"
+
+
+def _fmt_tick(v, step, kind):
+    """Axis tick: precision follows the tick step so adjacent ticks differ."""
+    def decimals(unit=1.0):
+        ratio = step / unit
+        return max(0, -math.floor(math.log10(ratio))) if ratio < 1 else 0
+    if kind == "usd":
+        for div, suf in ((1e12, "T"), (1e9, "B"), (1e6, "M"), (1e3, "K")):
+            if abs(v) >= div:
+                return f"${v / div:,.{decimals(div)}f}{suf}"
+        return f"${v:,.{decimals()}f}"
+    return f"{v:,.{decimals()}f}"
+
+
+def bigchart(series, marks, kind="plain", w=1044, h=260):
+    """Full-baseline line chart, time-scaled x. Single series in the accent
+    hue (no legend; the switcher tab names it), hairline gridlines, clean
+    y ticks, endpoint direct label, severity-colored marks where the
+    anomaly engine spoke. Crosshair + tooltip ride on the JS layer."""
+    if len(series) < 2:
+        return '<div class="nochart">Not enough history yet; the chart grows with the baseline.</div>'
+    pad_l, pad_r, pad_t, pad_b = 64, 76, 14, 26
+    t0, t1 = series[0][0], series[-1][0]
+    tspan = (t1 - t0) or 1
+    vals = [v for _, v in series]
+    lo, hi = min(vals), max(vals)
+    vpad = (hi - lo) * 0.06 or abs(hi or 1) * 0.01
+    lo, hi = lo - vpad, hi + vpad
+    X = lambda t: pad_l + (t - t0) / tspan * (w - pad_l - pad_r)
+    Y = lambda v: pad_t + (1 - (v - lo) / (hi - lo)) * (h - pad_t - pad_b)
+
+    grid, ylabels = [], []
+    ticks = nice_ticks(lo, hi)
+    step = ticks[1] - ticks[0] if len(ticks) > 1 else 1
+    for tv in ticks:
+        y = Y(tv)
+        grid.append(f'<line x1="{pad_l}" y1="{y:.1f}" x2="{w - pad_r}" y2="{y:.1f}" '
+                    f'stroke="var(--grid)" stroke-width="1"/>')
+        ylabels.append(f'<text x="{pad_l - 10}" y="{y + 4:.1f}" text-anchor="end" '
+                       f'class="tick">{html.escape(_fmt_tick(tv, step, kind))}</text>')
+    xlabels = []
+    for frac in (0, 1 / 3, 2 / 3, 1):
+        t = t0 + tspan * frac
+        anchor = "start" if frac == 0 else ("end" if frac == 1 else "middle")
+        label = datetime.fromtimestamp(t, tz=timezone.utc).strftime("%m-%d %H:%M")
+        xlabels.append(f'<text x="{X(t):.1f}" y="{h - 8}" text-anchor="{anchor}" '
+                       f'class="tick">{label}</text>')
+
+    xy = [(X(t), Y(v)) for t, v in series]
+    poly = " ".join(f"{x:.1f},{y:.1f}" for x, y in xy)
+    base_y = h - pad_b
+    area = f"{xy[0][0]:.1f},{base_y} " + poly + f" {xy[-1][0]:.1f},{base_y}"
+    cx, cy = xy[-1]
+    end_label = _fmt_value(series[-1][1], kind)
+
+    mark_svg = "".join(
+        f'<circle cx="{X(t):.1f}" cy="{Y(v):.1f}" r="4.5" '
+        f'fill="var(--{SEV_COLOR[sev]})" stroke="var(--surface)" stroke-width="2"/>'
+        for t, v, sev in marks
+    )
+
+    pts = [[t, v, round(X(t), 1), round(Y(v), 1)] for t, v in series]
+    data = html.escape(json.dumps(pts), quote=True)
+    return (
+        f'<svg class="bigchart" viewBox="0 0 {w} {h}" data-pts="{data}" data-kind="{kind}">'
+        + "".join(grid)
+        + f'<line x1="{pad_l}" y1="{base_y}" x2="{w - pad_r}" y2="{base_y}" '
+          f'stroke="var(--baseline)" stroke-width="1"/>'
+        + "".join(ylabels) + "".join(xlabels)
+        + f'<polygon points="{area}" fill="var(--accent)" opacity="0.08"/>'
+        + f'<polyline points="{poly}" fill="none" stroke="var(--accent)" stroke-width="2" '
+          f'stroke-linejoin="round" stroke-linecap="round"/>'
+        + mark_svg
+        + f'<line class="ch" y1="{pad_t}" y2="{base_y}" stroke="var(--baseline)" '
+          f'stroke-width="1" visibility="hidden"/>'
+        + f'<circle class="chd" r="4" fill="var(--accent)" stroke="var(--surface)" '
+          f'stroke-width="2" visibility="hidden"/>'
+        + f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="4" fill="var(--accent)" '
+          f'stroke="var(--surface)" stroke-width="2"/>'
+        + f'<text x="{cx + 10:.1f}" y="{cy + 4:.1f}" class="endlabel">{html.escape(end_label)}</text>'
+        + "</svg>"
+    )
+
+
 def tile(label, value, series, up_good=True):
     delta = ""
     if len(series) >= 2 and series[-2][1]:
@@ -232,7 +396,8 @@ def table(rows, headers=("metric", "value"), num_cols=()):
     return f'<div class="card rise"><table><tr>{head}</tr>{body}</table></div>'
 
 
-def build(sections, findings, baseline, status, ts, history):
+def build(sections, findings, baseline, status, ts, history, alert_marks=None):
+    alert_marks = alert_marks or {}
     net = sections.get("network", {})
     val = sections.get("validators", {})
     eco = sections.get("economics", {})
@@ -307,6 +472,26 @@ def build(sections, findings, baseline, status, ts, history):
          f"{v['stake_sol']:,}", f"{v['stake_pct']}%", f"{v['commission']}%")
         for v in val.get("top_by_stake", [])
     ]
+    charts = []
+    for key, name, kind in (
+        ("network.tps", "TPS", "plain"),
+        ("economics.sol_price_usd", "SOL price", "usd"),
+        ("economics.tvl_usd", "TVL", "usd"),
+    ):
+        series = history.get(key, [])
+        values = dict(series)
+        marks = [(mt, values[mt], sev) for mt, sev in alert_marks.get(key, []) if mt in values]
+        charts.append((name, bigchart(series, marks, kind=kind)))
+    switch = "".join(
+        f'<button class="sw" data-c="{i}" aria-pressed="{"true" if i == 0 else "false"}">'
+        f"{html.escape(name)}</button>"
+        for i, (name, _) in enumerate(charts)
+    )
+    panes = "".join(
+        f'<div class="cpane"{"" if i == 0 else " hidden"}>{svg}</div>'
+        for i, (_, svg) in enumerate(charts)
+    )
+
     release_rows = [
         (html.escape(r["tag"]) + (" · pre-release" if r["prerelease"] else ""), r["date"])
         for r in eos.get("agave_releases", [])
@@ -343,6 +528,9 @@ def build(sections, findings, baseline, status, ts, history):
 
 <h2>Pulse</h2>
 <div class="tiles">{tiles}</div>
+
+<h2>History<span class="switch" role="group" aria-label="Chart metric">{switch}</span></h2>
+<div class="card chartcard rise">{panes}</div>
 
 <h2>Network</h2>
 {table(network_rows)}
