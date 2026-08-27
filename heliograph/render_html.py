@@ -51,7 +51,8 @@ body { background: var(--page); color: var(--ink-2);
 .hero .row { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; position: relative; }
 .hero .n { font-size: clamp(110px, 17vw, 170px); font-weight: 700;
   letter-spacing: -.05em; line-height: .9; }
-.ticker { position: absolute; right: 0; top: 140px; text-align: right; }
+.ticker { position: absolute; right: 0; top: 140px; text-align: right;
+  border-left: 1px solid var(--grid); padding-left: 26px; }
 .ticker .l { color: var(--muted); font-size: 13px; }
 .ticker .p { color: var(--ink); font-size: 46px; font-weight: 700;
   letter-spacing: -.03em; line-height: 1.15; }
@@ -75,7 +76,20 @@ h2 { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: var(
   font-size: 12px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase;
   margin: 56px 0 22px; }
 h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
+.via { margin-left: auto; color: var(--muted); font-size: 11.5px; font-weight: 400;
+  letter-spacing: .02em; text-transform: none; }
 .secnote { color: var(--muted); font-size: 13px; margin: -12px 0 18px; }
+
+.source { border-top: 1px solid var(--grid); padding: 15px 0; }
+.source:last-of-type { border-bottom: 1px solid var(--grid); }
+.s-head { display: flex; align-items: center; gap: 13px; }
+.slogo { width: 18px; height: 18px; flex: none; color: var(--muted); }
+.s-name { color: var(--ink); font-weight: 550; font-size: 15px; flex: 1; }
+.s-stat { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.s-stat::before { content: ""; display: inline-block; width: 7px; height: 7px;
+  border-radius: 50%; margin-right: 8px; background: var(--sc, var(--good)); }
+.s-err { color: var(--muted); font-size: 13px; margin: 6px 0 0 31px;
+  font-variant-numeric: tabular-nums; }
 
 .tiles { display: grid; gap: 30px 34px;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
@@ -163,7 +177,8 @@ footer .thesis { flex: 1 1 100%; }
 @media (max-width: 640px) {
   .wrap { padding: 0 20px 56px; }
   .hero { padding: 40px 0 20px; }
-  .ticker { position: static; text-align: left; margin-top: 22px; }
+  .ticker { position: static; text-align: left; margin-top: 24px;
+    border-left: none; border-top: 1px solid var(--grid); padding: 16px 0 0; }
   .ticker .p { font-size: 38px; }
   h2 { margin: 44px 0 18px; }
   th, td { padding: 10px 12px; }
@@ -255,6 +270,50 @@ GLYPH = (
 
 SEV_COLOR = {"crit": "critical", "warn": "warning", "info": "accent"}
 SEV_WORD = {"crit": "CRITICAL", "warn": "WARNING", "info": "INFO"}
+
+
+def _mark(viewbox, body):
+    return f'<svg class="slogo" viewBox="{viewbox}" aria-hidden="true">{body}</svg>'
+
+
+# Source marks, inlined so the page stays one self-contained file, all
+# currentColor. Solana and GitHub: Simple Icons (CC0). CoinGecko: Arcticons
+# (CC BY-SA 4.0), stroke thickened for weight parity with the filled marks.
+# DeFiLlama: Microsoft Fluent Emoji high-contrast llama (MIT). Dune: drawn
+# here after their circle-over-dunes brand mark.
+MARKS = {
+    "solana": _mark("0 0 24 24", '<path fill="currentColor" d="m23.8764 18.0313-3.962 4.1393a.9201.9201 0 0 1-.306.2106.9407.9407 0 0 1-.367.0742H.4599a.4689.4689 0 0 1-.2522-.0733.4513.4513 0 0 1-.1696-.1962.4375.4375 0 0 1-.0314-.2545.4438.4438 0 0 1 .117-.2298l3.9649-4.1393a.92.92 0 0 1 .3052-.2102.9407.9407 0 0 1 .3658-.0746H23.54a.4692.4692 0 0 1 .2523.0734.4531.4531 0 0 1 .1697.196.438.438 0 0 1 .0313.2547.4442.4442 0 0 1-.1169.2297zm-3.962-8.3355a.9202.9202 0 0 0-.306-.2106.941.941 0 0 0-.367-.0742H.4599a.4687.4687 0 0 0-.2522.0734.4513.4513 0 0 0-.1696.1961.4376.4376 0 0 0-.0314.2546.444.444 0 0 0 .117.2297l3.9649 4.1394a.9204.9204 0 0 0 .3052.2102c.1154.049.24.0744.3658.0746H23.54a.469.469 0 0 0 .2523-.0734.453.453 0 0 0 .1697-.1961.4382.4382 0 0 0 .0313-.2546.4444.4444 0 0 0-.1169-.2297zM.46 6.7225h18.7815a.9411.9411 0 0 0 .367-.0742.9202.9202 0 0 0 .306-.2106l3.962-4.1394a.4442.4442 0 0 0 .117-.2297.4378.4378 0 0 0-.0314-.2546.453.453 0 0 0-.1697-.196.469.469 0 0 0-.2523-.0734H4.7596a.941.941 0 0 0-.3658.0745.9203.9203 0 0 0-.3052.2102L.1246 5.9687a.4438.4438 0 0 0-.1169.2295.4375.4375 0 0 0 .0312.2544.4512.4512 0 0 0 .1692.196.4689.4689 0 0 0 .2518.0739z"/>'),
+    "github": _mark("0 0 24 24", '<path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>'),
+    "coingecko": _mark("0 0 48 48",
+        '<g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+        '<circle cx="24" cy="24" r="21.5"/>'
+        '<path d="M7.051 37.228c4.519-9.359 1.828-21.471 9.117-23.377s12.056 1.345 15.87 2.467s6.978 1.716 7.682 5.27C40.729 26.693 24.13 35.71 27.664 45.5"/>'
+        '<path d="M24.355 26.972c3.196 2.523 6.496 1.685 13.796-1.373m-8.302-10.062c0-2.273-4.148-4.098-6.719-2.079"/>'
+        '<circle cx="21.047" cy="19.122" r="3.308"/><circle cx="21.047" cy="19.122" r="1.29"/>'
+        '<path d="M42.375 22.99A18.404 18.404 0 0 0 25.033 5.628"/></g>'
+        '<circle cx="34.841" cy="22.991" r="1.5" fill="currentColor"/>'),
+    "defillama": _mark("0 0 32 32",
+        '<path fill="currentColor" d="M6.86 8.203a.5.5 0 1 0 0-1a.5.5 0 0 0 0 1"/>'
+        '<path fill="currentColor" d="m29.844 21.558l.087.084a3.47 3.47 0 0 1 1.06 2.547v5.491a2.31 2.31 0 0 1-2.31 2.31h-1.37a2.31 2.31 0 0 1-2.31-2.31v-2.151l-.644-.395l-1.775 3.222l-.021.028c-.267.355-.68.585-1.15.585h-1.03c-.624 0-.96-.645-.744-1.155l1.676-4.547l.014-.027l.001-.002a5.5 5.5 0 0 1-.784-.732A6.4 6.4 0 0 1 18.07 25h-.551l1.277 4.952l.002.008a.94.94 0 0 1-.052.581a.71.71 0 0 1-.656.428h-.004l-1.398-.01c-.127 0-.3-.02-.466-.105a.76.76 0 0 1-.397-.507l-.872-3.308a.15.15 0 0 0-.06-.087l-.003-.002a3 3 0 0 1-.143-.092a4.7 4.7 0 0 1-.747 1.39v1.442c0 1.316-1.077 2.31-2.32 2.31h-1.37c-1.225 0-2.333-.998-2.3-2.345V23.87A6.72 6.72 0 0 1 5 18.26v-5.729h-.73c-1.141 0-1.982-.641-2.46-1.238A3.68 3.68 0 0 1 1 9.031c0-.511.123-1.048.303-1.5c.158-.395.51-1.115 1.241-1.57l.004-.002l3.108-1.922q.207-.132.415-.245l-.268-.818A2.25 2.25 0 0 1 7.941 0a4.23 4.23 0 0 1 3.989 2.842l.005.015l3.342 10.103h7.974c1.142 0 2.206.333 3.101.908a2 2 0 1 1 2.35 3.006c.194.577.3 1.194.3 1.836v2.21zm-2.573.562a.94.94 0 0 1-.27-.66v-2.75c0-2.07-1.68-3.75-3.75-3.75h-8.17c-.66 0-1.27-.38-1.57-.97L10.041 3.5a2.24 2.24 0 0 0-1.53-1.425l-.034-.009A2.2 2.2 0 0 0 7.941 2c-.18 0-.3.17-.24.34L8.571 5a1 1 0 0 0-.135.016c-.136.025-.34.079-.579.164a2.96 2.96 0 0 1 1.944 2.77v1c0 1.126-.911 2.05-2.04 2.05h-.76v7.26c0 2.01 1.25 3.72 3.01 4.41v7.02c-.01.17.13.31.3.31h1.37c.137 0 .25-.08.297-.194a.3.3 0 0 0 .023-.116v-1.96q0-.057.01-.11a.67.67 0 0 1 .17-.33c.53-.52.82-1.23.82-1.97V23h5.07a4.45 4.45 0 0 0 3.33-1.5c0 .749.305 1.396.884 1.932q.222.205.496.388l3.96 2.43a.61.61 0 0 1 .26.5v2.93c0 .17.14.31.31.31h1.37c.17 0 .31-.14.31-.31v-5.51c.01-.4-.15-.8-.45-1.09zM3.03 9c.125.572.633 1 1.241 1h3.49c.57 0 1.04-.47 1.04-1.05v-1A1.96 1.96 0 0 0 5.89 6.245L3.6 7.66a1 1 0 0 0-.307.34H3.5c.28 0 .5.22.5.5s-.22.5-.5.5z"/>'),
+    "dune": _mark("0 0 24 24",
+        '<path fill="currentColor" d="M12 1.5a10.5 10.5 0 0 1 10.5 10.5c0 1.06-.16 2.09-.45 3.05c-2.2 1.1-4.42.36-6.87-.55c-2.77-1.03-5.83-2.16-9.4-.66l-3.83 1.61A10.5 10.5 0 0 1 12 1.5Z"/>'
+        '<path fill="currentColor" d="M21.32 17.05a10.5 10.5 0 0 1-18.5-.15l3.55-1.5c2.86-1.2 5.36-.28 8.06.72c2.2.82 4.5 1.67 6.89.93Z"/>'),
+}
+
+# collector -> provider grouping for the Sources ledger
+PROVIDERS = [
+    ("Solana RPC", "solana", (("solana_rpc_network", "network"),
+                              ("solana_rpc_validators", "validators"),
+                              ("solana_rpc_supply", "supply"))),
+    ("CoinGecko", "coingecko", (("coingecko", "price"),)),
+    ("DeFiLlama", "defillama", (("defillama_tvl", "tvl"), ("defillama_dex", "dex volume"),
+                                ("defillama_fees", "fees"), ("defillama_stablecoins", "stablecoins"),
+                                ("defillama_rev", "revenue"))),
+    ("Solana Status", "solana", (("solana_statuspage", "statuspage"),)),
+    ("GitHub", "github", (("github_agave_releases", "agave releases"),
+                          ("github_simds", "SIMDs"))),
+    ("Dune", "dune", (("dune_active_wallets", "active wallets"),)),
+]
 
 
 def compact(n, unit=""):
@@ -485,27 +544,23 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
         for f in findings
     )
 
-    # regular-user metrics lead the grid; operator metrics follow. With Dune
-    # configured, active wallets takes the sixth slot (delinquent stake stays
-    # in the Validators table and the anomaly rules); without it, the grid
-    # falls back to delinquent stake so keyless forks keep six tiles.
+    # SOL price lives in the hero ticker alone; the grid leads with the other
+    # regular-user metrics, operator metrics follow. The active-wallets tile
+    # only exists when the Dune source is configured.
     daw = eos.get("daily_active_wallets")
-    sixth = (tile("Daily active wallets", compact(daw),
-                  history.get("ecosystem.daily_active_wallets", []))
-             if daw is not None else
-             tile("Delinquent stake", f"{val.get('delinquent_stake_pct', 'n/a')}%",
-                  history.get("validators.delinquent_stake_pct", []), up_good=False))
     tiles = "".join([
-        tile("SOL price", f"${compact(eco.get('sol_price_usd'))}",
-             history.get("economics.sol_price_usd", [])),
         tile("Total value locked", usd(eco.get("tvl_usd")),
              history.get("economics.tvl_usd", [])),
         tile("DEX volume 24h", usd(eco.get("dex_volume_24h_usd")),
              history.get("economics.dex_volume_24h_usd", [])),
+    ] + ([tile("Daily active wallets", compact(daw),
+               history.get("ecosystem.daily_active_wallets", []))]
+         if daw is not None else []) + [
         tile("Transactions per second", compact(net.get("tps")), history.get("network.tps", [])),
         tile("Slot time", f"{net.get('slot_time_ms', 'n/a')} ms",
              history.get("network.slot_time_ms", []), up_good=False),
-        sixth,
+        tile("Delinquent stake", f"{val.get('delinquent_stake_pct', 'n/a')}%",
+             history.get("validators.delinquent_stake_pct", []), up_good=False),
     ])
 
     network_rows = [
@@ -569,7 +624,39 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
     simd_rows = [(html.escape(s["title"]), s["date"]) for s in eos.get("recent_simds", [])]
     status_line = html.escape(
         f"status.solana.com: {eos.get('status_description', 'unavailable this run')}")
-    source_rows = [(html.escape(k), html.escape(v)) for k, v in status.items()]
+
+    source_html, seen = [], set()
+    for pname, mark, feeds in PROVIDERS:
+        present = [(k, label) for k, label in feeds if k in status]
+        if not present:
+            continue
+        seen.update(k for k, _ in present)
+        errs = [(label, status[k]) for k, label in present if status[k] != "ok"]
+        n = len(present)
+        stat = (f"{n - len(errs)}/{n} ok" if errs
+                else ("ok" if n == 1 else f"{n}/{n} ok"))
+        color = "critical" if errs else "good"
+        err_html = "".join(
+            f'<div class="s-err">{html.escape(label)}: {html.escape(msg)}</div>'
+            for label, msg in errs)
+        source_html.append(
+            f'<div class="source rise"><div class="s-head">{MARKS[mark]}'
+            f'<span class="s-name">{html.escape(pname)}</span>'
+            f'<span class="s-stat" style="--sc:var(--{color})">{stat}</span></div>'
+            f"{err_html}</div>")
+    for k, v in status.items():  # future collectors the map doesn't know yet
+        if k in seen:
+            continue
+        color = "good" if v == "ok" else "critical"
+        source_html.append(
+            f'<div class="source rise"><div class="s-head">'
+            f'<span class="slogo"></span><span class="s-name">{html.escape(k)}</span>'
+            f'<span class="s-stat" style="--sc:var(--{color})">{html.escape(v)}</span>'
+            f"</div></div>")
+    sources_block = "".join(source_html)
+    eco_via = "via CoinGecko and DeFiLlama"
+    eos_via = ("via Solana Status, GitHub, and Dune"
+               if "dune_active_wallets" in status else "via Solana Status and GitHub")
 
     return f"""<!doctype html>
 <html lang="en"><head>
@@ -610,19 +697,19 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
 <h2>History<span class="switch" role="group" aria-label="Chart metric">{switch}</span></h2>
 <div class="card chartcard rise">{panes}</div>
 
-<h2>Network</h2>
+<h2>Network<span class="via">via Solana RPC</span></h2>
 {table(network_rows)}
 
-<h2>Validators</h2>
+<h2>Validators<span class="via">via Solana RPC</span></h2>
 {table(validator_rows)}
 
-<h2>Top validators by stake</h2>
+<h2>Top validators by stake<span class="via">via Solana RPC</span></h2>
 {table(top_rows, headers=("vote account", "stake (SOL)", "share", "commission"), num_cols=(1, 2, 3))}
 
-<h2>Economics</h2>
+<h2>Economics<span class="via">{eco_via}</span></h2>
 {table(econ_rows)}
 
-<h2>Ecosystem</h2>
+<h2>Ecosystem<span class="via">{eos_via}</span></h2>
 <div class="secnote">{status_line}</div>
 <div class="duo">
 {table(release_rows, headers=("agave client release", "date"), num_cols=(1,))}
@@ -630,7 +717,7 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
 </div>
 
 <h2>Sources</h2>
-{table(source_rows, headers=("source", "status"))}
+{sources_block}
 
 <footer>
   <span class="thesis">The dashboard is plumbing; the verdict is the product.</span>
