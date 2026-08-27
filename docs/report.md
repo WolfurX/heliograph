@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-08-27 15:09 UTC · run #29 · baseline active
+Solana state report · generated 2026-08-27 15:39 UTC · run #30 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 12.1% in 24h to $107.25. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +12.1%, threshold warn>=8% crit>=15%
+- 🟠 **SOL is up 11.3% in 24h to $106.66. Moves this size usually have a cause worth knowing.**
+  - evidence: 24h change +11.3%, threshold warn>=8% crit>=15%
 
 ## Network
 
-The chain looks healthy: 5,046 TPS (3,176 non-vote) at 366.4 ms per slot, epoch 1023 is 44.79% done.
+The chain looks healthy: 4,856 TPS (2,986 non-vote) at 366.2 ms per slot, epoch 1023 is 45.96% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,129,507 |
-| Block height | 420,177,770 |
-| Epoch | 1023 (44.79% complete) |
-| TPS (all / non-vote) | 5,045.6 / 3,175.9 |
-| Slot time | 366.4 ms |
+| Slot | 442,134,526 |
+| Block height | 420,182,789 |
+| Epoch | 1023 (45.96% complete) |
+| TPS (all / non-vote) | 4,856.4 / 2,986.3 |
+| Slot time | 366.2 ms |
 | Node version | 4.2.0 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 5,046 TPS (3,176 non-vote) at 366.4 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $107.25 (+12.1% 24h), $5.89B locked, $2.35B traded on DEXs.
+A volatile day: SOL at $106.66 (+11.3% 24h), $5.90B locked, $2.35B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $107.25 (+12.1% 24h) |
-| Market cap | $62.67B |
-| TVL | $5.89B |
+| SOL price | $106.66 (+11.3% 24h) |
+| Market cap | $62.30B |
+| TVL | $5.90B |
 | DEX volume 24h | $2.35B (-19.9% 1d) |
 | Chain fees 24h | $15.17M |
 | Real economic value 24h | $6.28M |
-| Stablecoin supply | $15.79B |
+| Stablecoin supply | $15.78B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 584,062,638 SOL |
+| Circulating | 584,062,614 SOL |
 | Non-circulating | 48,906,816 SOL |
-| Total | 632,969,454 SOL |
+| Total | 632,969,430 SOL |
 
 ## Ecosystem
 
