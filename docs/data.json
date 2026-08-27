@@ -1,28 +1,41 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T11:04:26+00:00",
-  "generated_ts": 1787828666,
+  "generated_at": "2026-08-27T11:35:03+00:00",
+  "generated_ts": 1787830503,
   "baseline": {
-    "runs": 21,
+    "runs": 22,
     "status": "active"
   },
-  "anomalies": [],
+  "anomalies": [
+    {
+      "severity": "warn",
+      "metric": "economics.dex_volume_24h_usd",
+      "headline": "DEX volume dropped to 2,351,677,355 USD, 25.1 standard deviations below its recent norm of 2,486,714,375 USD.",
+      "detail": "baseline n=21, mean=2,486,714,375.0, current=2,351,677,355.0, z=-25.09"
+    },
+    {
+      "severity": "info",
+      "metric": "economics.tvl_usd",
+      "headline": "TVL spiked to 5,884,758,384 USD, 15.3 standard deviations above its recent norm of 5,770,315,945 USD.",
+      "detail": "baseline n=21, mean=5,770,315,945.4, current=5,884,758,384.0, z=+15.31"
+    }
+  ],
   "network": {
     "health": "ok",
-    "slot": 442089334,
-    "block_height": 420137601,
+    "slot": 442094359,
+    "block_height": 420142626,
     "epoch": 1023,
-    "epoch_progress_pct": 35.49,
-    "tx_count_total": 542355603798,
-    "tps": 3411.2,
-    "nonvote_tps": 1534.9,
-    "slot_time_ms": 363.8,
+    "epoch_progress_pct": 36.66,
+    "tx_count_total": 542362201949,
+    "tps": 3734.7,
+    "nonvote_tps": 1864.7,
+    "slot_time_ms": 365.3,
     "node_version": "4.2.0"
   },
   "validators": {
-    "active": 685,
-    "delinquent": 12,
-    "delinquent_stake_pct": 0.03,
+    "active": 686,
+    "delinquent": 11,
+    "delinquent_stake_pct": 0.02,
     "total_stake_sol": 436884837,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -91,20 +104,20 @@
     ]
   },
   "supply": {
-    "total_sol": 632969615,
-    "circulating_sol": 584062799,
+    "total_sol": 632969598,
+    "circulating_sol": 584062782,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 104.19,
-    "sol_24h_change_pct": 6.78,
-    "market_cap_usd": 60825989474,
-    "volume_24h_usd": 5300782441,
-    "tvl_usd": 5782711175,
-    "dex_volume_24h_usd": 2481205722,
-    "dex_volume_change_1d_pct": -15.46,
+    "sol_price_usd": 103.85,
+    "sol_24h_change_pct": 6.81,
+    "market_cap_usd": 60656132647,
+    "volume_24h_usd": 5354424202,
+    "tvl_usd": 5884758384,
+    "dex_volume_24h_usd": 2351677355,
+    "dex_volume_change_1d_pct": -19.87,
     "chain_fees_24h_usd": 15042936,
-    "stablecoin_supply_usd": 15796528540,
+    "stablecoin_supply_usd": 15783624097,
     "rev_24h_usd": 6271769
   },
   "ecosystem": {
