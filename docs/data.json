@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T16:10:34+00:00",
-  "generated_ts": 1787847034,
+  "generated_at": "2026-08-27T16:41:09+00:00",
+  "generated_ts": 1787848869,
   "baseline": {
-    "runs": 31,
+    "runs": 32,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
       "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 11.3% in 24h to $106.96. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +11.3%, threshold warn>=8% crit>=15%"
+      "headline": "SOL is up 13.3% in 24h to $108.34. Moves this size usually have a cause worth knowing.",
+      "detail": "24h change +13.3%, threshold warn>=8% crit>=15%"
     },
     {
       "severity": "warn",
       "metric": "validators.delinquent_stake_pct",
-      "headline": "Delinquent stake spiked to 1%, 45.7 standard deviations above its recent norm of 0%.",
-      "detail": "baseline n=30, mean=0.0, current=0.9, z=+45.69"
+      "headline": "Delinquent stake spiked to 1%, 5.3 standard deviations above its recent norm of 0%.",
+      "detail": "baseline n=31, mean=0.1, current=0.9, z=+5.35"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 442139568,
-    "block_height": 420187831,
+    "slot": 442144567,
+    "block_height": 420192826,
     "epoch": 1023,
-    "epoch_progress_pct": 47.12,
-    "tx_count_total": 542434640124,
-    "tps": 4693.8,
-    "nonvote_tps": 2827.9,
-    "slot_time_ms": 366.6,
+    "epoch_progress_pct": 48.28,
+    "tx_count_total": 542443470811,
+    "tps": 4774.4,
+    "nonvote_tps": 2904.1,
+    "slot_time_ms": 364.9,
     "node_version": "4.2.0"
   },
   "validators": {
@@ -104,20 +104,20 @@
     ]
   },
   "supply": {
-    "total_sol": 632969407,
-    "circulating_sol": 584062591,
+    "total_sol": 632969384,
+    "circulating_sol": 584062568,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 106.96,
-    "sol_24h_change_pct": 11.35,
-    "market_cap_usd": 62471453792,
-    "volume_24h_usd": 6373131808,
-    "tvl_usd": 5900239030,
+    "sol_price_usd": 108.34,
+    "sol_24h_change_pct": 13.29,
+    "market_cap_usd": 63261260373,
+    "volume_24h_usd": 6626452252,
+    "tvl_usd": 5913571371,
     "dex_volume_24h_usd": 2351677355,
     "dex_volume_change_1d_pct": -19.87,
     "chain_fees_24h_usd": 15169689,
-    "stablecoin_supply_usd": 15783532671,
+    "stablecoin_supply_usd": 15814191166,
     "rev_24h_usd": 6283143
   },
   "ecosystem": {
