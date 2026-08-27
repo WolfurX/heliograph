@@ -40,6 +40,21 @@ class TestAbsoluteRules(unittest.TestCase):
         out = self._analyze({"network": {"slot_time_ms": 700.0, "health": "ok"}})
         self.assertEqual(out["network.slot_time_ms"], "warn")
 
+    def test_statuspage_incident_is_critical(self):
+        out = self._analyze({"ecosystem": {
+            "status_indicator": "major",
+            "incidents": [{"name": "Cluster halt", "impact": "major", "status": "investigating"}],
+        }})
+        self.assertEqual(out["ecosystem.status"], "crit")
+
+    def test_statuspage_minor_is_warning(self):
+        out = self._analyze({"ecosystem": {"status_indicator": "minor", "incidents": []}})
+        self.assertEqual(out["ecosystem.status"], "warn")
+
+    def test_statuspage_operational_is_silent(self):
+        out = self._analyze({"ecosystem": {"status_indicator": "none", "incidents": []}})
+        self.assertEqual(out, {})
+
     def test_quiet_day_no_findings(self):
         out = self._analyze({
             "network": {"health": "ok", "slot_time_ms": 380.0},

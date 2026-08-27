@@ -58,8 +58,21 @@ def analyze(sections, store, ts):
     net = sections.get("network", {})
     val = sections.get("validators", {})
     eco = sections.get("economics", {})
+    eos = sections.get("ecosystem", {})
 
     # --- absolute rules ---
+    indicator = eos.get("status_indicator")
+    if indicator and indicator != "none":
+        sev = "warn" if indicator == "minor" else "crit"
+        names = ", ".join(i["name"] for i in eos.get("incidents", [])) or "unnamed incident"
+        findings.append(_finding(
+            sev, "ecosystem.status",
+            f"The Solana status page reports an active incident: {names}. "
+            f"That is the operators talking; treat every other metric here in that light.",
+            f"status.solana.com indicator={indicator}, "
+            f"{len(eos.get('incidents', []))} open incident(s)",
+        ))
+
     if net.get("health") not in (None, "ok"):
         findings.append(_finding(
             "crit", "network.health",
@@ -103,6 +116,7 @@ def analyze(sections, store, ts):
     _relative(findings, store, ts, "economics.tvl_usd", "TVL", " USD")
     _relative(findings, store, ts, "economics.stablecoin_supply_usd", "Stablecoin supply", " USD")
     _relative(findings, store, ts, "economics.dex_volume_24h_usd", "DEX volume", " USD")
+    _relative(findings, store, ts, "economics.rev_24h_usd", "Real economic value", " USD")
 
     order = {"crit": 0, "warn": 1, "info": 2}
     findings.sort(key=lambda f: order[f["severity"]])

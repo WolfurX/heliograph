@@ -18,17 +18,26 @@ Everything is keyless and free. No API keys, no accounts, no dependencies beyond
 |---|---|
 | Solana RPC (`api.mainnet-beta.solana.com`) | health, slot, epoch progress, TPS and slot time (performance samples), validator set and stake distribution, prioritization fees, supply |
 | CoinGecko public API | SOL price, 24h change, market cap, spot volume |
-| DeFiLlama | chain TVL, DEX volume, chain fees, stablecoin supply |
+| DeFiLlama | chain TVL, DEX volume, chain fees, daily revenue (REV proxy), stablecoin supply |
+| status.solana.com | operator-reported cluster status; an active incident becomes a finding |
+| GitHub API | agave client releases and recently accepted SIMDs, i.e. shipped and upcoming protocol changes |
+
+The GitHub collectors run unauthenticated locally; inside GitHub Actions they use the workflow's automatic token (runners share rate-limited IPs). There is still no key to create, store, or rotate anywhere.
+
+Deliberately not covered: Dune dashboards and Twitter both contradict the no-keys constraint (Dune requires an API key, Twitter requires worse), and no keyless source for daily active addresses survived testing. I chose to keep the zero-key property over those three inputs.
 
 A failed source never kills a run. Each collector is isolated; whatever fails is reported in the Sources table of every output, and the rest of the report is built from what succeeded.
 
 ## What it produces
 
-Each run regenerates three views of the same snapshot in `docs/`:
+Each run regenerates four views of the same snapshot in `docs/`:
 
 - `index.html`: the interactive dark dashboard (verdict, findings, stat tiles with sparklines and hover detail, full metric tables)
 - `report.md`: the human report, sentences first, tables second
 - `data.json`: stable machine-readable schema, versioned, for anyone who wants to build on top or point their own agent at it
+- `feed.xml`: an RSS feed of findings only. Subscribe and the anomalies come to you; on quiet days it stays silent
+
+On a critical finding, the GitHub Actions run also opens an issue on this repo, so anyone watching it gets paged by GitHub's own notifications. That is the thesis working end to end: you never check the page; the page checks Solana and interrupts you when it must.
 
 ## Anomaly detection
 

@@ -15,6 +15,14 @@ CREATE TABLE IF NOT EXISTS metrics (
     value REAL NOT NULL,
     PRIMARY KEY (ts, name)
 );
+CREATE TABLE IF NOT EXISTS findings (
+    ts INTEGER NOT NULL,
+    metric TEXT NOT NULL,
+    severity TEXT NOT NULL,
+    headline TEXT NOT NULL,
+    detail TEXT NOT NULL,
+    PRIMARY KEY (ts, metric)
+);
 """
 
 # flat numeric series worth baselining, as section.key paths
@@ -30,6 +38,7 @@ TRACKED = [
     "economics.tvl_usd",
     "economics.dex_volume_24h_usd",
     "economics.chain_fees_24h_usd",
+    "economics.rev_24h_usd",
     "economics.stablecoin_supply_usd",
     "supply.circulating_sol",
 ]
@@ -65,3 +74,19 @@ class Store:
 
     def run_count(self):
         return self.db.execute("SELECT COUNT(*) FROM snapshots").fetchone()[0]
+
+    def save_findings(self, ts, findings):
+        for f in findings:
+            self.db.execute(
+                "INSERT OR REPLACE INTO findings (ts, metric, severity, headline, detail)"
+                " VALUES (?, ?, ?, ?, ?)",
+                (ts, f["metric"], f["severity"], f["headline"], f["detail"]),
+            )
+        self.db.commit()
+
+    def recent_findings(self, limit=20):
+        """Newest first: [(ts, metric, severity, headline, detail), ...]."""
+        return self.db.execute(
+            "SELECT ts, metric, severity, headline, detail FROM findings"
+            " ORDER BY ts DESC LIMIT ?", (limit,)
+        ).fetchall()

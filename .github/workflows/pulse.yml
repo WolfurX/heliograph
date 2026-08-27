@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: pulse
@@ -24,6 +25,8 @@ jobs:
       - name: tests
         run: python -m unittest discover -s tests
       - name: run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m heliograph
       - name: publish
         run: |
@@ -32,3 +35,13 @@ jobs:
           git add data docs
           git commit -m "pulse: $(date -u +'%Y-%m-%d %H:%M') UTC" || exit 0
           git push
+      - name: open an issue on critical findings
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          worst=$(jq -r '.anomalies[0].severity // "none"' docs/data.json)
+          [ "$worst" = "crit" ] || exit 0
+          title="Critical: $(jq -r '.anomalies[0].headline' docs/data.json | cut -c1-80)"
+          gh issue list --state open --search "\"$title\" in:title" --json number -q '.[0].number' | grep -q . && exit 0
+          jq -r '.anomalies[] | "- [\(.severity)] \(.headline)\n  - \(.detail)"' docs/data.json | \
+            gh issue create --title "$title" --body-file -

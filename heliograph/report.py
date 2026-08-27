@@ -19,6 +19,7 @@ def build(sections, findings, baseline, status, ts):
     val = sections.get("validators", {})
     eco = sections.get("economics", {})
     sup = sections.get("supply", {})
+    eos = sections.get("ecosystem", {})
     when = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     lines = [
@@ -81,6 +82,7 @@ def build(sections, findings, baseline, status, ts):
         f"| TVL | {usd(eco.get('tvl_usd'))} |",
         f"| DEX volume 24h | {usd(eco.get('dex_volume_24h_usd'))} ({_signed(eco.get('dex_volume_change_1d_pct'))}% 1d) |",
         f"| Chain fees 24h | {usd(eco.get('chain_fees_24h_usd'))} |",
+        f"| Real economic value 24h | {usd(eco.get('rev_24h_usd'))} |",
         f"| Stablecoin supply | {usd(eco.get('stablecoin_supply_usd'))} |",
         "",
         "## Supply",
@@ -90,6 +92,21 @@ def build(sections, findings, baseline, status, ts):
         f"| Circulating | {_num(sup.get('circulating_sol'))} SOL |",
         f"| Non-circulating | {_num(sup.get('non_circulating_sol'))} SOL |",
         f"| Total | {_num(sup.get('total_sol'))} SOL |",
+        "",
+        "## Ecosystem",
+        "",
+        f"Cluster status: {eos.get('status_description', 'unavailable this run')}.",
+        "",
+        "Recent agave client releases:",
+        "",
+    ]
+    for r in eos.get("agave_releases", []):
+        pre = " (pre-release)" if r["prerelease"] else ""
+        lines.append(f"- {r['tag']}{pre} · {r['date']}")
+    lines += ["", "Recently accepted SIMDs (upcoming protocol changes):", ""]
+    for s in eos.get("recent_simds", []):
+        lines.append(f"- {s['title']} · {s['date']}")
+    lines += [
         "",
         "## Sources",
         "",
