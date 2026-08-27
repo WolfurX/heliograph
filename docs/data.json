@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T02:19:40+00:00",
-  "generated_ts": 1787797180,
+  "generated_at": "2026-08-27T02:22:08+00:00",
+  "generated_ts": 1787797328,
   "baseline": {
-    "runs": 2,
-    "status": "forming (2/9 runs)"
+    "runs": 3,
+    "status": "forming (3/9 runs)"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 442003040,
-    "block_height": 420051358,
+    "slot": 442003445,
+    "block_height": 420051763,
     "epoch": 1023,
-    "epoch_progress_pct": 15.52,
-    "tx_count_total": 542243886933,
-    "tps": 4410.2,
-    "nonvote_tps": 2549.8,
-    "slot_time_ms": 367.0,
+    "epoch_progress_pct": 15.61,
+    "tx_count_total": 542244496443,
+    "tps": 4365.0,
+    "nonvote_tps": 2498.3,
+    "slot_time_ms": 365.9,
     "node_version": "4.2.0"
   },
   "validators": {
@@ -91,15 +91,15 @@
     ]
   },
   "supply": {
-    "total_sol": 632969911,
-    "circulating_sol": 584063095,
+    "total_sol": 632969909,
+    "circulating_sol": 584063093,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 101.57,
-    "sol_24h_change_pct": 4.59,
-    "market_cap_usd": 59322815222,
-    "volume_24h_usd": 3779973756,
+    "sol_price_usd": 101.54,
+    "sol_24h_change_pct": 4.57,
+    "market_cap_usd": 59306308370,
+    "volume_24h_usd": 3715833711,
     "tvl_usd": 5762607383,
     "dex_volume_24h_usd": 2491738883,
     "dex_volume_change_1d_pct": -15.1,
