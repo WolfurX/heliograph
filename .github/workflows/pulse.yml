@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "7,37 * * * *"   # every 30 minutes; this line is the refresh interval
   workflow_dispatch:
+    inputs:
+      alert_test:
+        description: "Run the alert step against the critical test fixture"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -35,13 +40,10 @@ jobs:
           git add data docs
           git commit -m "pulse: $(date -u +'%Y-%m-%d %H:%M') UTC" || exit 0
           git push
-      - name: open an issue on critical findings
+      - name: alert on critical findings
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          worst=$(jq -r '.anomalies[0].severity // "none"' docs/data.json)
-          [ "$worst" = "crit" ] || exit 0
-          title="Critical: $(jq -r '.anomalies[0].headline' docs/data.json | cut -c1-80)"
-          gh issue list --state open --search "\"$title\" in:title" --json number -q '.[0].number' | grep -q . && exit 0
-          jq -r '.anomalies[] | "- [\(.severity)] \(.headline)\n  - \(.detail)"' docs/data.json | \
-            gh issue create --title "$title" --body-file -
+        run: >-
+          scripts/alert.sh
+          "${{ github.event.inputs.alert_test == 'true'
+          && 'tests/fixtures/critical_snapshot.json' || 'docs/data.json' }}"
