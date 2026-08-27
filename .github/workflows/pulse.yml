@@ -32,6 +32,7 @@ jobs:
       - name: run
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
         run: python -m heliograph
       - name: publish
         run: |

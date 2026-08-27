@@ -97,6 +97,14 @@ def build(sections, findings, baseline, status, ts):
         "",
         f"Cluster status: {eos.get('status_description', 'unavailable this run')}.",
         "",
+    ]
+    if eos.get("daily_active_wallets") is not None:
+        lines += [
+            f"Daily active wallets: {_num(eos['daily_active_wallets'])}"
+            f" ({eos.get('daily_active_wallets_date', 'n/a')}, via Dune).",
+            "",
+        ]
+    lines += [
         "Recent agave client releases:",
         "",
     ]

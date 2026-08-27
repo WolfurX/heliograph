@@ -12,7 +12,7 @@ So Heliograph inverts the usual shape. Every run leads with a verdict: **"N thin
 
 ## What it reads
 
-Everything is keyless and free. No API keys, no accounts, no dependencies beyond the Python standard library.
+Everything below the line is keyless and free. No accounts, no dependencies beyond the Python standard library.
 
 | Source | What it provides |
 |---|---|
@@ -22,9 +22,11 @@ Everything is keyless and free. No API keys, no accounts, no dependencies beyond
 | status.solana.com | operator-reported cluster status; an active incident becomes a finding |
 | GitHub API | agave client releases and recently accepted SIMDs, i.e. shipped and upcoming protocol changes |
 
-The GitHub collectors run unauthenticated locally; inside GitHub Actions they use the workflow's automatic token (runners share rate-limited IPs). There is still no key to create, store, or rotate anywhere.
+The GitHub collectors run unauthenticated locally; inside GitHub Actions they use the workflow's automatic token (runners share rate-limited IPs).
 
-Deliberately not covered: Dune dashboards and Twitter both contradict the no-keys constraint (Dune requires an API key, Twitter requires worse), and no keyless source for daily active addresses survived testing. I chose to keep the zero-key property over those three inputs.
+One optional keyed source sits on top: **Dune** provides daily active wallets via [a small public query this repo owns](https://dune.com/queries/8511348) (distinct fee payers of successful non-vote transactions per day, last 5 days). Set `DUNE_API_KEY` (Actions secret, or `~/.config/heliograph/dune_api_key` locally) to enable it; without a key the source is not registered and every output simply omits the metric. The collector reads cached query results, reuses the previous snapshot for 4 hours, and re-executes the query at most every 6 hours when the data goes stale, which keeps usage around 100-150 credits a month, inside Dune's free tier.
+
+Deliberately not covered: Twitter (requires keys and worse), and any Dune usage beyond the one metric above.
 
 A failed source never kills a run. Each collector is isolated; whatever fails is reported in the Sources table of every output, and the rest of the report is built from what succeeded.
 
