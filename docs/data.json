@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T03:59:46+00:00",
-  "generated_ts": 1787803186,
+  "generated_at": "2026-08-27T04:23:08+00:00",
+  "generated_ts": 1787804588,
   "baseline": {
-    "runs": 11,
+    "runs": 12,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 442019467,
-    "block_height": 420067781,
+    "slot": 442023315,
+    "block_height": 420071624,
     "epoch": 1023,
-    "epoch_progress_pct": 19.32,
-    "tx_count_total": 542268456012,
-    "tps": 3793.1,
-    "nonvote_tps": 1919.3,
-    "slot_time_ms": 364.4,
+    "epoch_progress_pct": 20.21,
+    "tx_count_total": 542273679845,
+    "tps": 3661.2,
+    "nonvote_tps": 1788.3,
+    "slot_time_ms": 364.9,
     "node_version": "4.2.0"
   },
   "validators": {
@@ -91,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 632969845,
-    "circulating_sol": 584063029,
+    "total_sol": 632969831,
+    "circulating_sol": 584063016,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 100.98,
-    "sol_24h_change_pct": 4.05,
-    "market_cap_usd": 58967933662,
-    "volume_24h_usd": 3772295588,
+    "sol_price_usd": 101.17,
+    "sol_24h_change_pct": 4.25,
+    "market_cap_usd": 59098356370,
+    "volume_24h_usd": 3868737656,
     "tvl_usd": 5775889798,
-    "dex_volume_24h_usd": 2491562276,
-    "dex_volume_change_1d_pct": -15.11,
-    "chain_fees_24h_usd": 13828087,
-    "stablecoin_supply_usd": 15822321188,
+    "dex_volume_24h_usd": 2481205722,
+    "dex_volume_change_1d_pct": -15.46,
+    "chain_fees_24h_usd": 14490866,
+    "stablecoin_supply_usd": 15865136461,
     "rev_24h_usd": 5819702
   },
   "ecosystem": {
@@ -138,7 +138,28 @@
         "prerelease": false
       }
     ],
-    "recent_simds": []
+    "recent_simds": [
+      {
+        "title": "SIMD-0553: Resource and Inclusion Fee",
+        "date": "2026-07-20"
+      },
+      {
+        "title": "SIMD-0550: Double disinflation",
+        "date": "2026-07-23"
+      },
+      {
+        "title": "re-amend SIMD-0340: additional inter- and intra- validation",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0433: Loader V3: Set Program Data to ELF Length",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0266: Efficient Token program",
+        "date": "2026-03-13"
+      }
+    ]
   },
   "sources": {
     "solana_rpc_network": "ok",

@@ -39,7 +39,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data docs
           git commit -m "pulse: $(date -u +'%Y-%m-%d %H:%M') UTC" || exit 0
-          git push
+          # A concurrent push (local dev work) makes this non-fast-forward.
+          # The committed sqlite db is binary, so rebasing is not an option;
+          # dropping one 30-minute pulse is harmless and the next run covers it.
+          git push || echo "lost a push race; skipping this pulse"
       - name: alert on critical findings
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
