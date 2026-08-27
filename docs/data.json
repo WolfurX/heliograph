@@ -1,35 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T04:53:15+00:00",
-  "generated_ts": 1787806395,
+  "generated_at": "2026-08-27T04:56:33+00:00",
+  "generated_ts": 1787806593,
   "baseline": {
-    "runs": 13,
+    "runs": 14,
     "status": "active"
   },
-  "anomalies": [
-    {
-      "severity": "warn",
-      "metric": "network.tps",
-      "headline": "TPS dropped to 3,309, 3.4 standard deviations below its recent norm of 4,118.",
-      "detail": "baseline n=12, mean=4,118.2, current=3,309.3, z=-3.38"
-    },
-    {
-      "severity": "info",
-      "metric": "network.slot_time_ms",
-      "headline": "Slot time dropped to 363 ms, 3.3 standard deviations below its recent norm of 366 ms.",
-      "detail": "baseline n=12, mean=365.9, current=363.3, z=-3.29"
-    }
-  ],
+  "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 442028275,
-    "block_height": 420076578,
+    "slot": 442028819,
+    "block_height": 420077122,
     "epoch": 1023,
-    "epoch_progress_pct": 21.36,
-    "tx_count_total": 542279819368,
-    "tps": 3309.3,
-    "nonvote_tps": 1427.3,
-    "slot_time_ms": 363.3,
+    "epoch_progress_pct": 21.49,
+    "tx_count_total": 542280472095,
+    "tps": 3363.9,
+    "nonvote_tps": 1488.7,
+    "slot_time_ms": 364.4,
     "node_version": "4.2.0"
   },
   "validators": {
@@ -104,15 +91,15 @@
     ]
   },
   "supply": {
-    "total_sol": 632969815,
-    "circulating_sol": 584062999,
+    "total_sol": 632969814,
+    "circulating_sol": 584062998,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 100.9,
-    "sol_24h_change_pct": 4.3,
-    "market_cap_usd": 58933816364,
-    "volume_24h_usd": 3899608318,
+    "sol_price_usd": 100.98,
+    "sol_24h_change_pct": 4.44,
+    "market_cap_usd": 58976028324,
+    "volume_24h_usd": 3842636539,
     "tvl_usd": 5770223599,
     "dex_volume_24h_usd": 2481205722,
     "dex_volume_change_1d_pct": -15.46,
