@@ -27,6 +27,7 @@ def main():
     store = Store(DB)
     store.save(ts, sections)
     findings, baseline = anomaly.analyze(sections, store, ts)
+    store.save_findings(ts, findings)
 
     snapshot = {
         "schema_version": SCHEMA_VERSION,
@@ -41,6 +42,9 @@ def main():
     DOCS.mkdir(exist_ok=True)
     (DOCS / "data.json").write_text(json.dumps(snapshot, indent=2) + "\n")
     (DOCS / "report.md").write_text(report.build(sections, findings, baseline, status, ts))
+
+    from . import feed
+    (DOCS / "feed.xml").write_text(feed.build(store.recent_findings(), ts))
 
     from . import render_html
     history = {name: store.series(name, limit=96) for name in

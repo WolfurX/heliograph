@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Heliograph · Solana state</title>
+<link rel="alternate" type="application/rss+xml" title="Heliograph findings" href="feed.xml">
 <style>
 :root {
   --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
@@ -14,178 +15,168 @@
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 body { background: var(--page); color: var(--ink-2);
   font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px 72px; }
 
-.topbar { position: sticky; top: 0; z-index: 5;
-  background: color-mix(in srgb, var(--page) 76%, transparent);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%); }
-.topbar .in { max-width: 1060px; margin: 0 auto; padding: 14px 24px;
-  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
-.topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px;
-  height: 14px; pointer-events: none;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--page) 85%, transparent), transparent); }
-.brand { color: var(--ink); font-size: 16px; font-weight: 650; letter-spacing: -0.01em;
-  display: inline-flex; align-items: center; gap: 8px; }
+.bar { display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 10px; padding: 22px 0; }
+.brand { color: var(--ink); font-size: 17px; font-weight: 700; letter-spacing: -.01em;
+  display: inline-flex; align-items: center; gap: 9px; }
 .brand svg { color: var(--accent); }
 .meta { color: var(--muted); font-size: 13px; }
 
-.wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px 72px; }
+.hero { position: relative; padding: 64px 0 26px; }
+.glow { position: absolute; top: -60px; left: -120px; width: 520px; height: 520px;
+  border-radius: 50%; pointer-events: none; filter: blur(2px);
+  background: radial-gradient(circle, var(--glowc) 0%, transparent 62%); }
+.hero-in { animation: focusin 320ms var(--ease) backwards; }
+.hero .row { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; position: relative; }
+.hero .n { font-size: clamp(110px, 17vw, 170px); font-weight: 700;
+  letter-spacing: -.05em; line-height: .9; }
+.badge { font-size: 12px; font-weight: 700; letter-spacing: .14em; }
+.badge::before { content: ""; display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; margin-right: 7px; background: currentColor; }
+.verdict { position: relative; font-size: 19px; max-width: 36em; margin-top: 20px; }
+.verdict b { color: var(--ink); font-weight: 600; }
 
-.hero { margin: 64px 0 10px; }
-.hero .n { color: var(--ink); font-size: clamp(64px, 12vw, 96px); font-weight: 650;
-  line-height: 0.95; letter-spacing: -0.035em; }
-.hero .verdict { color: var(--ink-2); font-size: 17px; line-height: 1.5;
-  margin-top: 14px; max-width: 34em; }
-.hero .verdict b { color: var(--ink); font-weight: 600; }
-
-.findings { margin: 24px 0 8px; display: grid; gap: 10px; }
-.card { background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
-  border: 1px solid var(--border); border-top-color: var(--edge); border-radius: 12px; }
-.finding { padding: 15px 18px; }
-.finding .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-.sev { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
+.finding { border-top: 1px solid var(--grid); padding: 18px 0; }
+.finding:last-of-type { border-bottom: 1px solid var(--grid); }
+.sev { font-size: 11px; font-weight: 650; letter-spacing: .1em; color: var(--muted); }
 .sev::before { content: ""; display: inline-block; width: 7px; height: 7px;
-  border-radius: 50%; margin-right: 6px; background: currentColor; }
-.sev-crit { color: var(--critical); } .sev-warn { color: var(--warning); } .sev-info { color: var(--accent); }
-.finding .headline { color: var(--ink); font-weight: 500; letter-spacing: -0.005em; }
-.finding .detail { color: var(--muted); font-size: 13px; margin-top: 6px;
+  border-radius: 50%; margin-right: 7px; background: var(--sc, var(--warning)); }
+.headline { color: var(--ink); font-weight: 550; font-size: 17px; margin-top: 6px; }
+.detail { color: var(--muted); font-size: 13px; margin-top: 6px;
   font-variant-numeric: tabular-nums; }
 
-h2 { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
-  text-transform: uppercase; margin: 48px 0 14px; }
+h2 { display: flex; align-items: center; gap: 10px; color: var(--ink-2); font-size: 12px;
+  font-weight: 650; letter-spacing: .1em; text-transform: uppercase; margin: 56px 0 22px; }
+h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
+.secnote { color: var(--muted); font-size: 13px; margin: -12px 0 18px; }
 
-.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); gap: 12px; }
-.tile { padding: 16px 18px 12px; }
-.tile .label { color: var(--muted); font-size: 13px; letter-spacing: 0; }
-.tile .value { color: var(--ink); font-size: 30px; font-weight: 650;
-  letter-spacing: -0.02em; line-height: 1.15; margin-top: 4px; }
-.tile .delta { font-size: 13px; margin-left: 8px; font-weight: 550; letter-spacing: 0; }
-.d-good { color: var(--good); } .d-bad { color: var(--critical); } .d-flat { color: var(--muted); }
-.spark { margin-top: 10px; display: block; width: 100%; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px 34px; }
+.tile .l { color: var(--muted); font-size: 13px; }
+.tile .v { color: var(--ink); font-size: 42px; font-weight: 700; letter-spacing: -.03em;
+  line-height: 1.1; margin: 4px 0 8px; }
+.delta { font-size: 14px; margin-left: 9px; font-weight: 600; }
+.d-good { color: var(--good); } .d-bad { color: var(--critical); }
+.spark { display: block; width: 100%; }
 
-.tbl { width: 100%; border-collapse: collapse; overflow: hidden; }
-.tblwrap { overflow-x: auto; border-radius: 12px; }
-.tbl th, .tbl td { text-align: left; padding: 10px 16px; font-size: 14px; }
-.tbl th { color: var(--muted); font-size: 11.5px; font-weight: 600;
-  letter-spacing: 0.07em; text-transform: uppercase; }
-.tbl td { color: var(--ink-2); border-top: 1px solid var(--grid);
-  font-variant-numeric: tabular-nums; }
-.tbl td:first-child { font-variant-numeric: normal; }
-.tbl tr:last-child td { border-bottom: none; }
+.card { background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+  border: 1px solid var(--border); border-top-color: var(--edge); border-radius: 14px;
+  overflow-x: auto; }
+.duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 11px 18px; font-size: 14px; }
+th { color: var(--muted); font-size: 11.5px; font-weight: 650; letter-spacing: .08em;
+  text-transform: uppercase; }
+td { color: var(--ink-2); border-top: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+td:first-child { font-variant-numeric: normal; }
+.num, th.num { text-align: right; }
 .mono { font-family: ui-monospace, "SF Mono", monospace; font-size: 12.5px; }
-.num { text-align: right; }
-th.num { text-align: right; }
 
 footer { margin-top: 56px; color: var(--muted); font-size: 13px;
   border-top: 1px solid var(--grid); padding-top: 18px;
   display: flex; gap: 18px; flex-wrap: wrap; }
-footer a { color: var(--ink-2); text-decoration: none;
-  transition: color 140ms var(--ease); }
+footer a { color: var(--ink-2); text-decoration: none; transition: color 140ms var(--ease); }
 footer .thesis { flex: 1 1 100%; }
 
-#tip { position: fixed; pointer-events: none; z-index: 9; display: none;
+#tip { position: fixed; pointer-events: none; z-index: 9; display: none; opacity: 0;
   background: color-mix(in srgb, var(--page) 88%, transparent);
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--edge); border-radius: 7px; padding: 5px 9px;
   font-size: 12px; color: var(--ink); font-variant-numeric: tabular-nums;
-  opacity: 0; transition: opacity 100ms var(--ease); }
+  transition: opacity 100ms var(--ease); }
 
 @media (hover: hover) and (pointer: fine) {
-  .tile { transition: transform 180ms var(--ease), border-color 180ms var(--ease); }
-  .tile:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.16);
-    border-top-color: rgba(255,255,255,0.22); }
   footer a:hover { color: var(--accent); }
 }
-
 @media (prefers-reduced-motion: no-preference) {
-  .rise { animation: rise 440ms var(--ease) backwards; }
-  .tiles .tile:nth-child(1) { animation-delay: 40ms; }
-  .tiles .tile:nth-child(2) { animation-delay: 80ms; }
-  .tiles .tile:nth-child(3) { animation-delay: 120ms; }
-  .tiles .tile:nth-child(4) { animation-delay: 160ms; }
-  .tiles .tile:nth-child(5) { animation-delay: 200ms; }
-  .tiles .tile:nth-child(6) { animation-delay: 240ms; }
-  .findings .finding:nth-child(2) { animation-delay: 50ms; }
-  .findings .finding:nth-child(3) { animation-delay: 100ms; }
+  .rise { animation: rise 400ms var(--ease) backwards; }
+  .tiles .tile:nth-child(1) { animation-delay: 60ms; }
+  .tiles .tile:nth-child(2) { animation-delay: 110ms; }
+  .tiles .tile:nth-child(3) { animation-delay: 160ms; }
+  .tiles .tile:nth-child(4) { animation-delay: 210ms; }
+  .tiles .tile:nth-child(5) { animation-delay: 260ms; }
+  .tiles .tile:nth-child(6) { animation-delay: 310ms; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .rise { animation: fade 200ms ease backwards; }
-  .tile { transition: none; }
-}
+@keyframes focusin { from { opacity: 0; filter: blur(6px); transform: scale(.985); } }
 @keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .rise, .hero-in { animation: fade 180ms ease backwards; }
+}
 @media (prefers-reduced-transparency: reduce) {
-  .topbar, #tip { backdrop-filter: none; -webkit-backdrop-filter: none;
-    background: var(--page); }
+  #tip { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--page); }
 }
 </style>
 </head><body>
 <div id="tip"></div>
-<div class="topbar"><div class="in">
-  <span class="brand"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><line x1="7.5" y1="0.8" x2="7.5" y2="2.6"/><line x1="7.5" y1="12.4" x2="7.5" y2="14.2"/><line x1="0.8" y1="7.5" x2="2.6" y2="7.5"/><line x1="12.4" y1="7.5" x2="14.2" y2="7.5"/></g></svg> Heliograph</span>
-  <span class="meta">reads Solana so you don't have to</span>
-  <span class="meta">2026-08-27 02:32 UTC · run #5 · baseline forming (5/9 runs)</span>
-</div></div>
 <div class="wrap">
 
-<section class="hero rise">
-  <div class="n">0</div>
+<div class="bar">
+  <span class="brand"><svg width="16" height="16" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><line x1="7.5" y1="0.8" x2="7.5" y2="2.6"/><line x1="7.5" y1="12.4" x2="7.5" y2="14.2"/><line x1="0.8" y1="7.5" x2="2.6" y2="7.5"/><line x1="12.4" y1="7.5" x2="14.2" y2="7.5"/></g></svg> Heliograph</span>
+  <span class="meta">2026-08-27 03:24 UTC · run #6 · baseline forming (6/9 runs)</span>
+</div>
+
+<section class="hero">
+  <div class="glow" style="--glowc:color-mix(in srgb, var(--accent) 11%, transparent)"></div>
+  <div class="row hero-in"><span class="n" style="color:var(--ink)">0</span><span class="badge" style="color:var(--good)">ALL CLEAR</span></div>
   <div class="verdict">things need your attention. Every watched metric is inside its normal band. <b>Nothing to do here.</b></div>
 </section>
 
-<div class="findings"></div>
+
 
 <h2>Pulse</h2>
-<div class="tiles"><div class="tile card rise"><div class="label">Transactions per second</div><div class="value">4.1K<span class="delta d-bad">-0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 4429.4], [1787797180, 4410.2], [1787797328, 4365.0], [1787797897, 4084.5], [1787797952, 4079.0]]"><polygon points="6.0,42 6.0,6.0 58.0,7.8 110.0,11.9 162.0,37.5 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,7.8 110.0,11.9 162.0,37.5 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="37.5" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Slot time</div><div class="value">366.2 ms<span class="delta d-bad">+0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 366.2], [1787797180, 367.0], [1787797328, 365.9], [1787797897, 366.0], [1787797952, 366.2]]"><polygon points="6.0,42 6.0,29.3 58.0,6.0 110.0,38.0 162.0,35.1 214.0,29.3 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,29.3 58.0,6.0 110.0,38.0 162.0,35.1 214.0,29.3" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="35.1" x2="214.0" y2="29.3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="29.3" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">SOL price</div><div class="value">$101.11<span class="delta d-bad">-0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 101.61], [1787797180, 101.57], [1787797328, 101.54], [1787797897, 101.17], [1787797952, 101.11]]"><polygon points="6.0,42 6.0,6.0 58.0,8.6 110.0,10.5 162.0,34.2 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,8.6 110.0,10.5 162.0,34.2 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="34.2" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Total value locked</div><div class="value">$5.76B<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 5762607383.0], [1787797180, 5762607383.0], [1787797328, 5762607383.0], [1787797897, 5762607383.0], [1787797952, 5760866943.0]]"><polygon points="6.0,42 6.0,6.0 58.0,6.0 110.0,6.0 162.0,6.0 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,6.0 110.0,6.0 162.0,6.0 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="6.0" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">DEX volume 24h</div><div class="value">$2.49B<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 2491738883.0], [1787797180, 2491738883.0], [1787797328, 2491738883.0], [1787797897, 2491738883.0], [1787797952, 2491738883.0]]"><polygon points="6.0,42 6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="22.0" x2="214.0" y2="22.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="22.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Delinquent stake</div><div class="value">0.02%<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 0.02], [1787797180, 0.02], [1787797328, 0.02], [1787797897, 0.02], [1787797952, 0.02]]"><polygon points="6.0,42 6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="22.0" x2="214.0" y2="22.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="22.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div></div>
+<div class="tiles"><div class="tile rise"><div class="l">Transactions per second</div><div class="v">3.9K<span class="delta d-bad">-4.7%</span></div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 4429.4], [1787797180, 4410.2], [1787797328, 4365.0], [1787797897, 4084.5], [1787797952, 4079.0], [1787801040, 3888.1]]"><polygon points="6.0,58 6.0,6.0 63.6,7.7 121.2,11.7 178.8,36.6 236.4,37.1 294.0,54.0 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,6.0 63.6,7.7 121.2,11.7 178.8,36.6 236.4,37.1 294.0,54.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="54.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile rise"><div class="l">Slot time</div><div class="v">364.9 ms<span class="delta d-good">-0.4%</span></div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 366.2], [1787797180, 367.0], [1787797328, 365.9], [1787797897, 366.0], [1787797952, 366.2], [1787801040, 364.9]]"><polygon points="6.0,58 6.0,24.3 63.6,6.0 121.2,31.1 178.8,28.9 236.4,24.3 294.0,54.0 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,24.3 63.6,6.0 121.2,31.1 178.8,28.9 236.4,24.3 294.0,54.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="54.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile rise"><div class="l">SOL price</div><div class="v">$101.25<span class="delta d-good">+0.1%</span></div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 101.61], [1787797180, 101.57], [1787797328, 101.54], [1787797897, 101.17], [1787797952, 101.11], [1787801040, 101.25]]"><polygon points="6.0,58 6.0,6.0 63.6,9.8 121.2,12.7 178.8,48.2 236.4,54.0 294.0,40.6 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,6.0 63.6,9.8 121.2,12.7 178.8,48.2 236.4,54.0 294.0,40.6" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="40.6" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile rise"><div class="l">Total value locked</div><div class="v">$5.76B</div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 5762607383.0], [1787797180, 5762607383.0], [1787797328, 5762607383.0], [1787797897, 5762607383.0], [1787797952, 5760866943.0], [1787801040, 5761179425.0]]"><polygon points="6.0,58 6.0,6.0 63.6,6.0 121.2,6.0 178.8,6.0 236.4,54.0 294.0,45.4 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,6.0 63.6,6.0 121.2,6.0 178.8,6.0 236.4,54.0 294.0,45.4" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="45.4" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile rise"><div class="l">DEX volume 24h</div><div class="v">$2.49B</div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 2491738883.0], [1787797180, 2491738883.0], [1787797328, 2491738883.0], [1787797897, 2491738883.0], [1787797952, 2491738883.0], [1787801040, 2491737593.0]]"><polygon points="6.0,58 6.0,6.0 63.6,6.0 121.2,6.0 178.8,6.0 236.4,6.0 294.0,54.0 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,6.0 63.6,6.0 121.2,6.0 178.8,6.0 236.4,6.0 294.0,54.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="54.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile rise"><div class="l">Delinquent stake</div><div class="v">0.02%</div><svg class="spark" height="60" viewBox="0 0 300 60" preserveAspectRatio="none" data-points="[[1787797127, 0.02], [1787797180, 0.02], [1787797328, 0.02], [1787797897, 0.02], [1787797952, 0.02], [1787801040, 0.02]]"><polygon points="6.0,58 6.0,30.0 63.6,30.0 121.2,30.0 178.8,30.0 236.4,30.0 294.0,30.0 294.0,58" fill="var(--accent)" opacity="0.10"/><polyline points="6.0,30.0 63.6,30.0 121.2,30.0 178.8,30.0 236.4,30.0 294.0,30.0" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="294.0" cy="30.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div></div>
 
 <h2>Network</h2>
-<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Health</td><td>ok</td></tr><tr><td>Slot</td><td>442,005,146</td></tr><tr><td>Block height</td><td>420,053,464</td></tr><tr><td>Epoch</td><td>1023 · 16.01% complete</td></tr><tr><td>Non-vote TPS</td><td>2212.2</td></tr><tr><td>Total transactions</td><td>542,247,045,914</td></tr><tr><td>Node version</td><td>4.2.0</td></tr></table></div>
+<div class="card rise"><table><tr><th>metric</th><th>value</th></tr><tr><td>Health</td><td>ok</td></tr><tr><td>Slot</td><td>442,013,588</td></tr><tr><td>Block height</td><td>420,061,902</td></tr><tr><td>Epoch</td><td>1023 · 17.96% complete</td></tr><tr><td>Non-vote TPS</td><td>2014.6</td></tr><tr><td>Total transactions</td><td>542,259,818,556</td></tr><tr><td>Node version</td><td>4.2.0</td></tr></table></div>
 
 <h2>Validators</h2>
-<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Active / delinquent validators</td><td>686 / 11</td></tr><tr><td>Delinquent stake</td><td>0.02%</td></tr><tr><td>Total stake</td><td>436,884,837 SOL</td></tr><tr><td>Nakamoto coefficient</td><td>18</td></tr><tr><td>Median commission</td><td>5%</td></tr><tr><td>Median prioritization fee</td><td>0 µlamports</td></tr></table></div>
+<div class="card rise"><table><tr><th>metric</th><th>value</th></tr><tr><td>Active / delinquent validators</td><td>686 / 11</td></tr><tr><td>Delinquent stake</td><td>0.02%</td></tr><tr><td>Total stake</td><td>436,884,837 SOL</td></tr><tr><td>Nakamoto coefficient</td><td>18</td></tr><tr><td>Median commission</td><td>5%</td></tr><tr><td>Median prioritization fee</td><td>0 µlamports</td></tr></table></div>
 
 <h2>Top validators by stake</h2>
-<div class="tblwrap card rise"><table class="tbl"><tr><th>vote account</th><th class="num">stake (SOL)</th><th class="num">share</th><th class="num">commission</th></tr><tr><td><span class="mono">CcaHc2L43ZWjwCHART3o…</span></td><td class="num">17,062,869</td><td class="num">3.91%</td><td class="num">7%</td></tr><tr><td><span class="mono">he1iusunGwqrNtafDtLd…</span></td><td class="num">16,029,433</td><td class="num">3.67%</td><td class="num">0%</td></tr><tr><td><span class="mono">3N7s9zXMZ4QqvHQR15t5…</span></td><td class="num">12,314,379</td><td class="num">2.82%</td><td class="num">0%</td></tr><tr><td><span class="mono">CatzoSMUkTRidT5DwBxA…</span></td><td class="num">11,751,683</td><td class="num">2.69%</td><td class="num">5%</td></tr><tr><td><span class="mono">26pV97Ce83ZQ6Kz9XT4t…</span></td><td class="num">9,216,852</td><td class="num">2.11%</td><td class="num">7%</td></tr><tr><td><span class="mono">8GbwASqdpw4dVcwbWUxb…</span></td><td class="num">9,051,084</td><td class="num">2.07%</td><td class="num">0%</td></tr><tr><td><span class="mono">51JBzSTU5rAM8gLAVQKg…</span></td><td class="num">8,904,595</td><td class="num">2.04%</td><td class="num">10%</td></tr><tr><td><span class="mono">9QU2QSxhb24FUX3Tu2Fp…</span></td><td class="num">7,849,682</td><td class="num">1.8%</td><td class="num">7%</td></tr><tr><td><span class="mono">CvSb7wdQAFpHuSpTYTJn…</span></td><td class="num">7,301,740</td><td class="num">1.67%</td><td class="num">5%</td></tr><tr><td><span class="mono">DumiCKHVqoCQKD8roLAp…</span></td><td class="num">6,578,261</td><td class="num">1.51%</td><td class="num">0%</td></tr></table></div>
+<div class="card rise"><table><tr><th>vote account</th><th class="num">stake (SOL)</th><th class="num">share</th><th class="num">commission</th></tr><tr><td><span class="mono">CcaHc2L43ZWjwCHART3o…</span></td><td class="num">17,062,869</td><td class="num">3.91%</td><td class="num">7%</td></tr><tr><td><span class="mono">he1iusunGwqrNtafDtLd…</span></td><td class="num">16,029,433</td><td class="num">3.67%</td><td class="num">0%</td></tr><tr><td><span class="mono">3N7s9zXMZ4QqvHQR15t5…</span></td><td class="num">12,314,379</td><td class="num">2.82%</td><td class="num">0%</td></tr><tr><td><span class="mono">CatzoSMUkTRidT5DwBxA…</span></td><td class="num">11,751,683</td><td class="num">2.69%</td><td class="num">5%</td></tr><tr><td><span class="mono">26pV97Ce83ZQ6Kz9XT4t…</span></td><td class="num">9,216,852</td><td class="num">2.11%</td><td class="num">7%</td></tr><tr><td><span class="mono">8GbwASqdpw4dVcwbWUxb…</span></td><td class="num">9,051,084</td><td class="num">2.07%</td><td class="num">0%</td></tr><tr><td><span class="mono">51JBzSTU5rAM8gLAVQKg…</span></td><td class="num">8,904,595</td><td class="num">2.04%</td><td class="num">10%</td></tr><tr><td><span class="mono">9QU2QSxhb24FUX3Tu2Fp…</span></td><td class="num">7,849,682</td><td class="num">1.8%</td><td class="num">7%</td></tr><tr><td><span class="mono">CvSb7wdQAFpHuSpTYTJn…</span></td><td class="num">7,301,740</td><td class="num">1.67%</td><td class="num">5%</td></tr><tr><td><span class="mono">DumiCKHVqoCQKD8roLAp…</span></td><td class="num">6,578,261</td><td class="num">1.51%</td><td class="num">0%</td></tr></table></div>
 
 <h2>Economics</h2>
-<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>SOL price (24h)</td><td>$101.11 · +3.8%</td></tr><tr><td>Market cap</td><td>$59.07B</td></tr><tr><td>Spot volume 24h</td><td>$3.76B</td></tr><tr><td>TVL</td><td>$5.76B</td></tr><tr><td>DEX volume 24h</td><td>$2.49B</td></tr><tr><td>Chain fees 24h</td><td>$12.99M</td></tr><tr><td>Stablecoin supply</td><td>$15.84B</td></tr><tr><td>Circulating supply</td><td>584,063,087 SOL</td></tr></table></div>
+<div class="card rise"><table><tr><th>metric</th><th>value</th></tr><tr><td>SOL price (24h)</td><td>$101.25 · +4.2%</td></tr><tr><td>Market cap</td><td>$59.14B</td></tr><tr><td>Spot volume 24h</td><td>$3.82B</td></tr><tr><td>TVL</td><td>$5.76B</td></tr><tr><td>DEX volume 24h</td><td>$2.49B</td></tr><tr><td>Chain fees 24h</td><td>$13.81M</td></tr><tr><td>Real economic value 24h</td><td>$5.83M</td></tr><tr><td>Stablecoin supply</td><td>$15.82B</td></tr><tr><td>Circulating supply</td><td>584,063,052 SOL</td></tr></table></div>
+
+<h2>Ecosystem</h2>
+<div class="secnote">status.solana.com: All Systems Operational</div>
+<div class="duo">
+<div class="card rise"><table><tr><th>agave client release</th><th class="num">date</th></tr><tr><td>v4.3.0-beta.2 · pre-release</td><td class="num">2026-08-21</td></tr><tr><td>v4.3.0-beta.1 · pre-release</td><td class="num">2026-08-21</td></tr><tr><td>v4.2.1</td><td class="num">2026-08-13</td></tr><tr><td>v4.3.0-beta.0 · pre-release</td><td class="num">2026-08-14</td></tr><tr><td>v4.2.0</td><td class="num">2026-08-07</td></tr></table></div>
+<div class="card rise"><table><tr><th>recently accepted SIMDs</th><th class="num">date</th></tr><tr><td>SIMD-0553: Resource and Inclusion Fee</td><td class="num">2026-07-20</td></tr><tr><td>SIMD-0550: Double disinflation</td><td class="num">2026-07-23</td></tr><tr><td>re-amend SIMD-0340: additional inter- and intra- validation</td><td class="num">2026-07-31</td></tr><tr><td>SIMD-0433: Loader V3: Set Program Data to ELF Length</td><td class="num">2026-07-31</td></tr><tr><td>SIMD-0266: Efficient Token program</td><td class="num">2026-03-13</td></tr></table></div>
+</div>
 
 <h2>Sources</h2>
-<div class="tblwrap card rise"><table class="tbl"><tr><th>source</th><th>status</th></tr><tr><td>solana_rpc_network</td><td>ok</td></tr><tr><td>solana_rpc_validators</td><td>ok</td></tr><tr><td>solana_rpc_supply</td><td>ok</td></tr><tr><td>coingecko</td><td>ok</td></tr><tr><td>defillama_tvl</td><td>ok</td></tr><tr><td>defillama_dex</td><td>ok</td></tr><tr><td>defillama_fees</td><td>ok</td></tr><tr><td>defillama_stablecoins</td><td>ok</td></tr></table></div>
+<div class="card rise"><table><tr><th>source</th><th>status</th></tr><tr><td>solana_rpc_network</td><td>ok</td></tr><tr><td>solana_rpc_validators</td><td>ok</td></tr><tr><td>solana_rpc_supply</td><td>ok</td></tr><tr><td>coingecko</td><td>ok</td></tr><tr><td>defillama_tvl</td><td>ok</td></tr><tr><td>defillama_dex</td><td>ok</td></tr><tr><td>defillama_fees</td><td>ok</td></tr><tr><td>defillama_stablecoins</td><td>ok</td></tr><tr><td>defillama_rev</td><td>ok</td></tr><tr><td>solana_statuspage</td><td>ok</td></tr><tr><td>github_agave_releases</td><td>ok</td></tr><tr><td>github_simds</td><td>ok</td></tr></table></div>
 
 <footer>
-  <span class="thesis">The dashboard is plumbing; the report is the product.</span>
+  <span class="thesis">The dashboard is plumbing; the verdict is the product.</span>
   <a href="report.md">Markdown report</a>
   <a href="data.json">data.json</a>
+  <a href="feed.xml">RSS alerts</a>
   <a href="https://github.com/WolfurX/heliograph">Source</a>
 </footer>
 </div>
 <script>
 const tip = document.getElementById('tip');
-document.querySelectorAll('.spark').forEach(svg => {
+document.addEventListener('mousemove', e => {
+  const svg = e.target.closest ? e.target.closest('.spark') : null;
+  if (!svg || !svg.dataset.points) { tip.style.opacity = '0'; tip.style.display = 'none'; return; }
   const pts = JSON.parse(svg.dataset.points);
-  const unit = svg.dataset.unit || '';
-  svg.addEventListener('mousemove', e => {
-    const r = svg.getBoundingClientRect();
-    const i = Math.min(pts.length - 1, Math.max(0,
-      Math.round((e.clientX - r.left) / r.width * (pts.length - 1))));
-    const [t, v] = pts[i];
-    const d = new Date(t * 1000);
-    tip.textContent = v.toLocaleString(undefined, {maximumFractionDigits: 1}) + unit +
-      ' · ' + d.toISOString().slice(5, 16).replace('T', ' ') + ' UTC';
-    tip.style.left = (e.clientX + 12) + 'px';
-    tip.style.top = (e.clientY - 30) + 'px';
-    tip.style.display = 'block';
-    requestAnimationFrame(() => tip.style.opacity = '1');
-  });
-  svg.addEventListener('mouseleave', () => {
-    tip.style.opacity = '0'; tip.style.display = 'none';
-  });
+  const r = svg.getBoundingClientRect();
+  const i = Math.min(pts.length - 1, Math.max(0,
+    Math.round((e.clientX - r.left) / r.width * (pts.length - 1))));
+  const [t, v] = pts[i];
+  tip.textContent = v.toLocaleString(undefined, {maximumFractionDigits: 1}) +
+    ' · ' + new Date(t * 1000).toISOString().slice(5, 16).replace('T', ' ') + ' UTC';
+  tip.style.left = (e.clientX + 12) + 'px';
+  tip.style.top = (e.clientY - 30) + 'px';
+  tip.style.display = 'block';
+  requestAnimationFrame(() => tip.style.opacity = '1');
 });
 </script>
 </body></html>

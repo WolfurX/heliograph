@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T02:32:32+00:00",
-  "generated_ts": 1787797952,
+  "generated_at": "2026-08-27T03:24:00+00:00",
+  "generated_ts": 1787801040,
   "baseline": {
-    "runs": 5,
-    "status": "forming (5/9 runs)"
+    "runs": 6,
+    "status": "forming (6/9 runs)"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 442005146,
-    "block_height": 420053464,
+    "slot": 442013588,
+    "block_height": 420061902,
     "epoch": 1023,
-    "epoch_progress_pct": 16.01,
-    "tx_count_total": 542247045914,
-    "tps": 4079.0,
-    "nonvote_tps": 2212.2,
-    "slot_time_ms": 366.2,
+    "epoch_progress_pct": 17.96,
+    "tx_count_total": 542259818556,
+    "tps": 3888.1,
+    "nonvote_tps": 2014.6,
+    "slot_time_ms": 364.9,
     "node_version": "4.2.0"
   },
   "validators": {
@@ -91,20 +91,75 @@
     ]
   },
   "supply": {
-    "total_sol": 632969903,
-    "circulating_sol": 584063087,
+    "total_sol": 632969868,
+    "circulating_sol": 584063052,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 101.11,
-    "sol_24h_change_pct": 3.77,
-    "market_cap_usd": 59073663966,
-    "volume_24h_usd": 3760652174,
-    "tvl_usd": 5760866943,
-    "dex_volume_24h_usd": 2491738883,
+    "sol_price_usd": 101.25,
+    "sol_24h_change_pct": 4.2,
+    "market_cap_usd": 59136550229,
+    "volume_24h_usd": 3824364597,
+    "tvl_usd": 5761179425,
+    "dex_volume_24h_usd": 2491737593,
     "dex_volume_change_1d_pct": -15.1,
-    "chain_fees_24h_usd": 12986897,
-    "stablecoin_supply_usd": 15837372556
+    "chain_fees_24h_usd": 13809491,
+    "stablecoin_supply_usd": 15822321188,
+    "rev_24h_usd": 5834190
+  },
+  "ecosystem": {
+    "status_indicator": "none",
+    "status_description": "All Systems Operational",
+    "incidents": [],
+    "agave_releases": [
+      {
+        "tag": "v4.3.0-beta.2",
+        "date": "2026-08-21",
+        "prerelease": true
+      },
+      {
+        "tag": "v4.3.0-beta.1",
+        "date": "2026-08-21",
+        "prerelease": true
+      },
+      {
+        "tag": "v4.2.1",
+        "date": "2026-08-13",
+        "prerelease": false
+      },
+      {
+        "tag": "v4.3.0-beta.0",
+        "date": "2026-08-14",
+        "prerelease": true
+      },
+      {
+        "tag": "v4.2.0",
+        "date": "2026-08-07",
+        "prerelease": false
+      }
+    ],
+    "recent_simds": [
+      {
+        "title": "SIMD-0553: Resource and Inclusion Fee",
+        "date": "2026-07-20"
+      },
+      {
+        "title": "SIMD-0550: Double disinflation",
+        "date": "2026-07-23"
+      },
+      {
+        "title": "re-amend SIMD-0340: additional inter- and intra- validation",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0433: Loader V3: Set Program Data to ELF Length",
+        "date": "2026-07-31"
+      },
+      {
+        "title": "SIMD-0266: Efficient Token program",
+        "date": "2026-03-13"
+      }
+    ]
   },
   "sources": {
     "solana_rpc_network": "ok",
@@ -114,6 +169,10 @@
     "defillama_tvl": "ok",
     "defillama_dex": "ok",
     "defillama_fees": "ok",
-    "defillama_stablecoins": "ok"
+    "defillama_stablecoins": "ok",
+    "defillama_rev": "ok",
+    "solana_statuspage": "ok",
+    "github_agave_releases": "ok",
+    "github_simds": "ok"
   }
 }

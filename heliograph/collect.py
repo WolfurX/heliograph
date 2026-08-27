@@ -2,9 +2,14 @@
 
 Each collector returns a dict of metrics or raises; collect_all() runs them
 all, records per-source status, and never lets one failed source kill a run.
+
+The two GitHub collectors work unauthenticated; if GITHUB_TOKEN is present
+in the environment (GitHub Actions provides one automatically) it is sent,
+because Actions runners share rate-limited IPs. No user-managed key exists.
 """
 
 import json
+import os
 import urllib.request
 import urllib.error
 
@@ -14,13 +19,12 @@ TIMEOUT = 20
 LAMPORTS = 1_000_000_000
 
 
-def _http_json(url, payload=None):
+def _http_json(url, payload=None, github=False):
     data = json.dumps(payload).encode() if payload is not None else None
-    req = urllib.request.Request(
-        url,
-        data=data,
-        headers={"User-Agent": UA, "Content-Type": "application/json"},
-    )
+    headers = {"User-Agent": UA, "Content-Type": "application/json"}
+    if github and os.environ.get("GITHUB_TOKEN"):
+        headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+    req = urllib.request.Request(url, data=data, headers=headers)
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
         return json.load(resp)
 
@@ -162,6 +166,51 @@ def collect_stablecoins():
     return {"stablecoin_supply_usd": round(solana["totalCirculatingUSD"]["peggedUSD"])}
 
 
+def collect_rev():
+    """Real Economic Value proxy: DeFiLlama's daily chain revenue."""
+    out = _http_json(
+        "https://api.llama.fi/overview/fees/solana"
+        "?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true&dataType=dailyRevenue"
+    )
+    return {"rev_24h_usd": round(out["total24h"])}
+
+
+def collect_cluster_status():
+    out = _http_json("https://status.solana.com/api/v2/summary.json")
+    incidents = [
+        {"name": i["name"], "impact": i["impact"], "status": i["status"]}
+        for i in out.get("incidents", [])
+    ]
+    return {
+        "status_indicator": out["status"]["indicator"],
+        "status_description": out["status"]["description"],
+        "incidents": incidents,
+    }
+
+
+def collect_releases():
+    out = _http_json(
+        "https://api.github.com/repos/anza-xyz/agave/releases?per_page=6", github=True
+    )
+    return {"agave_releases": [
+        {"tag": r["tag_name"], "date": r["published_at"][:10], "prerelease": r["prerelease"]}
+        for r in out[:5]
+    ]}
+
+
+def collect_simds():
+    out = _http_json(
+        "https://api.github.com/search/issues"
+        "?q=repo:solana-foundation/solana-improvement-documents+is:pr+is:merged"
+        "&sort=updated&order=desc&per_page=5",
+        github=True,
+    )
+    return {"recent_simds": [
+        {"title": i["title"], "date": (i["closed_at"] or "")[:10]}
+        for i in out.get("items", [])
+    ]}
+
+
 SOURCES = {
     "solana_rpc_network": collect_network,
     "solana_rpc_validators": collect_validators,
@@ -171,6 +220,10 @@ SOURCES = {
     "defillama_dex": collect_dex_volume,
     "defillama_fees": collect_chain_fees,
     "defillama_stablecoins": collect_stablecoins,
+    "defillama_rev": collect_rev,
+    "solana_statuspage": collect_cluster_status,
+    "github_agave_releases": collect_releases,
+    "github_simds": collect_simds,
 }
 
 SECTION_OF = {
@@ -182,12 +235,17 @@ SECTION_OF = {
     "defillama_dex": "economics",
     "defillama_fees": "economics",
     "defillama_stablecoins": "economics",
+    "defillama_rev": "economics",
+    "solana_statuspage": "ecosystem",
+    "github_agave_releases": "ecosystem",
+    "github_simds": "ecosystem",
 }
 
 
 def collect_all():
     """Run every collector; return (sections, source_status)."""
-    sections = {"network": {}, "validators": {}, "supply": {}, "economics": {}}
+    sections = {"network": {}, "validators": {}, "supply": {},
+                "economics": {}, "ecosystem": {}}
     status = {}
     for name, fn in SOURCES.items():
         try:
