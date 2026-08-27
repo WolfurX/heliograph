@@ -50,7 +50,7 @@ def main():
     history = {name: store.series(name, limit=400) for name in
                ("network.tps", "network.slot_time_ms", "economics.sol_price_usd",
                 "economics.tvl_usd", "validators.delinquent_stake_pct",
-                "economics.dex_volume_24h_usd")}
+                "economics.dex_volume_24h_usd", "ecosystem.daily_active_wallets")}
     alert_marks = {}
     for fts, metric, severity, _, _ in store.recent_findings(limit=200):
         alert_marks.setdefault(metric, []).append((fts, severity))

@@ -485,7 +485,16 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
         for f in findings
     )
 
-    # regular-user metrics lead the grid; operator metrics follow
+    # regular-user metrics lead the grid; operator metrics follow. With Dune
+    # configured, active wallets takes the sixth slot (delinquent stake stays
+    # in the Validators table and the anomaly rules); without it, the grid
+    # falls back to delinquent stake so keyless forks keep six tiles.
+    daw = eos.get("daily_active_wallets")
+    sixth = (tile("Daily active wallets", compact(daw),
+                  history.get("ecosystem.daily_active_wallets", []))
+             if daw is not None else
+             tile("Delinquent stake", f"{val.get('delinquent_stake_pct', 'n/a')}%",
+                  history.get("validators.delinquent_stake_pct", []), up_good=False))
     tiles = "".join([
         tile("SOL price", f"${compact(eco.get('sol_price_usd'))}",
              history.get("economics.sol_price_usd", [])),
@@ -496,8 +505,7 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
         tile("Transactions per second", compact(net.get("tps")), history.get("network.tps", [])),
         tile("Slot time", f"{net.get('slot_time_ms', 'n/a')} ms",
              history.get("network.slot_time_ms", []), up_good=False),
-        tile("Delinquent stake", f"{val.get('delinquent_stake_pct', 'n/a')}%",
-             history.get("validators.delinquent_stake_pct", []), up_good=False),
+        sixth,
     ])
 
     network_rows = [

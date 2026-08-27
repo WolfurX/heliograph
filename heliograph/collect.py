@@ -1,11 +1,15 @@
-"""Data collection. Every source is keyless and stdlib-only.
+"""Data collection. Every source is stdlib-only; all but one are keyless.
 
 Each collector returns a dict of metrics or raises; collect_all() runs them
 all, records per-source status, and never lets one failed source kill a run.
 
 The two GitHub collectors work unauthenticated; if GITHUB_TOKEN is present
 in the environment (GitHub Actions provides one automatically) it is sent,
-because Actions runners share rate-limited IPs. No user-managed key exists.
+because Actions runners share rate-limited IPs.
+
+Dune (daily active wallets) is the one keyed source: DUNE_API_KEY in the
+environment, or ~/.config/heliograph/dune_api_key locally. Without a key
+the source is simply not registered and the dashboard omits the metric.
 """
 
 import json
@@ -19,11 +23,13 @@ TIMEOUT = 20
 LAMPORTS = 1_000_000_000
 
 
-def _http_json(url, payload=None, github=False):
+def _http_json(url, payload=None, github=False, extra_headers=None):
     data = json.dumps(payload).encode() if payload is not None else None
     headers = {"User-Agent": UA, "Content-Type": "application/json"}
     if github and os.environ.get("GITHUB_TOKEN"):
         headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
+    if extra_headers:
+        headers.update(extra_headers)
     req = urllib.request.Request(url, data=data, headers=headers)
     with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
         return json.load(resp)
@@ -175,6 +181,93 @@ def collect_rev():
     return {"rev_24h_usd": round(out["total24h"])}
 
 
+# Our own public Dune query: distinct fee payers of successful non-vote
+# transactions per day, last 5 days, partition-pruned so the free tier's
+# 2-minute execution cap holds. https://dune.com/queries/8511348
+DUNE_QUERY_ACTIVE_WALLETS = 8511348
+DUNE_CACHE_S = 4 * 3600    # reuse the previous snapshot's value this long
+DUNE_STALE_S = 36 * 3600   # data older than this warrants a re-execution
+DUNE_RETRY_S = 6 * 3600    # but never re-execute more often than this
+
+
+def _dune_key():
+    key = os.environ.get("DUNE_API_KEY", "").strip()
+    if key:
+        return key
+    path = os.path.expanduser("~/.config/heliograph/dune_api_key")
+    try:
+        with open(path) as f:
+            return f.read().strip() or None
+    except OSError:
+        return None
+
+
+def _dune_ts(iso):
+    """Dune ISO timestamp ('2026-08-27T08:50:23.046832537Z') -> unix ts."""
+    from datetime import datetime, timezone
+    dt = datetime.strptime(iso[:19], "%Y-%m-%dT%H:%M:%S")
+    return int(dt.replace(tzinfo=timezone.utc).timestamp())
+
+
+def _latest_complete_day(rows, executed_date):
+    """Newest row strictly before the execution's own UTC date; the row for
+    the execution date is a partial day. Rows arrive newest first."""
+    for r in rows:
+        day = str(r.get("activity_date", ""))[:10]
+        if day and day < executed_date and r.get("daily_active_wallets") is not None:
+            return day, int(r["daily_active_wallets"])
+    return None, None
+
+
+def _previous_ecosystem():
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "docs", "data.json")
+    try:
+        with open(path) as f:
+            return json.load(f).get("ecosystem", {})
+    except (OSError, ValueError):
+        return {}
+
+
+def collect_dune():
+    """Daily active wallets from our Dune query. Reads cached query results;
+    when the data has gone stale and no execution ran recently, fires an
+    async re-execution that a later run picks up. Reuses the previous
+    snapshot's value while fresh, sparing credits (the metric is daily)."""
+    import time
+
+    now = int(time.time())
+    prev = _previous_ecosystem()
+    if (prev.get("daily_active_wallets") is not None
+            and now - prev.get("daily_active_wallets_fetched_at", 0) < DUNE_CACHE_S):
+        return {k: prev[k] for k in ("daily_active_wallets",
+                                     "daily_active_wallets_date",
+                                     "daily_active_wallets_fetched_at")}
+
+    key = _dune_key()
+    auth = {"X-DUNE-API-KEY": key}
+    out = _http_json(
+        f"https://api.dune.com/api/v1/query/{DUNE_QUERY_ACTIVE_WALLETS}/results"
+        "?limit=5&sort_by=activity_date+desc", extra_headers=auth)
+    ended = out["execution_ended_at"]
+    executed_ts = _dune_ts(ended)
+    day, wallets = _latest_complete_day(out["result"]["rows"], ended[:10])
+    if day is None:
+        raise RuntimeError("no complete day in Dune results")
+
+    day_end_ts = _dune_ts(day + "T00:00:00") + 86400
+    if now - day_end_ts > DUNE_STALE_S and now - executed_ts > DUNE_RETRY_S:
+        try:  # fire and forget; the refreshed results serve a later run
+            _http_json(f"https://api.dune.com/api/v1/query/{DUNE_QUERY_ACTIVE_WALLETS}/execute",
+                       payload={}, extra_headers=auth)
+        except Exception:
+            pass
+
+    return {"daily_active_wallets": wallets,
+            "daily_active_wallets_date": day,
+            "daily_active_wallets_fetched_at": now}
+
+
 def collect_cluster_status():
     out = _http_json("https://status.solana.com/api/v2/summary.json")
     incidents = [
@@ -240,6 +333,11 @@ SECTION_OF = {
     "github_agave_releases": "ecosystem",
     "github_simds": "ecosystem",
 }
+
+
+if _dune_key():
+    SOURCES["dune_active_wallets"] = collect_dune
+    SECTION_OF["dune_active_wallets"] = "ecosystem"
 
 
 def collect_all():

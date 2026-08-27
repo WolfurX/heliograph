@@ -41,6 +41,7 @@ TRACKED = [
     "economics.rev_24h_usd",
     "economics.stablecoin_supply_usd",
     "supply.circulating_sol",
+    "ecosystem.daily_active_wallets",
 ]
 
 
