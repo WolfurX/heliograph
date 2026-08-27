@@ -50,3 +50,39 @@ jobs:
           scripts/alert.sh
           "${{ github.event.inputs.alert_test == 'true'
           && 'tests/fixtures/critical_snapshot.json' || 'docs/data.json' }}"
+
+  # GitHub's cron scheduler has been observed to simply not deliver on this
+  # repo (zero scheduled runs across many slots while Actions was green).
+  # This job keeps the pulse alive without it: sleep one interval, dispatch
+  # the next run. It retires itself as soon as a real scheduled run shows up
+  # in the last 90 minutes, and refuses to run alongside another chain link,
+  # so a manual dispatch can start exactly one chain and cron can end it.
+  keepalive:
+    needs: pulse
+    if: always() && github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: sleep one interval, then dispatch the next pulse
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          recent=$(gh run list -R ${{ github.repository }} --workflow pulse --limit 20 \
+            --json event,createdAt \
+            -q '[.[] | select(.event == "schedule")
+                     | select(.createdAt > (now - 5400 | todate))] | length')
+          if [ "$recent" != "0" ]; then
+            echo "scheduler is delivering; chain retires"
+            exit 0
+          fi
+          others=$(gh run list -R ${{ github.repository }} --workflow pulse --limit 10 \
+            --json status,databaseId \
+            -q '[.[] | select(.status == "queued" or .status == "in_progress")
+                     | select(.databaseId != ${{ github.run_id }})] | length')
+          if [ "$others" != "0" ]; then
+            echo "another pulse run is live; leaving the chain to it"
+            exit 0
+          fi
+          echo "scheduler silent; next pulse in 30 minutes"
+          sleep 1800
+          gh workflow run pulse -R ${{ github.repository }}
