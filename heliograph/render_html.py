@@ -88,7 +88,8 @@ h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
 .sw[aria-pressed="true"] { color: var(--ink); border-color: var(--edge);
   background: rgba(255,255,255,.05); }
 .chartcard { padding: 20px 12px 10px; }
-.bigchart { display: block; width: 100%; height: auto; }
+.bigchart { display: block; width: 100%; height: auto;
+  min-width: 840px; }  /* on narrow screens the card scrolls; ticks stay legible */
 .bigchart .tick { fill: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
 .bigchart .endlabel { fill: var(--ink); font-size: 13px; font-weight: 600;
   font-variant-numeric: tabular-nums; }
@@ -507,6 +508,12 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Heliograph · Solana state</title>
+<meta name="description" content="An agent that reads Solana so you don't have to: a verdict first, findings with evidence, the dashboard as plumbing. Self-updating every 30 minutes.">
+<meta property="og:title" content="Heliograph">
+<meta property="og:description" content="An agent that reads Solana so you don't have to. Verdict first; the dashboard is plumbing.">
+<meta property="og:url" content="https://wolfurx.github.io/heliograph/">
+<meta property="og:image" content="https://wolfurx.github.io/heliograph/social.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="Heliograph findings" href="feed.xml">
 <style>{CSS}</style>
 </head><body>
