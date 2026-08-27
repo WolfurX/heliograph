@@ -1,24 +1,26 @@
 # Heliograph
 
-Solana state report · generated 2026-08-27 08:54 UTC · run #16 · baseline active
+Solana state report · generated 2026-08-27 08:56 UTC · run #17 · baseline active
 
 ## What needs your attention
 
-- 🔵 **Real economic value spiked to 6,194,236 USD, 3.3 standard deviations above its recent norm of 5,887,065 USD.**
-  - evidence: baseline n=10, mean=5,887,064.8, current=6,194,236.0, z=+3.34
+- 🟠 **SOL is up 8.1% in 24h to $104.57. Moves this size usually have a cause worth knowing.**
+  - evidence: 24h change +8.1%, threshold warn>=8% crit>=15%
+- 🟠 **Delinquent stake spiked to 0%, 3.8 standard deviations above its recent norm of 0%.**
+  - evidence: baseline n=16, mean=0.0, current=0.1, z=+3.75
 
 ## Network
 
-The chain looks healthy: 3,597 TPS (1,724 non-vote) at 364.9 ms per slot, epoch 1023 is 30.56% done.
+The chain looks healthy: 3,598 TPS (1,727 non-vote) at 365.3 ms per slot, epoch 1023 is 30.61% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,068,038 |
-| Block height | 420,116,313 |
-| Epoch | 1023 (30.56% complete) |
-| TPS (all / non-vote) | 3,597.3 / 1,724.0 |
-| Slot time | 364.9 ms |
+| Slot | 442,068,252 |
+| Block height | 420,116,527 |
+| Epoch | 1023 (30.61% complete) |
+| TPS (all / non-vote) | 3,597.5 / 1,727.3 |
+| Slot time | 365.3 ms |
 | Node version | 4.2.0 |
 
 ## Validators
@@ -36,12 +38,12 @@ The chain looks healthy: 3,597 TPS (1,724 non-vote) at 364.9 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $104.48 (+7.8% 24h), $5.78B locked, $2.48B traded on DEXs.
+A volatile day: SOL at $104.57 (+8.1% 24h), $5.78B locked, $2.48B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $104.48 (+7.8% 24h) |
-| Market cap | $60.99B |
+| SOL price | $104.57 (+8.1% 24h) |
+| Market cap | $61.07B |
 | TVL | $5.78B |
 | DEX volume 24h | $2.48B (-15.5% 1d) |
 | Chain fees 24h | $14.92M |
@@ -52,9 +54,9 @@ A moving day: SOL at $104.48 (+7.8% 24h), $5.78B locked, $2.48B traded on DEXs.
 
 | metric | value |
 |---|---|
-| Circulating | 584,062,871 SOL |
+| Circulating | 584,062,870 SOL |
 | Non-circulating | 48,906,816 SOL |
-| Total | 632,969,687 SOL |
+| Total | 632,969,686 SOL |
 
 ## Ecosystem
 
@@ -72,11 +74,6 @@ Recent agave client releases:
 
 Recently accepted SIMDs (upcoming protocol changes):
 
-- SIMD-0553: Resource and Inclusion Fee · 2026-07-20
-- SIMD-0550: Double disinflation · 2026-07-23
-- re-amend SIMD-0340: additional inter- and intra- validation · 2026-07-31
-- SIMD-0433: Loader V3: Set Program Data to ELF Length · 2026-07-31
-- SIMD-0266: Efficient Token program · 2026-03-13
 
 ## Sources
 
