@@ -8,80 +8,161 @@
 :root {
   --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
   --muted: #898781; --grid: #2c2c2a; --baseline: #383835;
-  --border: rgba(255,255,255,0.10); --accent: #3987e5;
+  --border: rgba(255,255,255,0.08); --edge: rgba(255,255,255,0.14);
+  --accent: #3987e5;
   --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--page); color: var(--ink-2); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 64px; }
-header h1 { color: var(--ink); font-size: 22px; font-weight: 600; letter-spacing: .2px; }
-header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
-.hero { margin: 36px 0 8px; }
-.hero .n { color: var(--ink); font-size: 56px; font-weight: 600; line-height: 1; }
-.hero .verdict { color: var(--ink-2); font-size: 16px; margin-top: 8px; max-width: 560px; }
-.findings { margin: 20px 0 8px; display: grid; gap: 10px; }
-.finding { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
-.finding .head { display: flex; align-items: baseline; gap: 10px; }
-.sev { font-size: 11px; font-weight: 700; letter-spacing: .8px; }
+html { scroll-behavior: smooth; }
+body { background: var(--page); color: var(--ink-2);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+.topbar { position: sticky; top: 0; z-index: 5;
+  background: color-mix(in srgb, var(--page) 76%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%); }
+.topbar .in { max-width: 1060px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.topbar::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px;
+  height: 14px; pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--page) 85%, transparent), transparent); }
+.brand { color: var(--ink); font-size: 16px; font-weight: 650; letter-spacing: -0.01em;
+  display: inline-flex; align-items: center; gap: 8px; }
+.brand svg { color: var(--accent); }
+.meta { color: var(--muted); font-size: 13px; }
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px 72px; }
+
+.hero { margin: 64px 0 10px; }
+.hero .n { color: var(--ink); font-size: clamp(64px, 12vw, 96px); font-weight: 650;
+  line-height: 0.95; letter-spacing: -0.035em; }
+.hero .verdict { color: var(--ink-2); font-size: 17px; line-height: 1.5;
+  margin-top: 14px; max-width: 34em; }
+.hero .verdict b { color: var(--ink); font-weight: 600; }
+
+.findings { margin: 24px 0 8px; display: grid; gap: 10px; }
+.card { background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.015));
+  border: 1px solid var(--border); border-top-color: var(--edge); border-radius: 12px; }
+.finding { padding: 15px 18px; }
+.finding .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.sev { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
+.sev::before { content: ""; display: inline-block; width: 7px; height: 7px;
+  border-radius: 50%; margin-right: 6px; background: currentColor; }
 .sev-crit { color: var(--critical); } .sev-warn { color: var(--warning); } .sev-info { color: var(--accent); }
-.finding .headline { color: var(--ink); font-weight: 500; }
-.finding .detail { color: var(--muted); font-size: 13px; margin-top: 6px; }
-h2 { color: var(--ink); font-size: 15px; font-weight: 600; margin: 40px 0 14px; }
-.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
-.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; position: relative; }
-.tile .label { color: var(--muted); font-size: 13px; }
-.tile .value { color: var(--ink); font-size: 26px; font-weight: 600; margin-top: 2px; }
-.tile .delta { font-size: 13px; margin-left: 8px; font-weight: 500; }
+.finding .headline { color: var(--ink); font-weight: 500; letter-spacing: -0.005em; }
+.finding .detail { color: var(--muted); font-size: 13px; margin-top: 6px;
+  font-variant-numeric: tabular-nums; }
+
+h2 { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin: 48px 0 14px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); gap: 12px; }
+.tile { padding: 16px 18px 12px; }
+.tile .label { color: var(--muted); font-size: 13px; letter-spacing: 0; }
+.tile .value { color: var(--ink); font-size: 30px; font-weight: 650;
+  letter-spacing: -0.02em; line-height: 1.15; margin-top: 4px; }
+.tile .delta { font-size: 13px; margin-left: 8px; font-weight: 550; letter-spacing: 0; }
 .d-good { color: var(--good); } .d-bad { color: var(--critical); } .d-flat { color: var(--muted); }
-.spark { margin-top: 10px; display: block; }
-.tbl { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.tbl th, .tbl td { text-align: left; padding: 9px 14px; border-top: 1px solid var(--grid); font-size: 14px; }
-.tbl th { color: var(--muted); font-weight: 500; border-top: none; }
-.tbl td { color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.tbl td:first-child { color: var(--ink-2); font-variant-numeric: normal; }
-.tblwrap { overflow-x: auto; }
-.mono { font-family: ui-monospace, monospace; font-size: 12.5px; }
-footer { margin-top: 48px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--grid); padding-top: 16px; }
-footer a { color: var(--accent); text-decoration: none; }
-#tip { position: fixed; pointer-events: none; background: var(--page); border: 1px solid var(--border);
-  border-radius: 6px; padding: 5px 9px; font-size: 12px; color: var(--ink); display: none; z-index: 9; }
+.spark { margin-top: 10px; display: block; width: 100%; }
+
+.tbl { width: 100%; border-collapse: collapse; overflow: hidden; }
+.tblwrap { overflow-x: auto; border-radius: 12px; }
+.tbl th, .tbl td { text-align: left; padding: 10px 16px; font-size: 14px; }
+.tbl th { color: var(--muted); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.07em; text-transform: uppercase; }
+.tbl td { color: var(--ink-2); border-top: 1px solid var(--grid);
+  font-variant-numeric: tabular-nums; }
+.tbl td:first-child { font-variant-numeric: normal; }
+.tbl tr:last-child td { border-bottom: none; }
+.mono { font-family: ui-monospace, "SF Mono", monospace; font-size: 12.5px; }
+.num { text-align: right; }
+th.num { text-align: right; }
+
+footer { margin-top: 56px; color: var(--muted); font-size: 13px;
+  border-top: 1px solid var(--grid); padding-top: 18px;
+  display: flex; gap: 18px; flex-wrap: wrap; }
+footer a { color: var(--ink-2); text-decoration: none;
+  transition: color 140ms var(--ease); }
+footer .thesis { flex: 1 1 100%; }
+
+#tip { position: fixed; pointer-events: none; z-index: 9; display: none;
+  background: color-mix(in srgb, var(--page) 88%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--edge); border-radius: 7px; padding: 5px 9px;
+  font-size: 12px; color: var(--ink); font-variant-numeric: tabular-nums;
+  opacity: 0; transition: opacity 100ms var(--ease); }
+
+@media (hover: hover) and (pointer: fine) {
+  .tile { transition: transform 180ms var(--ease), border-color 180ms var(--ease); }
+  .tile:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.16);
+    border-top-color: rgba(255,255,255,0.22); }
+  footer a:hover { color: var(--accent); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise 440ms var(--ease) backwards; }
+  .tiles .tile:nth-child(1) { animation-delay: 40ms; }
+  .tiles .tile:nth-child(2) { animation-delay: 80ms; }
+  .tiles .tile:nth-child(3) { animation-delay: 120ms; }
+  .tiles .tile:nth-child(4) { animation-delay: 160ms; }
+  .tiles .tile:nth-child(5) { animation-delay: 200ms; }
+  .tiles .tile:nth-child(6) { animation-delay: 240ms; }
+  .findings .finding:nth-child(2) { animation-delay: 50ms; }
+  .findings .finding:nth-child(3) { animation-delay: 100ms; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: fade 200ms ease backwards; }
+  .tile { transition: none; }
+}
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-transparency: reduce) {
+  .topbar, #tip { backdrop-filter: none; -webkit-backdrop-filter: none;
+    background: var(--page); }
+}
 </style>
 </head><body>
 <div id="tip"></div>
+<div class="topbar"><div class="in">
+  <span class="brand"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><circle cx="7.5" cy="7.5" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><line x1="7.5" y1="0.8" x2="7.5" y2="2.6"/><line x1="7.5" y1="12.4" x2="7.5" y2="14.2"/><line x1="0.8" y1="7.5" x2="2.6" y2="7.5"/><line x1="12.4" y1="7.5" x2="14.2" y2="7.5"/></g></svg> Heliograph</span>
+  <span class="meta">reads Solana so you don't have to</span>
+  <span class="meta">2026-08-27 02:32 UTC · run #5 · baseline forming (5/9 runs)</span>
+</div></div>
 <div class="wrap">
-<header>
-  <h1>Heliograph</h1>
-  <div class="sub">Reads Solana so you don't have to · generated 2026-08-27 02:22 UTC · run #3 · baseline forming (3/9 runs)</div>
-</header>
 
-<section class="hero">
+<section class="hero rise">
   <div class="n">0</div>
-  <div class="verdict">things need your attention. Every watched metric is inside its normal band. Nothing to do here.</div>
+  <div class="verdict">things need your attention. Every watched metric is inside its normal band. <b>Nothing to do here.</b></div>
 </section>
 
 <div class="findings"></div>
 
 <h2>Pulse</h2>
-<div class="tiles"><div class="tile"><div class="label">Transactions per second</div><div class="value">4.4K<span class="delta d-bad">-1.0%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 4429.4], [1787797180, 4410.2], [1787797328, 4365.0]]"><polyline points="5.0,5.0 105.0,12.8 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="12.8" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile"><div class="label">Slot time</div><div class="value">365.9 ms<span class="delta d-good">-0.3%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 366.2], [1787797180, 367.0], [1787797328, 365.9]]"><polyline points="5.0,23.9 105.0,5.0 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="5.0" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile"><div class="label">SOL price</div><div class="value">$101.54<span class="delta d-flat">±0.0%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 101.61], [1787797180, 101.57], [1787797328, 101.54]]"><polyline points="5.0,5.0 105.0,19.9 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="19.9" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile"><div class="label">Total value locked</div><div class="value">$5.76B<span class="delta d-flat">±0.0%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 5762607383.0], [1787797180, 5762607383.0], [1787797328, 5762607383.0]]"><polyline points="5.0,31.0 105.0,31.0 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="31.0" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile"><div class="label">DEX volume 24h</div><div class="value">$2.49B<span class="delta d-flat">±0.0%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 2491738883.0], [1787797180, 2491738883.0], [1787797328, 2491738883.0]]"><polyline points="5.0,31.0 105.0,31.0 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="31.0" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile"><div class="label">Delinquent stake</div><div class="value">0.02%<span class="delta d-flat">±0.0%</span></div><svg class="spark" width="210" height="36" viewBox="0 0 210 36" data-points="[[1787797127, 0.02], [1787797180, 0.02], [1787797328, 0.02]]"><polyline points="5.0,31.0 105.0,31.0 205.0,31.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><line x1="105.0" y1="31.0" x2="205.0" y2="31.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/><circle cx="205.0" cy="31.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div></div>
+<div class="tiles"><div class="tile card rise"><div class="label">Transactions per second</div><div class="value">4.1K<span class="delta d-bad">-0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 4429.4], [1787797180, 4410.2], [1787797328, 4365.0], [1787797897, 4084.5], [1787797952, 4079.0]]"><polygon points="6.0,42 6.0,6.0 58.0,7.8 110.0,11.9 162.0,37.5 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,7.8 110.0,11.9 162.0,37.5 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="37.5" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Slot time</div><div class="value">366.2 ms<span class="delta d-bad">+0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 366.2], [1787797180, 367.0], [1787797328, 365.9], [1787797897, 366.0], [1787797952, 366.2]]"><polygon points="6.0,42 6.0,29.3 58.0,6.0 110.0,38.0 162.0,35.1 214.0,29.3 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,29.3 58.0,6.0 110.0,38.0 162.0,35.1 214.0,29.3" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="35.1" x2="214.0" y2="29.3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="29.3" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">SOL price</div><div class="value">$101.11<span class="delta d-bad">-0.1%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 101.61], [1787797180, 101.57], [1787797328, 101.54], [1787797897, 101.17], [1787797952, 101.11]]"><polygon points="6.0,42 6.0,6.0 58.0,8.6 110.0,10.5 162.0,34.2 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,8.6 110.0,10.5 162.0,34.2 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="34.2" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Total value locked</div><div class="value">$5.76B<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 5762607383.0], [1787797180, 5762607383.0], [1787797328, 5762607383.0], [1787797897, 5762607383.0], [1787797952, 5760866943.0]]"><polygon points="6.0,42 6.0,6.0 58.0,6.0 110.0,6.0 162.0,6.0 214.0,38.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,6.0 58.0,6.0 110.0,6.0 162.0,6.0 214.0,38.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="6.0" x2="214.0" y2="38.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="38.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">DEX volume 24h</div><div class="value">$2.49B<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 2491738883.0], [1787797180, 2491738883.0], [1787797328, 2491738883.0], [1787797897, 2491738883.0], [1787797952, 2491738883.0]]"><polygon points="6.0,42 6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="22.0" x2="214.0" y2="22.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="22.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div><div class="tile card rise"><div class="label">Delinquent stake</div><div class="value">0.02%<span class="delta d-flat">±0.0%</span></div><svg class="spark" height="44" viewBox="0 0 220 44" preserveAspectRatio="none" data-points="[[1787797127, 0.02], [1787797180, 0.02], [1787797328, 0.02], [1787797897, 0.02], [1787797952, 0.02]]"><polygon points="6.0,42 6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0 214.0,42" fill="var(--accent)" opacity="0.07"/><polyline points="6.0,22.0 58.0,22.0 110.0,22.0 162.0,22.0 214.0,22.0" fill="none" stroke="var(--muted)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="162.0" y1="22.0" x2="214.0" y2="22.0" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="214.0" cy="22.0" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/></svg></div></div>
 
 <h2>Network</h2>
-<div class="tblwrap"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Health</td><td>ok</td></tr><tr><td>Slot</td><td>442,003,445</td></tr><tr><td>Block height</td><td>420,051,763</td></tr><tr><td>Epoch</td><td>1023 · 15.61% complete</td></tr><tr><td>Non-vote TPS</td><td>2498.3</td></tr><tr><td>Total transactions</td><td>542,244,496,443</td></tr><tr><td>Node version</td><td>4.2.0</td></tr></table></div>
+<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Health</td><td>ok</td></tr><tr><td>Slot</td><td>442,005,146</td></tr><tr><td>Block height</td><td>420,053,464</td></tr><tr><td>Epoch</td><td>1023 · 16.01% complete</td></tr><tr><td>Non-vote TPS</td><td>2212.2</td></tr><tr><td>Total transactions</td><td>542,247,045,914</td></tr><tr><td>Node version</td><td>4.2.0</td></tr></table></div>
 
 <h2>Validators</h2>
-<div class="tblwrap"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Active / delinquent validators</td><td>686 / 11</td></tr><tr><td>Delinquent stake</td><td>0.02%</td></tr><tr><td>Total stake</td><td>436,884,837 SOL</td></tr><tr><td>Nakamoto coefficient</td><td>18</td></tr><tr><td>Median commission</td><td>5%</td></tr><tr><td>Median prioritization fee</td><td>0 µlamports</td></tr></table></div>
+<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>Active / delinquent validators</td><td>686 / 11</td></tr><tr><td>Delinquent stake</td><td>0.02%</td></tr><tr><td>Total stake</td><td>436,884,837 SOL</td></tr><tr><td>Nakamoto coefficient</td><td>18</td></tr><tr><td>Median commission</td><td>5%</td></tr><tr><td>Median prioritization fee</td><td>0 µlamports</td></tr></table></div>
+
 <h2>Top validators by stake</h2>
-<div class="tblwrap"><table class="tbl"><tr><th>vote account</th><th>stake (SOL)</th><th>share</th><th>commission</th></tr><tr><td><span class="mono">CcaHc2L43ZWjwCHART3o…</span></td><td>17,062,869</td><td>3.91%</td><td>7%</td></tr><tr><td><span class="mono">he1iusunGwqrNtafDtLd…</span></td><td>16,029,433</td><td>3.67%</td><td>0%</td></tr><tr><td><span class="mono">3N7s9zXMZ4QqvHQR15t5…</span></td><td>12,314,379</td><td>2.82%</td><td>0%</td></tr><tr><td><span class="mono">CatzoSMUkTRidT5DwBxA…</span></td><td>11,751,683</td><td>2.69%</td><td>5%</td></tr><tr><td><span class="mono">26pV97Ce83ZQ6Kz9XT4t…</span></td><td>9,216,852</td><td>2.11%</td><td>7%</td></tr><tr><td><span class="mono">8GbwASqdpw4dVcwbWUxb…</span></td><td>9,051,084</td><td>2.07%</td><td>0%</td></tr><tr><td><span class="mono">51JBzSTU5rAM8gLAVQKg…</span></td><td>8,904,595</td><td>2.04%</td><td>10%</td></tr><tr><td><span class="mono">9QU2QSxhb24FUX3Tu2Fp…</span></td><td>7,849,682</td><td>1.8%</td><td>7%</td></tr><tr><td><span class="mono">CvSb7wdQAFpHuSpTYTJn…</span></td><td>7,301,740</td><td>1.67%</td><td>5%</td></tr><tr><td><span class="mono">DumiCKHVqoCQKD8roLAp…</span></td><td>6,578,261</td><td>1.51%</td><td>0%</td></tr></table></div>
+<div class="tblwrap card rise"><table class="tbl"><tr><th>vote account</th><th class="num">stake (SOL)</th><th class="num">share</th><th class="num">commission</th></tr><tr><td><span class="mono">CcaHc2L43ZWjwCHART3o…</span></td><td class="num">17,062,869</td><td class="num">3.91%</td><td class="num">7%</td></tr><tr><td><span class="mono">he1iusunGwqrNtafDtLd…</span></td><td class="num">16,029,433</td><td class="num">3.67%</td><td class="num">0%</td></tr><tr><td><span class="mono">3N7s9zXMZ4QqvHQR15t5…</span></td><td class="num">12,314,379</td><td class="num">2.82%</td><td class="num">0%</td></tr><tr><td><span class="mono">CatzoSMUkTRidT5DwBxA…</span></td><td class="num">11,751,683</td><td class="num">2.69%</td><td class="num">5%</td></tr><tr><td><span class="mono">26pV97Ce83ZQ6Kz9XT4t…</span></td><td class="num">9,216,852</td><td class="num">2.11%</td><td class="num">7%</td></tr><tr><td><span class="mono">8GbwASqdpw4dVcwbWUxb…</span></td><td class="num">9,051,084</td><td class="num">2.07%</td><td class="num">0%</td></tr><tr><td><span class="mono">51JBzSTU5rAM8gLAVQKg…</span></td><td class="num">8,904,595</td><td class="num">2.04%</td><td class="num">10%</td></tr><tr><td><span class="mono">9QU2QSxhb24FUX3Tu2Fp…</span></td><td class="num">7,849,682</td><td class="num">1.8%</td><td class="num">7%</td></tr><tr><td><span class="mono">CvSb7wdQAFpHuSpTYTJn…</span></td><td class="num">7,301,740</td><td class="num">1.67%</td><td class="num">5%</td></tr><tr><td><span class="mono">DumiCKHVqoCQKD8roLAp…</span></td><td class="num">6,578,261</td><td class="num">1.51%</td><td class="num">0%</td></tr></table></div>
 
 <h2>Economics</h2>
-<div class="tblwrap"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>SOL price (24h)</td><td>$101.54 · +4.6%</td></tr><tr><td>Market cap</td><td>$59.31B</td></tr><tr><td>Spot volume 24h</td><td>$3.72B</td></tr><tr><td>TVL</td><td>$5.76B</td></tr><tr><td>DEX volume 24h</td><td>$2.49B</td></tr><tr><td>Chain fees 24h</td><td>$12.99M</td></tr><tr><td>Stablecoin supply</td><td>$15.84B</td></tr><tr><td>Circulating supply</td><td>584,063,093 SOL</td></tr></table></div>
+<div class="tblwrap card rise"><table class="tbl"><tr><th>metric</th><th>value</th></tr><tr><td>SOL price (24h)</td><td>$101.11 · +3.8%</td></tr><tr><td>Market cap</td><td>$59.07B</td></tr><tr><td>Spot volume 24h</td><td>$3.76B</td></tr><tr><td>TVL</td><td>$5.76B</td></tr><tr><td>DEX volume 24h</td><td>$2.49B</td></tr><tr><td>Chain fees 24h</td><td>$12.99M</td></tr><tr><td>Stablecoin supply</td><td>$15.84B</td></tr><tr><td>Circulating supply</td><td>584,063,087 SOL</td></tr></table></div>
 
 <h2>Sources</h2>
-<div class="tblwrap"><table class="tbl"><tr><th>source</th><th>status</th></tr><tr><td>solana_rpc_network</td><td>ok</td></tr><tr><td>solana_rpc_validators</td><td>ok</td></tr><tr><td>solana_rpc_supply</td><td>ok</td></tr><tr><td>coingecko</td><td>ok</td></tr><tr><td>defillama_tvl</td><td>ok</td></tr><tr><td>defillama_dex</td><td>ok</td></tr><tr><td>defillama_fees</td><td>ok</td></tr><tr><td>defillama_stablecoins</td><td>ok</td></tr></table></div>
+<div class="tblwrap card rise"><table class="tbl"><tr><th>source</th><th>status</th></tr><tr><td>solana_rpc_network</td><td>ok</td></tr><tr><td>solana_rpc_validators</td><td>ok</td></tr><tr><td>solana_rpc_supply</td><td>ok</td></tr><tr><td>coingecko</td><td>ok</td></tr><tr><td>defillama_tvl</td><td>ok</td></tr><tr><td>defillama_dex</td><td>ok</td></tr><tr><td>defillama_fees</td><td>ok</td></tr><tr><td>defillama_stablecoins</td><td>ok</td></tr></table></div>
 
 <footer>
-  The dashboard is plumbing; the <a href="report.md">report</a> is the product.
-  Machine-readable: <a href="data.json">data.json</a> ·
-  <a href="https://github.com/WolfurX/heliograph">source</a>
+  <span class="thesis">The dashboard is plumbing; the report is the product.</span>
+  <a href="report.md">Markdown report</a>
+  <a href="data.json">data.json</a>
+  <a href="https://github.com/WolfurX/heliograph">Source</a>
 </footer>
 </div>
 <script>
@@ -100,8 +181,11 @@ document.querySelectorAll('.spark').forEach(svg => {
     tip.style.left = (e.clientX + 12) + 'px';
     tip.style.top = (e.clientY - 30) + 'px';
     tip.style.display = 'block';
+    requestAnimationFrame(() => tip.style.opacity = '1');
   });
-  svg.addEventListener('mouseleave', () => tip.style.display = 'none');
+  svg.addEventListener('mouseleave', () => {
+    tip.style.opacity = '0'; tip.style.display = 'none';
+  });
 });
 </script>
 </body></html>
