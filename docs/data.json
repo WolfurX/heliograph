@@ -1,28 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T14:38:37+00:00",
-  "generated_ts": 1787841517,
+  "generated_at": "2026-08-27T15:09:12+00:00",
+  "generated_ts": 1787843352,
   "baseline": {
-    "runs": 28,
+    "runs": 29,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
       "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 10.9% in 24h to $106.6. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +10.9%, threshold warn>=8% crit>=15%"
+      "headline": "SOL is up 12.1% in 24h to $107.25. Moves this size usually have a cause worth knowing.",
+      "detail": "24h change +12.1%, threshold warn>=8% crit>=15%"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 442124494,
-    "block_height": 420172757,
+    "slot": 442129507,
+    "block_height": 420177770,
     "epoch": 1023,
-    "epoch_progress_pct": 43.63,
-    "tx_count_total": 542407477895,
-    "tps": 4625.0,
-    "nonvote_tps": 2755.6,
+    "epoch_progress_pct": 44.79,
+    "tx_count_total": 542416782383,
+    "tps": 5045.6,
+    "nonvote_tps": 3175.9,
     "slot_time_ms": 366.4,
     "node_version": "4.2.0"
   },
@@ -98,16 +98,16 @@
     ]
   },
   "supply": {
-    "total_sol": 632969478,
-    "circulating_sol": 584062662,
+    "total_sol": 632969454,
+    "circulating_sol": 584062638,
     "non_circulating_sol": 48906816
   },
   "economics": {
-    "sol_price_usd": 106.6,
-    "sol_24h_change_pct": 10.95,
-    "market_cap_usd": 62255580510,
-    "volume_24h_usd": 5869725511,
-    "tvl_usd": 5885135983,
+    "sol_price_usd": 107.25,
+    "sol_24h_change_pct": 12.13,
+    "market_cap_usd": 62667792190,
+    "volume_24h_usd": 6126156317,
+    "tvl_usd": 5892300872,
     "dex_volume_24h_usd": 2351677355,
     "dex_volume_change_1d_pct": -19.87,
     "chain_fees_24h_usd": 15169689,
