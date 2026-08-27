@@ -1,34 +1,33 @@
 # Heliograph
 
-Solana state report · generated 2026-08-27 09:16 UTC · run #19 · baseline active
+Solana state report · generated 2026-08-27 10:33 UTC · run #20 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 8.4% in 24h to $104.9. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +8.4%, threshold warn>=8% crit>=15%
+Nothing. Every watched metric is inside its normal band. You can skip the rest of this report.
 
 ## Network
 
-The chain looks healthy: 3,425 TPS (1,554 non-vote) at 366.0 ms per slot, epoch 1023 is 31.39% done.
+The chain looks healthy: 3,725 TPS (1,848 non-vote) at 364.2 ms per slot, epoch 1023 is 34.33% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,071,600 |
-| Block height | 420,119,875 |
-| Epoch | 1023 (31.39% complete) |
-| TPS (all / non-vote) | 3,424.8 / 1,554.2 |
-| Slot time | 366.0 ms |
+| Slot | 442,084,292 |
+| Block height | 420,132,563 |
+| Epoch | 1023 (34.33% complete) |
+| TPS (all / non-vote) | 3,724.8 / 1,848.0 |
+| Slot time | 364.2 ms |
 | Node version | 4.2.0 |
 
 ## Validators
 
-687 validators are voting, 10 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+685 validators are voting, 12 are delinquent (0.03% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 687 / 10 |
-| Delinquent stake | 0.02% |
+| Active / delinquent | 685 / 12 |
+| Delinquent stake | 0.03% |
 | Total stake | 436,884,837 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -36,25 +35,25 @@ The chain looks healthy: 3,425 TPS (1,554 non-vote) at 366.0 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $104.9 (+8.4% 24h), $5.78B locked, $2.48B traded on DEXs.
+A moving day: SOL at $103.91 (+7.6% 24h), $5.78B locked, $2.48B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $104.9 (+8.4% 24h) |
-| Market cap | $61.27B |
+| SOL price | $103.91 (+7.6% 24h) |
+| Market cap | $60.70B |
 | TVL | $5.78B |
 | DEX volume 24h | $2.48B (-15.5% 1d) |
-| Chain fees 24h | $14.92M |
-| Real economic value 24h | $6.19M |
+| Chain fees 24h | $14.96M |
+| Real economic value 24h | $6.20M |
 | Stablecoin supply | $15.80B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 584,062,859 SOL |
+| Circulating | 584,062,816 SOL |
 | Non-circulating | 48,906,816 SOL |
-| Total | 632,969,675 SOL |
+| Total | 632,969,632 SOL |
 
 ## Ecosystem
 
@@ -72,11 +71,6 @@ Recent agave client releases:
 
 Recently accepted SIMDs (upcoming protocol changes):
 
-- SIMD-0553: Resource and Inclusion Fee · 2026-07-20
-- SIMD-0550: Double disinflation · 2026-07-23
-- re-amend SIMD-0340: additional inter- and intra- validation · 2026-07-31
-- SIMD-0433: Loader V3: Set Program Data to ELF Length · 2026-07-31
-- SIMD-0266: Efficient Token program · 2026-03-13
 
 ## Sources
 
