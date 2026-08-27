@@ -80,6 +80,30 @@ h2::before { content: ""; width: 18px; height: 2px; background: var(--accent); }
   letter-spacing: .02em; text-transform: none; }
 .secnote { color: var(--muted); font-size: 13px; margin: -12px 0 18px; }
 
+.pie { display: grid; grid-template-columns: 300px 1fr; gap: 12px 40px;
+  align-items: center; padding: 26px 28px; }
+.donutwrap { position: relative; max-width: 300px; margin: 0 auto; }
+.donut { display: block; width: 100%; height: auto; }
+.pslice { stroke: var(--surface); stroke-width: 2;
+  transition: opacity 140ms var(--ease); cursor: default; }
+.pslice.dim { opacity: .3; }
+.dcenter { position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  pointer-events: none; }
+.dpct { color: var(--ink); font-size: 34px; font-weight: 700; letter-spacing: -.02em; }
+.dsub { color: var(--muted); font-size: 12.5px; max-width: 11em; }
+.vrow { display: flex; align-items: center; gap: 12px; padding: 8px 0;
+  border-top: 1px solid var(--grid); font-size: 13.5px;
+  transition: background-color 140ms var(--ease); outline: none; }
+.vrow.vhead { border-top: none; color: var(--muted); font-size: 11px;
+  font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.vrow .vsw { width: 9px; height: 9px; border-radius: 2px; flex: none; }
+.vrow .vname { flex: 1; color: var(--ink-2); }
+.vrow .vpct, .vrow .vcom { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.vrow .vcom { width: 3.5em; text-align: right; color: var(--muted); }
+.vrow.hot, .vrow:focus-visible { background: rgba(255,255,255,.045); }
+.vrow.hot .vname, .vrow:focus-visible .vname { color: var(--ink); }
+
 .source { border-top: 1px solid var(--grid); padding: 15px 0; }
 .source:last-of-type { border-bottom: 1px solid var(--grid); }
 .s-head { display: flex; align-items: center; gap: 13px; }
@@ -183,6 +207,8 @@ footer .thesis { flex: 1 1 100%; }
   h2 { margin: 44px 0 18px; }
   th, td { padding: 10px 12px; }
   .tiles { gap: 26px; }
+  .pie { grid-template-columns: 1fr; padding: 22px 18px; }
+  .donutwrap { max-width: 260px; }
 }
 """
 
@@ -225,6 +251,8 @@ document.addEventListener('mousemove', e => {
     return;
   }
   hideCrosshairs();
+  const tipped = e.target.closest ? e.target.closest('[data-tip]') : null;
+  if (tipped) { showTip(e, tipped.dataset.tip); return; }
   const svg = e.target.closest ? e.target.closest('.spark') : null;
   if (!svg || !svg.dataset.points) { tip.style.opacity = '0'; tip.style.display = 'none'; return; }
   const pts = JSON.parse(svg.dataset.points);
@@ -241,6 +269,20 @@ document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => 
     p.hidden = (String(i) !== b.dataset.c));
   hideCrosshairs();
 }));
+function linkK(k) {
+  document.querySelectorAll('.pslice').forEach(el => {
+    el.classList.toggle('dim', k !== null && el.dataset.k !== k);
+  });
+  document.querySelectorAll('.vrow[data-k]').forEach(el => {
+    el.classList.toggle('hot', k !== null && el.dataset.k === k);
+  });
+}
+document.querySelectorAll('[data-k]').forEach(el => {
+  el.addEventListener('mouseenter', () => linkK(el.dataset.k));
+  el.addEventListener('mouseleave', () => linkK(null));
+  el.addEventListener('focus', () => linkK(el.dataset.k));
+  el.addEventListener('blur', () => linkK(null));
+});
 if (window.IntersectionObserver) {
   const io = new IntersectionObserver(entries => {
     let i = 0;
@@ -471,6 +513,82 @@ def bigchart(series, marks, kind="plain", w=1044, h=260):
     )
 
 
+# stake donut: 5-step ordinal ramp from the accent hue, rank pairs share a
+# step (10 unique steps cannot hold both the ΔL gap and the 2:1 contrast
+# floor on this surface - validated with the dataviz palette script,
+# --ordinal --mode dark --surface #1a1a19). "Everyone else" is context and
+# wears the de-emphasis gray.
+STAKE_RAMP = ("#7db2f2", "#609be9", "#4584de", "#2d6dcf", "#2d5ca9")
+
+
+def _arcpath(cx, cy, r_out, r_in, a0, a1):
+    """Annular sector path, angles in degrees clockwise from 12 o'clock."""
+    from math import cos, radians, sin
+    p = lambda r, a: (cx + r * sin(radians(a)), cy - r * cos(radians(a)))
+    x0, y0 = p(r_out, a0)
+    x1, y1 = p(r_out, a1)
+    x2, y2 = p(r_in, a1)
+    x3, y3 = p(r_in, a0)
+    large = 1 if (a1 - a0) > 180 else 0
+    return (f"M{x0:.2f} {y0:.2f}A{r_out} {r_out} 0 {large} 1 {x1:.2f} {y1:.2f}"
+            f"L{x2:.2f} {y2:.2f}A{r_in} {r_in} 0 {large} 0 {x3:.2f} {y3:.2f}Z")
+
+
+def stakepie(val):
+    """Interactive stake donut + hover-linked ranked list. The list is the
+    accessible twin: every value the tooltip shows is readable in it."""
+    top = val.get("top_by_stake", [])
+    if not top:
+        return '<div class="nochart">Validator data unavailable this run.</div>'
+    total_sol = val.get("total_stake_sol") or 0
+    top_pct = sum(v["stake_pct"] for v in top)
+    top_sol = sum(v["stake_sol"] for v in top)
+    rest_pct = max(0.0, 100 - top_pct)
+    rest_sol = max(0, total_sol - top_sol)
+
+    entries = [
+        {"k": i, "color": STAKE_RAMP[i // 2], "pct": v["stake_pct"],
+         "name": v["vote_pubkey"][:10] + "…", "com": f"{v['commission']}%",
+         "tip": f"{v['stake_sol']:,} SOL · {v['stake_pct']}%"}
+        for i, v in enumerate(top)
+    ] + [
+        {"k": len(top), "color": "var(--baseline)", "pct": rest_pct,
+         "name": f"all other validators ({max(0, val.get('active', 0) - len(top)):,})",
+         "com": "", "tip": f"{rest_sol:,} SOL · {rest_pct:.1f}%"}
+    ]
+
+    slices, angle = [], 0.0
+    for e in entries:
+        sweep = 360 * e["pct"] / 100
+        # sub-0.5° slivers still get a visible arc
+        a1 = angle + max(sweep, 0.5)
+        slices.append(
+            f'<path class="pslice" data-k="{e["k"]}" fill="{e["color"]}" '
+            f'data-tip="{html.escape(e["tip"], quote=True)}" '
+            f'd="{_arcpath(160, 160, 150, 96, angle, min(a1, 359.99))}"/>')
+        angle = a1
+
+    rows = "".join(
+        f'<div class="vrow" tabindex="0" data-k="{e["k"]}">'
+        f'<span class="vsw" style="background:{e["color"]}"></span>'
+        f'<span class="vname mono">{html.escape(e["name"])}</span>'
+        f'<span class="vpct">{e["pct"]:.2f}%</span>'
+        f'<span class="vcom">{e["com"]}</span></div>'
+        for e in entries
+    )
+    head = ('<div class="vrow vhead"><span class="vsw"></span>'
+            '<span class="vname">validator</span>'
+            '<span class="vpct">share</span><span class="vcom">comm</span></div>')
+
+    return (
+        f'<div class="card pie rise"><div class="donutwrap">'
+        f'<svg class="donut" viewBox="0 0 320 320" aria-hidden="true">{"".join(slices)}</svg>'
+        f'<div class="dcenter"><div class="dpct">{top_pct:.1f}%</div>'
+        f'<div class="dsub">of stake in the top 10</div></div></div>'
+        f'<div class="vlist">{head}{rows}</div></div>'
+    )
+
+
 def tile(label, value, series, up_good=True):
     delta = ""
     if len(series) >= 2 and series[-2][1]:
@@ -592,11 +710,7 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
         ("Stablecoin supply", usd(eco.get("stablecoin_supply_usd"))),
         ("Circulating supply", f"{sup.get('circulating_sol', 0):,} SOL"),
     ]
-    top_rows = [
-        (f'<span class="mono">{html.escape(v["vote_pubkey"][:20])}…</span>',
-         f"{v['stake_sol']:,}", f"{v['stake_pct']}%", f"{v['commission']}%")
-        for v in val.get("top_by_stake", [])
-    ]
+    pie_html = stakepie(val)
     charts = []
     for key, name, kind in (
         ("economics.sol_price_usd", "SOL price", "usd"),
@@ -704,7 +818,7 @@ def build(sections, findings, baseline, status, ts, history, alert_marks=None):
 {table(validator_rows)}
 
 <h2>Top validators by stake<span class="via">via Solana RPC</span></h2>
-{table(top_rows, headers=("vote account", "stake (SOL)", "share", "commission"), num_cols=(1, 2, 3))}
+{pie_html}
 
 <h2>Economics<span class="via">{eco_via}</span></h2>
 {table(econ_rows)}

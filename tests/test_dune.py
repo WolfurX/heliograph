@@ -45,3 +45,4 @@ class DuneTs(unittest.TestCase):
     def test_parses_nanosecond_iso(self):
         # 2026-08-27 08:50:23 UTC = 1787820623 (GNU date -u -d ... +%s)
         self.assertEqual(_dune_ts("2026-08-27T08:50:23.046832537Z"), 1787820623)
+
