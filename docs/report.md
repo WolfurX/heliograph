@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-08-27 03:33 UTC · run #10 · baseline active
+Solana state report · generated 2026-08-27 03:59 UTC · run #11 · baseline active
 
 ## What needs your attention
 
@@ -8,16 +8,16 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 4,199 TPS (2,339 non-vote) at 366.8 ms per slot, epoch 1023 is 18.34% done.
+The chain looks healthy: 3,793 TPS (1,919 non-vote) at 364.4 ms per slot, epoch 1023 is 19.32% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,015,213 |
-| Block height | 420,063,527 |
-| Epoch | 1023 (18.34% complete) |
-| TPS (all / non-vote) | 4,199.1 / 2,338.7 |
-| Slot time | 366.8 ms |
+| Slot | 442,019,467 |
+| Block height | 420,067,781 |
+| Epoch | 1023 (19.32% complete) |
+| TPS (all / non-vote) | 3,793.1 / 1,919.3 |
+| Slot time | 364.4 ms |
 | Node version | 4.2.0 |
 
 ## Validators
@@ -35,25 +35,25 @@ The chain looks healthy: 4,199 TPS (2,339 non-vote) at 366.8 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $101.47 (+4.7% 24h), $5.78B locked, $2.49B traded on DEXs.
+A moving day: SOL at $100.98 (+4.0% 24h), $5.78B locked, $2.49B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $101.47 (+4.7% 24h) |
-| Market cap | $59.27B |
+| SOL price | $100.98 (+4.0% 24h) |
+| Market cap | $58.97B |
 | TVL | $5.78B |
 | DEX volume 24h | $2.49B (-15.1% 1d) |
 | Chain fees 24h | $13.83M |
-| Real economic value 24h | $5.83M |
+| Real economic value 24h | $5.82M |
 | Stablecoin supply | $15.82B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 584,063,045 SOL |
+| Circulating | 584,063,029 SOL |
 | Non-circulating | 48,906,816 SOL |
-| Total | 632,969,861 SOL |
+| Total | 632,969,845 SOL |
 
 ## Ecosystem
 
@@ -69,11 +69,6 @@ Recent agave client releases:
 
 Recently accepted SIMDs (upcoming protocol changes):
 
-- SIMD-0553: Resource and Inclusion Fee · 2026-07-20
-- SIMD-0550: Double disinflation · 2026-07-23
-- re-amend SIMD-0340: additional inter- and intra- validation · 2026-07-31
-- SIMD-0433: Loader V3: Set Program Data to ELF Length · 2026-07-31
-- SIMD-0266: Efficient Token program · 2026-03-13
 
 ## Sources
 
