@@ -61,6 +61,8 @@ jobs:
   keepalive:
     needs: pulse
     if: always() && github.event_name != 'schedule'
+    permissions:
+      actions: write   # create the workflow_dispatch event; default token lacks it (403)
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
