@@ -1,41 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-27T16:41:09+00:00",
-  "generated_ts": 1787848869,
+  "generated_at": "2026-08-28T01:05:25+00:00",
+  "generated_ts": 1787879125,
   "baseline": {
-    "runs": 32,
+    "runs": 33,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
       "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 13.3% in 24h to $108.34. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +13.3%, threshold warn>=8% crit>=15%"
+      "headline": "SOL is up 8.4% in 24h to $109.28. Moves this size usually have a cause worth knowing.",
+      "detail": "24h change +8.4%, threshold warn>=8% crit>=15%"
     },
     {
-      "severity": "warn",
-      "metric": "validators.delinquent_stake_pct",
-      "headline": "Delinquent stake spiked to 1%, 5.3 standard deviations above its recent norm of 0%.",
-      "detail": "baseline n=31, mean=0.1, current=0.9, z=+5.35"
+      "severity": "info",
+      "metric": "economics.tvl_usd",
+      "headline": "TVL spiked to 6,008,382,169 USD, 3.3 standard deviations above its recent norm of 5,811,995,114 USD.",
+      "detail": "baseline n=32, mean=5,811,995,113.8, current=6,008,382,169.0, z=+3.33"
+    },
+    {
+      "severity": "info",
+      "metric": "economics.stablecoin_supply_usd",
+      "headline": "Stablecoin supply spiked to 15,928,996,666 USD, 4.3 standard deviations above its recent norm of 15,814,719,751 USD.",
+      "detail": "baseline n=32, mean=15,814,719,751.1, current=15,928,996,666.0, z=+4.31"
+    },
+    {
+      "severity": "info",
+      "metric": "economics.rev_24h_usd",
+      "headline": "Real economic value spiked to 6,596,337 USD, 2.5 standard deviations above its recent norm of 6,117,579 USD.",
+      "detail": "baseline n=27, mean=6,117,579.1, current=6,596,337.0, z=+2.51"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 442144567,
-    "block_height": 420192826,
+    "slot": 442227001,
+    "block_height": 420275176,
     "epoch": 1023,
-    "epoch_progress_pct": 48.28,
-    "tx_count_total": 542443470811,
-    "tps": 4774.4,
-    "nonvote_tps": 2904.1,
-    "slot_time_ms": 364.9,
-    "node_version": "4.2.0"
+    "epoch_progress_pct": 67.36,
+    "tx_count_total": 542578782418,
+    "tps": 4114.7,
+    "nonvote_tps": 2252.4,
+    "slot_time_ms": 367.3,
+    "node_version": "4.2.1"
   },
   "validators": {
-    "active": 687,
-    "delinquent": 10,
-    "delinquent_stake_pct": 0.91,
+    "active": 688,
+    "delinquent": 9,
+    "delinquent_stake_pct": 0.01,
     "total_stake_sol": 436884837,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -104,21 +116,21 @@
     ]
   },
   "supply": {
-    "total_sol": 632969384,
-    "circulating_sol": 584062568,
-    "non_circulating_sol": 48906816
+    "total_sol": 632969028,
+    "circulating_sol": 584062218,
+    "non_circulating_sol": 48906810
   },
   "economics": {
-    "sol_price_usd": 108.34,
-    "sol_24h_change_pct": 13.29,
-    "market_cap_usd": 63261260373,
-    "volume_24h_usd": 6626452252,
-    "tvl_usd": 5913571371,
-    "dex_volume_24h_usd": 2351677355,
-    "dex_volume_change_1d_pct": -19.87,
-    "chain_fees_24h_usd": 15169689,
-    "stablecoin_supply_usd": 15814191166,
-    "rev_24h_usd": 6283143
+    "sol_price_usd": 109.28,
+    "sol_24h_change_pct": 8.43,
+    "market_cap_usd": 63791128909,
+    "volume_24h_usd": 7042461490,
+    "tvl_usd": 6008382169,
+    "dex_volume_24h_usd": 2529727697,
+    "dex_volume_change_1d_pct": 7.57,
+    "chain_fees_24h_usd": 15617399,
+    "stablecoin_supply_usd": 15928996666,
+    "rev_24h_usd": 6596337
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -154,7 +166,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2676760,
     "daily_active_wallets_date": "2026-08-26",
-    "daily_active_wallets_fetched_at": 1787836022
+    "daily_active_wallets_fetched_at": 1787879139
   },
   "sources": {
     "solana_rpc_network": "ok",
