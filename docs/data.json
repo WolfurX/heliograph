@@ -1,53 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-28T01:05:25+00:00",
-  "generated_ts": 1787879125,
+  "generated_at": "2026-08-28T12:42:36+00:00",
+  "generated_ts": 1787920956,
   "baseline": {
-    "runs": 33,
+    "runs": 34,
     "status": "active"
   },
   "anomalies": [
     {
-      "severity": "warn",
-      "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 8.4% in 24h to $109.28. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +8.4%, threshold warn>=8% crit>=15%"
-    },
-    {
-      "severity": "info",
-      "metric": "economics.tvl_usd",
-      "headline": "TVL spiked to 6,008,382,169 USD, 3.3 standard deviations above its recent norm of 5,811,995,114 USD.",
-      "detail": "baseline n=32, mean=5,811,995,113.8, current=6,008,382,169.0, z=+3.33"
-    },
-    {
       "severity": "info",
       "metric": "economics.stablecoin_supply_usd",
-      "headline": "Stablecoin supply spiked to 15,928,996,666 USD, 4.3 standard deviations above its recent norm of 15,814,719,751 USD.",
-      "detail": "baseline n=32, mean=15,814,719,751.1, current=15,928,996,666.0, z=+4.31"
+      "headline": "Stablecoin supply spiked to 15,928,382,248 USD, 3.4 standard deviations above its recent norm of 15,818,182,688 USD.",
+      "detail": "baseline n=33, mean=15,818,182,687.9, current=15,928,382,248.0, z=+3.36"
+    },
+    {
+      "severity": "info",
+      "metric": "economics.dex_volume_24h_usd",
+      "headline": "DEX volume spiked to 3,700,129,858 USD, 19.0 standard deviations above its recent norm of 2,443,005,469 USD.",
+      "detail": "baseline n=33, mean=2,443,005,469.0, current=3,700,129,858.0, z=+19.01"
     },
     {
       "severity": "info",
       "metric": "economics.rev_24h_usd",
-      "headline": "Real economic value spiked to 6,596,337 USD, 2.5 standard deviations above its recent norm of 6,117,579 USD.",
-      "detail": "baseline n=27, mean=6,117,579.1, current=6,596,337.0, z=+2.51"
+      "headline": "Real economic value spiked to 7,527,901 USD, 6.7 standard deviations above its recent norm of 6,134,678 USD.",
+      "detail": "baseline n=28, mean=6,134,677.6, current=7,527,901.0, z=+6.71"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 442227001,
-    "block_height": 420275176,
+    "slot": 442341427,
+    "block_height": 420389573,
     "epoch": 1023,
-    "epoch_progress_pct": 67.36,
-    "tx_count_total": 542578782418,
-    "tps": 4114.7,
-    "nonvote_tps": 2252.4,
+    "epoch_progress_pct": 93.85,
+    "tx_count_total": 542725345576,
+    "tps": 3699.1,
+    "nonvote_tps": 1834.9,
     "slot_time_ms": 367.3,
     "node_version": "4.2.1"
   },
   "validators": {
-    "active": 688,
-    "delinquent": 9,
-    "delinquent_stake_pct": 0.01,
+    "active": 687,
+    "delinquent": 10,
+    "delinquent_stake_pct": 0.02,
     "total_stake_sol": 436884837,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -116,27 +110,32 @@
     ]
   },
   "supply": {
-    "total_sol": 632969028,
-    "circulating_sol": 584062218,
+    "total_sol": 632968641,
+    "circulating_sol": 584061831,
     "non_circulating_sol": 48906810
   },
   "economics": {
-    "sol_price_usd": 109.28,
-    "sol_24h_change_pct": 8.43,
-    "market_cap_usd": 63791128909,
-    "volume_24h_usd": 7042461490,
-    "tvl_usd": 6008382169,
-    "dex_volume_24h_usd": 2529727697,
-    "dex_volume_change_1d_pct": 7.57,
-    "chain_fees_24h_usd": 15617399,
-    "stablecoin_supply_usd": 15928996666,
-    "rev_24h_usd": 6596337
+    "sol_price_usd": 104.91,
+    "sol_24h_change_pct": 0.54,
+    "market_cap_usd": 61313087649,
+    "volume_24h_usd": 5943687446,
+    "tvl_usd": 5916943074,
+    "dex_volume_24h_usd": 3700129858,
+    "dex_volume_change_1d_pct": 57.34,
+    "chain_fees_24h_usd": 16186343,
+    "stablecoin_supply_usd": 15928382248,
+    "rev_24h_usd": 7527901
   },
   "ecosystem": {
     "status_indicator": "none",
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.4.0-alpha.2",
+        "date": "2026-08-28",
+        "prerelease": true
+      },
       {
         "tag": "v4.3.0-beta.2",
         "date": "2026-08-21",
@@ -156,17 +155,12 @@
         "tag": "v4.3.0-beta.0",
         "date": "2026-08-14",
         "prerelease": true
-      },
-      {
-        "tag": "v4.2.0",
-        "date": "2026-08-07",
-        "prerelease": false
       }
     ],
     "recent_simds": [],
     "daily_active_wallets": 2676760,
     "daily_active_wallets_date": "2026-08-26",
-    "daily_active_wallets_fetched_at": 1787879139
+    "daily_active_wallets_fetched_at": 1787920966
   },
   "sources": {
     "solana_rpc_network": "ok",
