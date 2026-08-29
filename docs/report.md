@@ -1,36 +1,36 @@
 # Heliograph
 
-Solana state report · generated 2026-08-29 04:06 UTC · run #36 · baseline active
+Solana state report · generated 2026-08-29 11:01 UTC · run #37 · baseline active
 
 ## What needs your attention
 
-- 🔵 **Slot time dropped to 316 ms, 5.9 standard deviations below its recent norm of 364 ms.**
-  - evidence: baseline n=35, mean=364.2, current=315.9, z=-5.94
-- 🔵 **Stablecoin supply spiked to 15,926,070,103 USD, 2.7 standard deviations above its recent norm of 15,823,329,342 USD.**
-  - evidence: baseline n=35, mean=15,823,329,342.5, current=15,926,070,103.0, z=+2.66
+- 🔵 **Slot time dropped to 316 ms, 4.1 standard deviations below its recent norm of 363 ms.**
+  - evidence: baseline n=36, mean=362.8, current=316.2, z=-4.11
+- 🔵 **Stablecoin supply spiked to 15,952,317,887 USD, 3.0 standard deviations above its recent norm of 15,826,183,252 USD.**
+  - evidence: baseline n=36, mean=15,826,183,252.5, current=15,952,317,887.0, z=+3.02
 
 ## Network
 
-The chain looks healthy: 3,990 TPS (1,827 non-vote) at 315.9 ms per slot, epoch 1024 is 33.22% done.
+The chain looks healthy: 3,233 TPS (1,068 non-vote) at 316.2 ms per slot, epoch 1024 is 51.41% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,511,494 |
-| Block height | 420,559,436 |
-| Epoch | 1024 (33.22% complete) |
-| TPS (all / non-vote) | 3,990.1 / 1,826.7 |
-| Slot time | 315.9 ms |
+| Slot | 442,590,076 |
+| Block height | 420,637,974 |
+| Epoch | 1024 (51.41% complete) |
+| TPS (all / non-vote) | 3,232.8 / 1,067.7 |
+| Slot time | 316.2 ms |
 | Node version | 4.2.1 |
 
 ## Validators
 
-685 validators are voting, 12 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+689 validators are voting, 8 are delinquent (0% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 685 / 12 |
-| Delinquent stake | 0.04% |
+| Active / delinquent | 689 / 8 |
+| Delinquent stake | 0.0% |
 | Total stake | 436,134,289 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -38,25 +38,25 @@ The chain looks healthy: 3,990 TPS (1,827 non-vote) at 315.9 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $103.85 (-2.9% 24h), $5.87B locked, $2.62B traded on DEXs.
+A quiet day: SOL at $103.51 (-2.5% 24h), $5.85B locked, $2.59B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $103.85 (-2.9% 24h) |
-| Market cap | $60.66B |
-| TVL | $5.87B |
-| DEX volume 24h | $2.62B (-29.3% 1d) |
-| Chain fees 24h | $15.45M |
+| SOL price | $103.51 (-2.5% 24h) |
+| Market cap | $60.47B |
+| TVL | $5.85B |
+| DEX volume 24h | $2.59B (-30.0% 1d) |
+| Chain fees 24h | $15.47M |
 | Real economic value 24h | $6.46M |
-| Stablecoin supply | $15.93B |
+| Stablecoin supply | $15.95B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 584,161,860 SOL |
+| Circulating | 584,161,629 SOL |
 | Non-circulating | 48,917,540 SOL |
-| Total | 633,079,400 SOL |
+| Total | 633,079,169 SOL |
 
 ## Ecosystem
 
