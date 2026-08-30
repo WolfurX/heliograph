@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T19:25:18+00:00",
-  "generated_ts": 1788117918,
+  "generated_at": "2026-08-30T22:01:29+00:00",
+  "generated_ts": 1788127289,
   "baseline": {
-    "runs": 45,
+    "runs": 46,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 442958063,
-    "block_height": 421005819,
+    "slot": 442987521,
+    "block_height": 421035273,
     "epoch": 1025,
-    "epoch_progress_pct": 36.59,
-    "tx_count_total": 543512937638,
-    "tps": 4194.0,
-    "nonvote_tps": 2068.1,
-    "slot_time_ms": 318.0,
-    "node_version": "4.3.0-beta.2"
+    "epoch_progress_pct": 43.41,
+    "tx_count_total": 543551959134,
+    "tps": 3823.9,
+    "nonvote_tps": 1686.0,
+    "slot_time_ms": 316.6,
+    "node_version": "4.2.1"
   },
   "validators": {
     "active": 679,
@@ -91,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 633173438,
-    "circulating_sol": 585121755,
+    "total_sol": 633173336,
+    "circulating_sol": 585121652,
     "non_circulating_sol": 48051683
   },
   "economics": {
-    "sol_price_usd": 106.39,
-    "sol_24h_change_pct": 0.73,
-    "market_cap_usd": 62249346926,
-    "volume_24h_usd": 2398839924,
-    "tvl_usd": 5955970301,
+    "sol_price_usd": 104.43,
+    "sol_24h_change_pct": -0.56,
+    "market_cap_usd": 61101661390,
+    "volume_24h_usd": 2588962082,
+    "tvl_usd": 5930355716,
     "dex_volume_24h_usd": 1670710752,
     "dex_volume_change_1d_pct": -35.51,
     "chain_fees_24h_usd": 11213987,
-    "stablecoin_supply_usd": 15782299529,
+    "stablecoin_supply_usd": 15761749225,
     "rev_24h_usd": 5061129
   },
   "ecosystem": {
@@ -139,9 +139,9 @@
       }
     ],
     "recent_simds": [],
-    "daily_active_wallets": 2455291,
-    "daily_active_wallets_date": "2026-08-28",
-    "daily_active_wallets_fetched_at": 1788107751
+    "daily_active_wallets": 2214977,
+    "daily_active_wallets_date": "2026-08-29",
+    "daily_active_wallets_fetched_at": 1788127302
   },
   "sources": {
     "solana_rpc_network": "ok",

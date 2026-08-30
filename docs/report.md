@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-08-30 19:25 UTC · run #45 · baseline active
+Solana state report · generated 2026-08-30 22:01 UTC · run #46 · baseline active
 
 ## What needs your attention
 
@@ -8,17 +8,17 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 4,194 TPS (2,068 non-vote) at 318.0 ms per slot, epoch 1025 is 36.59% done.
+The chain looks healthy: 3,824 TPS (1,686 non-vote) at 316.6 ms per slot, epoch 1025 is 43.41% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 442,958,063 |
-| Block height | 421,005,819 |
-| Epoch | 1025 (36.59% complete) |
-| TPS (all / non-vote) | 4,194.0 / 2,068.1 |
-| Slot time | 318.0 ms |
-| Node version | 4.3.0-beta.2 |
+| Slot | 442,987,521 |
+| Block height | 421,035,273 |
+| Epoch | 1025 (43.41% complete) |
+| TPS (all / non-vote) | 3,823.9 / 1,686.0 |
+| Slot time | 316.6 ms |
+| Node version | 4.2.1 |
 
 ## Validators
 
@@ -35,31 +35,31 @@ The chain looks healthy: 4,194 TPS (2,068 non-vote) at 318.0 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $106.39 (+0.7% 24h), $5.96B locked, $1.67B traded on DEXs.
+A quiet day: SOL at $104.43 (-0.6% 24h), $5.93B locked, $1.67B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $106.39 (+0.7% 24h) |
-| Market cap | $62.25B |
-| TVL | $5.96B |
+| SOL price | $104.43 (-0.6% 24h) |
+| Market cap | $61.10B |
+| TVL | $5.93B |
 | DEX volume 24h | $1.67B (-35.5% 1d) |
 | Chain fees 24h | $11.21M |
 | Real economic value 24h | $5.06M |
-| Stablecoin supply | $15.78B |
+| Stablecoin supply | $15.76B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,121,755 SOL |
+| Circulating | 585,121,652 SOL |
 | Non-circulating | 48,051,683 SOL |
-| Total | 633,173,438 SOL |
+| Total | 633,173,336 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,455,291 (2026-08-28, via Dune).
+Daily active wallets: 2,214,977 (2026-08-29, via Dune).
 
 Recent agave client releases:
 
