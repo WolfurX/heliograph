@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-02 00:59 UTC · run #58 · baseline active
+Solana state report · generated 2026-09-02 05:41 UTC · run #59 · baseline active
 
 ## What needs your attention
 
-- 🟠 **Stablecoin supply dropped to 15,469,936,346 USD, 4.1 standard deviations below its recent norm of 15,806,968,366 USD.**
-  - evidence: baseline n=57, mean=15,806,968,366.3, current=15,469,936,346.0, z=-4.08
+- 🟠 **Stablecoin supply dropped to 15,497,244,637 USD, 3.3 standard deviations below its recent norm of 15,801,157,469 USD.**
+  - evidence: baseline n=58, mean=15,801,157,469.4, current=15,497,244,637.0, z=-3.27
 
 ## Network
 
-The chain looks healthy: 3,575 TPS (1,437 non-vote) at 315.9 ms per slot, epoch 1026 is 77.16% done.
+The chain looks healthy: 3,369 TPS (1,208 non-vote) at 312.4 ms per slot, epoch 1026 is 89.61% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 443,565,352 |
-| Block height | 421,612,847 |
-| Epoch | 1026 (77.16% complete) |
-| TPS (all / non-vote) | 3,575.4 / 1,437.4 |
-| Slot time | 315.9 ms |
+| Slot | 443,619,111 |
+| Block height | 421,666,598 |
+| Epoch | 1026 (89.61% complete) |
+| TPS (all / non-vote) | 3,368.9 / 1,208.0 |
+| Slot time | 312.4 ms |
 | Node version | 4.2.1 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 3,575 TPS (1,437 non-vote) at 315.9 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $99.75 (-3.3% 24h), $5.68B locked, $2.47B traded on DEXs.
+A moving day: SOL at $100.16 (-3.7% 24h), $5.69B locked, $2.25B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $99.75 (-3.3% 24h) |
-| Market cap | $58.38B |
-| TVL | $5.68B |
-| DEX volume 24h | $2.47B (-1.1% 1d) |
-| Chain fees 24h | $14.36M |
-| Real economic value 24h | $5.80M |
-| Stablecoin supply | $15.47B |
+| SOL price | $100.16 (-3.7% 24h) |
+| Market cap | $58.62B |
+| TVL | $5.69B |
+| DEX volume 24h | $2.25B (-10.2% 1d) |
+| Chain fees 24h | $12.27M |
+| Real economic value 24h | $5.53M |
+| Stablecoin supply | $15.50B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,206,350 SOL |
+| Circulating | 585,206,180 SOL |
 | Non-circulating | 48,060,430 SOL |
-| Total | 633,266,781 SOL |
+| Total | 633,266,610 SOL |
 
 ## Ecosystem
 
