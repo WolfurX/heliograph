@@ -1,35 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-02T15:15:47+00:00",
-  "generated_ts": 1788362147,
+  "generated_at": "2026-09-02T18:55:43+00:00",
+  "generated_ts": 1788375343,
   "baseline": {
-    "runs": 61,
+    "runs": 62,
     "status": "active"
   },
-  "anomalies": [
-    {
-      "severity": "warn",
-      "metric": "economics.tvl_usd",
-      "headline": "TVL dropped to 5,622,784,841 USD, 2.7 standard deviations below its recent norm of 5,829,985,329 USD.",
-      "detail": "baseline n=60, mean=5,829,985,329.3, current=5,622,784,841.0, z=-2.66"
-    }
-  ],
+  "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 443728673,
-    "block_height": 421776076,
+    "slot": 443770448,
+    "block_height": 421817812,
     "epoch": 1027,
-    "epoch_progress_pct": 14.97,
-    "tx_count_total": 544477225629,
-    "tps": 3939.1,
-    "nonvote_tps": 1796.5,
-    "slot_time_ms": 314.7,
+    "epoch_progress_pct": 24.64,
+    "tx_count_total": 544534336182,
+    "tps": 4102.8,
+    "nonvote_tps": 1972.1,
+    "slot_time_ms": 315.5,
     "node_version": "4.2.1"
   },
   "validators": {
-    "active": 676,
-    "delinquent": 19,
-    "delinquent_stake_pct": 0.19,
+    "active": 675,
+    "delinquent": 20,
+    "delinquent_stake_pct": 0.11,
     "total_stake_sol": 438422357,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -98,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 633361652,
-    "circulating_sol": 585292287,
-    "non_circulating_sol": 48069366
+    "total_sol": 633361502,
+    "circulating_sol": 585275444,
+    "non_circulating_sol": 48086058
   },
   "economics": {
-    "sol_price_usd": 98.56,
-    "sol_24h_change_pct": -2.78,
-    "market_cap_usd": 57701936249,
-    "volume_24h_usd": 3240091194,
-    "tvl_usd": 5622784841,
+    "sol_price_usd": 99.4,
+    "sol_24h_change_pct": 0.04,
+    "market_cap_usd": 58175832368,
+    "volume_24h_usd": 3099847218,
+    "tvl_usd": 5668367462,
     "dex_volume_24h_usd": 2171560050,
     "dex_volume_change_1d_pct": -13.19,
     "chain_fees_24h_usd": 12641816,
-    "stablecoin_supply_usd": 15594092956,
+    "stablecoin_supply_usd": 15541647829,
     "rev_24h_usd": 5788783
   },
   "ecosystem": {
