@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-03 17:48 UTC · run #68 · baseline active
+Solana state report · generated 2026-09-03 20:55 UTC · run #69 · baseline active
 
 ## What needs your attention
 
-- 🟠 **Real economic value dropped to 4,052,772 USD, 3.0 standard deviations below its recent norm of 5,875,188 USD.**
-  - evidence: baseline n=62, mean=5,875,188.5, current=4,052,772.0, z=-2.98
+- 🟠 **Real economic value dropped to 4,052,772 USD, 2.8 standard deviations below its recent norm of 5,846,261 USD.**
+  - evidence: baseline n=63, mean=5,846,261.2, current=4,052,772.0, z=-2.77
 
 ## Network
 
-The chain looks healthy: 4,221 TPS (2,100 non-vote) at 316.8 ms per slot, epoch 1027 is 85.18% done.
+The chain looks healthy: 3,902 TPS (1,790 non-vote) at 316.9 ms per slot, epoch 1027 is 93.42% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,031,986 |
-| Block height | 422,078,822 |
-| Epoch | 1027 (85.18% complete) |
-| TPS (all / non-vote) | 4,220.9 / 2,099.5 |
-| Slot time | 316.8 ms |
+| Slot | 444,067,595 |
+| Block height | 422,114,275 |
+| Epoch | 1027 (93.42% complete) |
+| TPS (all / non-vote) | 3,902.4 / 1,790.0 |
+| Slot time | 316.9 ms |
 | Node version | 4.2.2 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 4,221 TPS (2,100 non-vote) at 316.8 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $105.04 (+6.0% 24h), $5.89B locked, $2.29B traded on DEXs.
+A moving day: SOL at $105.04 (+5.3% 24h), $5.97B locked, $2.29B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $105.04 (+6.0% 24h) |
-| Market cap | $61.45B |
-| TVL | $5.89B |
+| SOL price | $105.04 (+5.3% 24h) |
+| Market cap | $61.48B |
+| TVL | $5.97B |
 | DEX volume 24h | $2.29B (+5.4% 1d) |
 | Chain fees 24h | $10.54M |
 | Real economic value 24h | $4.05M |
-| Stablecoin supply | $15.88B |
+| Stablecoin supply | $15.93B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,274,656 SOL |
+| Circulating | 585,274,533 SOL |
 | Non-circulating | 48,086,036 SOL |
-| Total | 633,360,692 SOL |
+| Total | 633,360,569 SOL |
 
 ## Ecosystem
 
@@ -64,11 +64,11 @@ Daily active wallets: 2,495,940 (2026-09-01, via Dune).
 
 Recent agave client releases:
 
+- v4.4.0-alpha.3 (pre-release) · 2026-09-03
 - v4.4.0-alpha.2 (pre-release) · 2026-08-28
 - v4.3.0-beta.3 (pre-release) · 2026-08-28
 - v4.2.2 · 2026-08-28
 - v4.3.0-beta.2 (pre-release) · 2026-08-21
-- v4.3.0-beta.1 (pre-release) · 2026-08-21
 
 Recently accepted SIMDs (upcoming protocol changes):
 
