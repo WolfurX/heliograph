@@ -1,34 +1,27 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-04T21:24:11+00:00",
-  "generated_ts": 1788557051,
+  "generated_at": "2026-09-04T23:14:21+00:00",
+  "generated_ts": 1788563661,
   "baseline": {
-    "runs": 76,
+    "runs": 77,
     "status": "active"
   },
-  "anomalies": [
-    {
-      "severity": "info",
-      "metric": "economics.stablecoin_supply_usd",
-      "headline": "Stablecoin supply spiked to 16,442,668,575 USD, 3.7 standard deviations above its recent norm of 15,819,553,146 USD.",
-      "detail": "baseline n=75, mean=15,819,553,146.5, current=16,442,668,575.0, z=+3.66"
-    }
-  ],
+  "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 444346959,
-    "block_height": 422392336,
+    "slot": 444367946,
+    "block_height": 422413211,
     "epoch": 1028,
-    "epoch_progress_pct": 58.09,
-    "tx_count_total": 545206244783,
-    "tps": 3408.3,
-    "nonvote_tps": 1269.7,
-    "slot_time_ms": 314.8,
+    "epoch_progress_pct": 62.95,
+    "tx_count_total": 545228499203,
+    "tps": 3209.3,
+    "nonvote_tps": 1083.7,
+    "slot_time_ms": 315.5,
     "node_version": "4.2.2"
   },
   "validators": {
-    "active": 678,
-    "delinquent": 17,
+    "active": 677,
+    "delinquent": 18,
     "delinquent_stake_pct": 0.03,
     "total_stake_sol": 436898866,
     "nakamoto_coefficient": 18,
@@ -98,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 633455032,
-    "circulating_sol": 585360007,
+    "total_sol": 633454973,
+    "circulating_sol": 585359948,
     "non_circulating_sol": 48095025
   },
   "economics": {
-    "sol_price_usd": 101.86,
-    "sol_24h_change_pct": -3.13,
-    "market_cap_usd": 59622073192,
-    "volume_24h_usd": 3639019941,
-    "tvl_usd": 5845783667,
+    "sol_price_usd": 101.82,
+    "sol_24h_change_pct": -2.11,
+    "market_cap_usd": 59600145986,
+    "volume_24h_usd": 3459320759,
+    "tvl_usd": 5835021706,
     "dex_volume_24h_usd": 2459540364,
     "dex_volume_change_1d_pct": 7.44,
     "chain_fees_24h_usd": 11820876,
-    "stablecoin_supply_usd": 16442668575,
+    "stablecoin_supply_usd": 16282796248,
     "rev_24h_usd": 4610506
   },
   "ecosystem": {
