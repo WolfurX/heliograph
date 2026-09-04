@@ -1,29 +1,29 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-04T11:41:06+00:00",
-  "generated_ts": 1788522066,
+  "generated_at": "2026-09-04T16:15:36+00:00",
+  "generated_ts": 1788538536,
   "baseline": {
-    "runs": 73,
+    "runs": 74,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "info",
       "metric": "economics.stablecoin_supply_usd",
-      "headline": "Stablecoin supply spiked to 16,208,662,359 USD, 3.0 standard deviations above its recent norm of 15,798,965,435 USD.",
-      "detail": "baseline n=72, mean=15,798,965,435.0, current=16,208,662,359.0, z=+2.95"
+      "headline": "Stablecoin supply spiked to 16,350,484,939 USD, 3.7 standard deviations above its recent norm of 15,804,577,722 USD.",
+      "detail": "baseline n=73, mean=15,804,577,721.7, current=16,350,484,939.0, z=+3.74"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 444236182,
-    "block_height": 422282141,
+    "slot": 444288245,
+    "block_height": 422333952,
     "epoch": 1028,
-    "epoch_progress_pct": 32.45,
-    "tx_count_total": 545069581420,
-    "tps": 3262.8,
-    "nonvote_tps": 1139.3,
-    "slot_time_ms": 315.0,
+    "epoch_progress_pct": 44.5,
+    "tx_count_total": 545138055632,
+    "tps": 3818.5,
+    "nonvote_tps": 1701.2,
+    "slot_time_ms": 316.2,
     "node_version": "4.2.2"
   },
   "validators": {
@@ -98,27 +98,32 @@
     ]
   },
   "supply": {
-    "total_sol": 633455392,
-    "circulating_sol": 585360367,
+    "total_sol": 633455212,
+    "circulating_sol": 585360186,
     "non_circulating_sol": 48095025
   },
   "economics": {
-    "sol_price_usd": 104.43,
-    "sol_24h_change_pct": 3.59,
-    "market_cap_usd": 61154309505,
-    "volume_24h_usd": 4251129547,
-    "tvl_usd": 5898956274,
+    "sol_price_usd": 101.56,
+    "sol_24h_change_pct": -2.62,
+    "market_cap_usd": 59442212882,
+    "volume_24h_usd": 3969202203,
+    "tvl_usd": 5805694033,
     "dex_volume_24h_usd": 2459540364,
     "dex_volume_change_1d_pct": 7.44,
-    "chain_fees_24h_usd": 11709722,
-    "stablecoin_supply_usd": 16208662359,
-    "rev_24h_usd": 4604984
+    "chain_fees_24h_usd": 11819564,
+    "stablecoin_supply_usd": 16350484939,
+    "rev_24h_usd": 4610506
   },
   "ecosystem": {
     "status_indicator": "none",
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.3.0-rc.0",
+        "date": "2026-09-04",
+        "prerelease": true
+      },
       {
         "tag": "v4.4.0-alpha.3",
         "date": "2026-09-03",
@@ -138,17 +143,12 @@
         "tag": "v4.2.2",
         "date": "2026-08-28",
         "prerelease": false
-      },
-      {
-        "tag": "v4.3.0-beta.2",
-        "date": "2026-08-21",
-        "prerelease": true
       }
     ],
     "recent_simds": [],
     "daily_active_wallets": 2084915,
     "daily_active_wallets_date": "2026-09-02",
-    "daily_active_wallets_fetched_at": 1788522079
+    "daily_active_wallets_fetched_at": 1788538552
   },
   "sources": {
     "solana_rpc_network": "ok",
