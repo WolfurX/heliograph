@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T06:16:26+00:00",
-  "generated_ts": 1788588986,
+  "generated_at": "2026-09-05T10:53:06+00:00",
+  "generated_ts": 1788605586,
   "baseline": {
-    "runs": 79,
+    "runs": 80,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 444448413,
-    "block_height": 422493250,
+    "slot": 444501158,
+    "block_height": 422545765,
     "epoch": 1028,
-    "epoch_progress_pct": 81.58,
-    "tx_count_total": 545310060390,
-    "tps": 3415.7,
-    "nonvote_tps": 1275.4,
-    "slot_time_ms": 314.5,
+    "epoch_progress_pct": 93.79,
+    "tx_count_total": 545362308681,
+    "tps": 3030.4,
+    "nonvote_tps": 893.0,
+    "slot_time_ms": 313.3,
     "node_version": "4.2.2"
   },
   "validators": {
@@ -91,21 +91,21 @@
     ]
   },
   "supply": {
-    "total_sol": 633454757,
-    "circulating_sol": 585359732,
+    "total_sol": 633454619,
+    "circulating_sol": 585359593,
     "non_circulating_sol": 48095025
   },
   "economics": {
-    "sol_price_usd": 101.9,
-    "sol_24h_change_pct": -1.87,
-    "market_cap_usd": 59646449146,
-    "volume_24h_usd": 3159995779,
-    "tvl_usd": 5857790263,
+    "sol_price_usd": 102.55,
+    "sol_24h_change_pct": -1.34,
+    "market_cap_usd": 60052756227,
+    "volume_24h_usd": 2802296449,
+    "tvl_usd": 5871062623,
     "dex_volume_24h_usd": 1847410950,
     "dex_volume_change_1d_pct": -24.89,
-    "chain_fees_24h_usd": 9536107,
-    "stablecoin_supply_usd": 16252718934,
-    "rev_24h_usd": 4144957
+    "chain_fees_24h_usd": 9538396,
+    "stablecoin_supply_usd": 16271009752,
+    "rev_24h_usd": 4145465
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -141,7 +141,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2432570,
     "daily_active_wallets_date": "2026-09-03",
-    "daily_active_wallets_fetched_at": 1788588997
+    "daily_active_wallets_fetched_at": 1788605596
   },
   "sources": {
     "solana_rpc_network": "ok",
