@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-05 13:49 UTC · run #81 · baseline active
+Solana state report · generated 2026-09-05 16:45 UTC · run #82 · baseline active
 
 ## What needs your attention
 
@@ -8,26 +8,26 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 3,234 TPS (1,115 non-vote) at 316.2 ms per slot, epoch 1029 is 1.57% done.
+The chain looks healthy: 3,417 TPS (1,278 non-vote) at 314.8 ms per slot, epoch 1029 is 9.29% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,534,788 |
-| Block height | 422,579,243 |
-| Epoch | 1029 (1.57% complete) |
-| TPS (all / non-vote) | 3,234.4 / 1,115.1 |
-| Slot time | 316.2 ms |
+| Slot | 444,568,130 |
+| Block height | 422,612,576 |
+| Epoch | 1029 (9.29% complete) |
+| TPS (all / non-vote) | 3,416.6 / 1,278.3 |
+| Slot time | 314.8 ms |
 | Node version | 4.2.2 |
 
 ## Validators
 
-677 validators are voting, 16 are delinquent (0.08% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+676 validators are voting, 17 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 677 / 16 |
-| Delinquent stake | 0.08% |
+| Active / delinquent | 676 / 17 |
+| Delinquent stake | 0.02% |
 | Total stake | 439,248,820 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -35,25 +35,25 @@ The chain looks healthy: 3,234 TPS (1,115 non-vote) at 316.2 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $102.95 (+0.8% 24h), $5.88B locked, $1.88B traded on DEXs.
+A quiet day: SOL at $103.13 (+1.2% 24h), $5.89B locked, $1.88B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $102.95 (+0.8% 24h) |
-| Market cap | $60.27B |
-| TVL | $5.88B |
+| SOL price | $103.13 (+1.2% 24h) |
+| Market cap | $60.39B |
+| TVL | $5.89B |
 | DEX volume 24h | $1.88B (-23.5% 1d) |
-| Chain fees 24h | $10.33M |
+| Chain fees 24h | $10.44M |
 | Real economic value 24h | $4.76M |
-| Stablecoin supply | $16.27B |
+| Stablecoin supply | $16.30B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,446,007 SOL |
-| Non-circulating | 48,103,778 SOL |
-| Total | 633,549,785 SOL |
+| Circulating | 585,445,814 SOL |
+| Non-circulating | 48,103,875 SOL |
+| Total | 633,549,689 SOL |
 
 ## Ecosystem
 
