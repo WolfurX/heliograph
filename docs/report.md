@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-05 21:07 UTC · run #84 · baseline active
+Solana state report · generated 2026-09-05 23:13 UTC · run #85 · baseline active
 
 ## What needs your attention
 
@@ -8,25 +8,25 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 3,460 TPS (1,321 non-vote) at 313.3 ms per slot, epoch 1029 is 20.84% done.
+The chain looks healthy: 3,323 TPS (1,182 non-vote) at 314.4 ms per slot, epoch 1029 is 26.39% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,618,042 |
-| Block height | 422,662,456 |
-| Epoch | 1029 (20.84% complete) |
-| TPS (all / non-vote) | 3,459.7 / 1,321.0 |
-| Slot time | 313.3 ms |
+| Slot | 444,642,024 |
+| Block height | 422,686,430 |
+| Epoch | 1029 (26.39% complete) |
+| TPS (all / non-vote) | 3,322.7 / 1,182.2 |
+| Slot time | 314.4 ms |
 | Node version | 4.2.2 |
 
 ## Validators
 
-675 validators are voting, 18 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+676 validators are voting, 17 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 675 / 18 |
+| Active / delinquent | 676 / 17 |
 | Delinquent stake | 0.02% |
 | Total stake | 439,248,820 SOL |
 | Nakamoto coefficient | 18 |
@@ -40,20 +40,20 @@ A quiet day: SOL at $103.24 (+1.4% 24h), $5.92B locked, $1.88B traded on DEXs.
 | metric | value |
 |---|---|
 | SOL price | $103.24 (+1.4% 24h) |
-| Market cap | $60.46B |
+| Market cap | $60.43B |
 | TVL | $5.92B |
 | DEX volume 24h | $1.88B (-23.5% 1d) |
 | Chain fees 24h | $10.44M |
 | Real economic value 24h | $4.76M |
-| Stablecoin supply | $16.32B |
+| Stablecoin supply | $16.30B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,445,668 SOL |
+| Circulating | 585,445,602 SOL |
 | Non-circulating | 48,103,875 SOL |
-| Total | 633,549,543 SOL |
+| Total | 633,549,477 SOL |
 
 ## Ecosystem
 
