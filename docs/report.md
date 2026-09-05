@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-05 16:45 UTC · run #82 · baseline active
+Solana state report · generated 2026-09-05 18:58 UTC · run #83 · baseline active
 
 ## What needs your attention
 
@@ -8,16 +8,16 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 3,417 TPS (1,278 non-vote) at 314.8 ms per slot, epoch 1029 is 9.29% done.
+The chain looks healthy: 3,352 TPS (1,218 non-vote) at 315.4 ms per slot, epoch 1029 is 15.15% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,568,130 |
-| Block height | 422,612,576 |
-| Epoch | 1029 (9.29% complete) |
-| TPS (all / non-vote) | 3,416.6 / 1,278.3 |
-| Slot time | 314.8 ms |
+| Slot | 444,593,460 |
+| Block height | 422,637,878 |
+| Epoch | 1029 (15.15% complete) |
+| TPS (all / non-vote) | 3,352.5 / 1,217.6 |
+| Slot time | 315.4 ms |
 | Node version | 4.2.2 |
 
 ## Validators
@@ -35,13 +35,13 @@ The chain looks healthy: 3,417 TPS (1,278 non-vote) at 314.8 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $103.13 (+1.2% 24h), $5.89B locked, $1.88B traded on DEXs.
+A quiet day: SOL at $103.85 (+2.2% 24h), $5.90B locked, $1.88B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $103.13 (+1.2% 24h) |
-| Market cap | $60.39B |
-| TVL | $5.89B |
+| SOL price | $103.85 (+2.2% 24h) |
+| Market cap | $60.83B |
+| TVL | $5.90B |
 | DEX volume 24h | $1.88B (-23.5% 1d) |
 | Chain fees 24h | $10.44M |
 | Real economic value 24h | $4.76M |
@@ -51,9 +51,9 @@ A quiet day: SOL at $103.13 (+1.2% 24h), $5.89B locked, $1.88B traded on DEXs.
 
 | metric | value |
 |---|---|
-| Circulating | 585,445,814 SOL |
+| Circulating | 585,445,739 SOL |
 | Non-circulating | 48,103,875 SOL |
-| Total | 633,549,689 SOL |
+| Total | 633,549,614 SOL |
 
 ## Ecosystem
 
