@@ -1,111 +1,111 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T10:53:06+00:00",
-  "generated_ts": 1788605586,
+  "generated_at": "2026-09-05T13:49:37+00:00",
+  "generated_ts": 1788616177,
   "baseline": {
-    "runs": 80,
+    "runs": 81,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 444501158,
-    "block_height": 422545765,
-    "epoch": 1028,
-    "epoch_progress_pct": 93.79,
-    "tx_count_total": 545362308681,
-    "tps": 3030.4,
-    "nonvote_tps": 893.0,
-    "slot_time_ms": 313.3,
+    "slot": 444534788,
+    "block_height": 422579243,
+    "epoch": 1029,
+    "epoch_progress_pct": 1.57,
+    "tx_count_total": 545395217205,
+    "tps": 3234.4,
+    "nonvote_tps": 1115.1,
+    "slot_time_ms": 316.2,
     "node_version": "4.2.2"
   },
   "validators": {
     "active": 677,
-    "delinquent": 18,
-    "delinquent_stake_pct": 0.03,
-    "total_stake_sol": 436898866,
+    "delinquent": 16,
+    "delinquent_stake_pct": 0.08,
+    "total_stake_sol": 439248820,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
     "median_prioritization_fee_microlamports": 0,
     "top_by_stake": [
       {
         "vote_pubkey": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
-        "stake_sol": 17393318,
-        "stake_pct": 3.98,
+        "stake_sol": 17421941,
+        "stake_pct": 3.97,
         "commission": 7
       },
       {
         "vote_pubkey": "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk",
-        "stake_sol": 16324259,
-        "stake_pct": 3.74,
+        "stake_sol": 16321581,
+        "stake_pct": 3.72,
         "commission": 0
       },
       {
         "vote_pubkey": "3N7s9zXMZ4QqvHQR15t5GNHyqc89KduzMP7423eWiD5g",
-        "stake_sol": 12459602,
+        "stake_sol": 12507097,
         "stake_pct": 2.85,
         "commission": 0
       },
       {
         "vote_pubkey": "CatzoSMUkTRidT5DwBxAC2pEtnwMBTpkCepHkFgZDiqb",
-        "stake_sol": 11379843,
-        "stake_pct": 2.6,
+        "stake_sol": 11374756,
+        "stake_pct": 2.59,
         "commission": 5
       },
       {
         "vote_pubkey": "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
-        "stake_sol": 9567623,
-        "stake_pct": 2.19,
+        "stake_sol": 9561892,
+        "stake_pct": 2.18,
         "commission": 0
       },
       {
         "vote_pubkey": "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",
-        "stake_sol": 9278151,
-        "stake_pct": 2.12,
+        "stake_sol": 9268042,
+        "stake_pct": 2.11,
         "commission": 7
       },
       {
         "vote_pubkey": "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
-        "stake_sol": 9042760,
-        "stake_pct": 2.07,
+        "stake_sol": 9037668,
+        "stake_pct": 2.06,
         "commission": 10
       },
       {
         "vote_pubkey": "9QU2QSxhb24FUX3Tu2FpczXjpK3VYrvRudywSZaM29mF",
-        "stake_sol": 7376879,
-        "stake_pct": 1.69,
+        "stake_sol": 7352604,
+        "stake_pct": 1.67,
         "commission": 7
       },
       {
         "vote_pubkey": "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB",
-        "stake_sol": 7127366,
-        "stake_pct": 1.63,
+        "stake_sol": 7128761,
+        "stake_pct": 1.62,
         "commission": 5
       },
       {
         "vote_pubkey": "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a",
-        "stake_sol": 6593517,
-        "stake_pct": 1.51,
+        "stake_sol": 6594606,
+        "stake_pct": 1.5,
         "commission": 0
       }
     ]
   },
   "supply": {
-    "total_sol": 633454619,
-    "circulating_sol": 585359593,
-    "non_circulating_sol": 48095025
+    "total_sol": 633549785,
+    "circulating_sol": 585446007,
+    "non_circulating_sol": 48103778
   },
   "economics": {
-    "sol_price_usd": 102.55,
-    "sol_24h_change_pct": -1.34,
-    "market_cap_usd": 60052756227,
-    "volume_24h_usd": 2802296449,
-    "tvl_usd": 5871062623,
-    "dex_volume_24h_usd": 1847410950,
-    "dex_volume_change_1d_pct": -24.89,
-    "chain_fees_24h_usd": 9538396,
-    "stablecoin_supply_usd": 16271009752,
-    "rev_24h_usd": 4145465
+    "sol_price_usd": 102.95,
+    "sol_24h_change_pct": 0.84,
+    "market_cap_usd": 60273550300,
+    "volume_24h_usd": 2314382800,
+    "tvl_usd": 5876842098,
+    "dex_volume_24h_usd": 1881639252,
+    "dex_volume_change_1d_pct": -23.5,
+    "chain_fees_24h_usd": 10333270,
+    "stablecoin_supply_usd": 16274899694,
+    "rev_24h_usd": 4759426
   },
   "ecosystem": {
     "status_indicator": "none",
