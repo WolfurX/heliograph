@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T01:20:32+00:00",
-  "generated_ts": 1788571232,
+  "generated_at": "2026-09-05T06:16:26+00:00",
+  "generated_ts": 1788588986,
   "baseline": {
-    "runs": 78,
+    "runs": 79,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 444392011,
-    "block_height": 422437116,
+    "slot": 444448413,
+    "block_height": 422493250,
     "epoch": 1028,
-    "epoch_progress_pct": 68.52,
-    "tx_count_total": 545253551945,
-    "tps": 3546.8,
-    "nonvote_tps": 1414.8,
-    "slot_time_ms": 314.0,
+    "epoch_progress_pct": 81.58,
+    "tx_count_total": 545310060390,
+    "tps": 3415.7,
+    "nonvote_tps": 1275.4,
+    "slot_time_ms": 314.5,
     "node_version": "4.2.2"
   },
   "validators": {
@@ -91,21 +91,21 @@
     ]
   },
   "supply": {
-    "total_sol": 633454906,
-    "circulating_sol": 585359881,
+    "total_sol": 633454757,
+    "circulating_sol": 585359732,
     "non_circulating_sol": 48095025
   },
   "economics": {
-    "sol_price_usd": 101.93,
-    "sol_24h_change_pct": -1.68,
-    "market_cap_usd": 59663485891,
-    "volume_24h_usd": 3251524275,
-    "tvl_usd": 5833591002,
-    "dex_volume_24h_usd": 1848928416,
-    "dex_volume_change_1d_pct": -24.83,
-    "chain_fees_24h_usd": 11837562,
-    "stablecoin_supply_usd": 16231647529,
-    "rev_24h_usd": 4599830
+    "sol_price_usd": 101.9,
+    "sol_24h_change_pct": -1.87,
+    "market_cap_usd": 59646449146,
+    "volume_24h_usd": 3159995779,
+    "tvl_usd": 5857790263,
+    "dex_volume_24h_usd": 1847410950,
+    "dex_volume_change_1d_pct": -24.89,
+    "chain_fees_24h_usd": 9536107,
+    "stablecoin_supply_usd": 16252718934,
+    "rev_24h_usd": 4144957
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -141,7 +141,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2432570,
     "daily_active_wallets_date": "2026-09-03",
-    "daily_active_wallets_fetched_at": 1788557068
+    "daily_active_wallets_fetched_at": 1788588997
   },
   "sources": {
     "solana_rpc_network": "ok",
