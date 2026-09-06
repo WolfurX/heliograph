@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-06 06:27 UTC · run #87 · baseline active
+Solana state report · generated 2026-09-06 11:17 UTC · run #88 · baseline active
 
 ## What needs your attention
 
@@ -8,25 +8,25 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 3,378 TPS (1,259 non-vote) at 318.2 ms per slot, epoch 1029 is 45.45% done.
+The chain looks healthy: 3,445 TPS (1,336 non-vote) at 318.9 ms per slot, epoch 1029 is 58.18% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,724,337 |
-| Block height | 422,768,711 |
-| Epoch | 1029 (45.45% complete) |
-| TPS (all / non-vote) | 3,378.0 / 1,259.4 |
-| Slot time | 318.2 ms |
+| Slot | 444,779,351 |
+| Block height | 422,823,713 |
+| Epoch | 1029 (58.18% complete) |
+| TPS (all / non-vote) | 3,445.4 / 1,335.9 |
+| Slot time | 318.9 ms |
 | Node version | 4.2.2 |
 
 ## Validators
 
-677 validators are voting, 16 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+676 validators are voting, 17 are delinquent (0.02% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 677 / 16 |
+| Active / delinquent | 676 / 17 |
 | Delinquent stake | 0.02% |
 | Total stake | 439,248,820 SOL |
 | Nakamoto coefficient | 18 |
@@ -35,25 +35,25 @@ The chain looks healthy: 3,378 TPS (1,259 non-vote) at 318.2 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $105.81 (+3.7% 24h), $5.92B locked, $1.96B traded on DEXs.
+A moving day: SOL at $106.53 (+4.0% 24h), $5.92B locked, $1.96B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $105.81 (+3.7% 24h) |
-| Market cap | $61.95B |
+| SOL price | $106.53 (+4.0% 24h) |
+| Market cap | $62.37B |
 | TVL | $5.92B |
 | DEX volume 24h | $1.96B (+4.2% 1d) |
 | Chain fees 24h | $10.48M |
 | Real economic value 24h | $4.25M |
-| Stablecoin supply | $16.35B |
+| Stablecoin supply | $16.31B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,445,360 SOL |
+| Circulating | 585,445,202 SOL |
 | Non-circulating | 48,103,875 SOL |
-| Total | 633,549,235 SOL |
+| Total | 633,549,077 SOL |
 
 ## Ecosystem
 
