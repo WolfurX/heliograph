@@ -1,110 +1,110 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-06T23:46:27+00:00",
-  "generated_ts": 1788738387,
+  "generated_at": "2026-09-07T04:24:26+00:00",
+  "generated_ts": 1788755066,
   "baseline": {
-    "runs": 93,
+    "runs": 94,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 444921105,
-    "block_height": 422965414,
-    "epoch": 1029,
-    "epoch_progress_pct": 91.0,
-    "tx_count_total": 545834254005,
-    "tps": 3699.2,
-    "nonvote_tps": 1561.8,
-    "slot_time_ms": 314.7,
+    "slot": 444973613,
+    "block_height": 423017891,
+    "epoch": 1030,
+    "epoch_progress_pct": 3.15,
+    "tx_count_total": 545900638428,
+    "tps": 3638.0,
+    "nonvote_tps": 1514.0,
+    "slot_time_ms": 316.6,
     "node_version": "4.2.2"
   },
   "validators": {
     "active": 677,
-    "delinquent": 16,
+    "delinquent": 11,
     "delinquent_stake_pct": 0.01,
-    "total_stake_sol": 439248820,
+    "total_stake_sol": 439477988,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
     "median_prioritization_fee_microlamports": 0,
     "top_by_stake": [
       {
         "vote_pubkey": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
-        "stake_sol": 17421941,
+        "stake_sol": 17438541,
         "stake_pct": 3.97,
         "commission": 7
       },
       {
         "vote_pubkey": "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk",
-        "stake_sol": 16321581,
+        "stake_sol": 16336964,
         "stake_pct": 3.72,
         "commission": 0
       },
       {
         "vote_pubkey": "3N7s9zXMZ4QqvHQR15t5GNHyqc89KduzMP7423eWiD5g",
-        "stake_sol": 12507097,
+        "stake_sol": 12517399,
         "stake_pct": 2.85,
         "commission": 0
       },
       {
         "vote_pubkey": "CatzoSMUkTRidT5DwBxAC2pEtnwMBTpkCepHkFgZDiqb",
-        "stake_sol": 11374756,
+        "stake_sol": 11397824,
         "stake_pct": 2.59,
         "commission": 5
       },
       {
         "vote_pubkey": "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
-        "stake_sol": 9561892,
+        "stake_sol": 9564412,
         "stake_pct": 2.18,
         "commission": 0
       },
       {
         "vote_pubkey": "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",
-        "stake_sol": 9268042,
-        "stake_pct": 2.11,
+        "stake_sol": 9181909,
+        "stake_pct": 2.09,
         "commission": 7
       },
       {
         "vote_pubkey": "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
-        "stake_sol": 9037668,
+        "stake_sol": 9038443,
         "stake_pct": 2.06,
         "commission": 10
       },
       {
         "vote_pubkey": "9QU2QSxhb24FUX3Tu2FpczXjpK3VYrvRudywSZaM29mF",
-        "stake_sol": 7352604,
-        "stake_pct": 1.67,
+        "stake_sol": 7384461,
+        "stake_pct": 1.68,
         "commission": 7
       },
       {
         "vote_pubkey": "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB",
-        "stake_sol": 7128761,
-        "stake_pct": 1.62,
+        "stake_sol": 6858929,
+        "stake_pct": 1.56,
         "commission": 5
       },
       {
         "vote_pubkey": "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a",
-        "stake_sol": 6594606,
+        "stake_sol": 6595421,
         "stake_pct": 1.5,
         "commission": 0
       }
     ]
   },
   "supply": {
-    "total_sol": 633548625,
-    "circulating_sol": 585444749,
-    "non_circulating_sol": 48103875
+    "total_sol": 633643654,
+    "circulating_sol": 586166508,
+    "non_circulating_sol": 47477146
   },
   "economics": {
-    "sol_price_usd": 106.62,
-    "sol_24h_change_pct": 3.23,
-    "market_cap_usd": 62421774741,
-    "volume_24h_usd": 3830814090,
+    "sol_price_usd": 105.16,
+    "sol_24h_change_pct": -0.58,
+    "market_cap_usd": 61629407145,
+    "volume_24h_usd": 3706947944,
     "tvl_usd": 5924761773,
     "dex_volume_24h_usd": 1960574883,
     "dex_volume_change_1d_pct": 4.2,
     "chain_fees_24h_usd": 10482002,
-    "stablecoin_supply_usd": 16354749238,
+    "stablecoin_supply_usd": 16370548894,
     "rev_24h_usd": 4253724
   },
   "ecosystem": {
@@ -141,7 +141,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2025638,
     "daily_active_wallets_date": "2026-09-05",
-    "daily_active_wallets_fetched_at": 1788730784
+    "daily_active_wallets_fetched_at": 1788755082
   },
   "sources": {
     "solana_rpc_network": "ok",
