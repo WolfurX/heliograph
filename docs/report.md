@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-06 23:46 UTC · run #93 · baseline active
+Solana state report · generated 2026-09-07 04:24 UTC · run #94 · baseline active
 
 ## What needs your attention
 
@@ -8,52 +8,52 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 3,699 TPS (1,562 non-vote) at 314.7 ms per slot, epoch 1029 is 91.0% done.
+The chain looks healthy: 3,638 TPS (1,514 non-vote) at 316.6 ms per slot, epoch 1030 is 3.15% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 444,921,105 |
-| Block height | 422,965,414 |
-| Epoch | 1029 (91.0% complete) |
-| TPS (all / non-vote) | 3,699.2 / 1,561.8 |
-| Slot time | 314.7 ms |
+| Slot | 444,973,613 |
+| Block height | 423,017,891 |
+| Epoch | 1030 (3.15% complete) |
+| TPS (all / non-vote) | 3,638.0 / 1,514.0 |
+| Slot time | 316.6 ms |
 | Node version | 4.2.2 |
 
 ## Validators
 
-677 validators are voting, 16 are delinquent (0.01% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+677 validators are voting, 11 are delinquent (0.01% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 677 / 16 |
+| Active / delinquent | 677 / 11 |
 | Delinquent stake | 0.01% |
-| Total stake | 439,248,820 SOL |
+| Total stake | 439,477,988 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
 | Median prioritization fee | 0 µlamports |
 
 ## Economics
 
-A moving day: SOL at $106.62 (+3.2% 24h), $5.92B locked, $1.96B traded on DEXs.
+A quiet day: SOL at $105.16 (-0.6% 24h), $5.92B locked, $1.96B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $106.62 (+3.2% 24h) |
-| Market cap | $62.42B |
+| SOL price | $105.16 (-0.6% 24h) |
+| Market cap | $61.63B |
 | TVL | $5.92B |
 | DEX volume 24h | $1.96B (+4.2% 1d) |
 | Chain fees 24h | $10.48M |
 | Real economic value 24h | $4.25M |
-| Stablecoin supply | $16.35B |
+| Stablecoin supply | $16.37B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 585,444,749 SOL |
-| Non-circulating | 48,103,875 SOL |
-| Total | 633,548,625 SOL |
+| Circulating | 586,166,508 SOL |
+| Non-circulating | 47,477,146 SOL |
+| Total | 633,643,654 SOL |
 
 ## Ecosystem
 
