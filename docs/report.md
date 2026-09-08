@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-08 19:33 UTC · run #103 · baseline active
+Solana state report · generated 2026-09-08 21:59 UTC · run #104 · baseline active
 
 ## What needs your attention
 
@@ -8,16 +8,16 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 4,387 TPS (2,286 non-vote) at 319.3 ms per slot, epoch 1031 is 6.18% done.
+The chain looks healthy: 4,194 TPS (2,069 non-vote) at 316.5 ms per slot, epoch 1031 is 12.59% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 445,418,697 |
-| Block height | 423,462,619 |
-| Epoch | 1031 (6.18% complete) |
-| TPS (all / non-vote) | 4,387.2 / 2,286.3 |
-| Slot time | 319.3 ms |
+| Slot | 445,446,381 |
+| Block height | 423,490,291 |
+| Epoch | 1031 (12.59% complete) |
+| TPS (all / non-vote) | 4,193.9 / 2,069.1 |
+| Slot time | 316.5 ms |
 | Node version | 4.2.2 |
 
 ## Validators
@@ -35,35 +35,35 @@ The chain looks healthy: 4,387 TPS (2,286 non-vote) at 319.3 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $103.29 (-0.9% 24h), $5.93B locked, $2.72B traded on DEXs.
+A quiet day: SOL at $102.92 (-1.0% 24h), $5.92B locked, $2.72B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $103.29 (-0.9% 24h) |
-| Market cap | $60.55B |
-| TVL | $5.93B |
+| SOL price | $102.92 (-1.0% 24h) |
+| Market cap | $60.34B |
+| TVL | $5.92B |
 | DEX volume 24h | $2.72B (-6.3% 1d) |
 | Chain fees 24h | $15.65M |
 | Real economic value 24h | $6.35M |
-| Stablecoin supply | $16.16B |
+| Stablecoin supply | $16.23B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 586,251,222 SOL |
-| Non-circulating | 47,486,159 SOL |
-| Total | 633,737,381 SOL |
+| Circulating | 586,251,056 SOL |
+| Non-circulating | 47,486,226 SOL |
+| Total | 633,737,282 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,097,297 (2026-09-06, via Dune).
+Daily active wallets: 2,265,072 (2026-09-07, via Dune).
 
 Recent agave client releases:
 
-- v4.3.0-rc.0 (pre-release) · 2026-09-04
+- v4.3.0-rc.0 · 2026-09-04
 - v4.4.0-alpha.3 (pre-release) · 2026-09-03
 - v4.4.0-alpha.2 (pre-release) · 2026-08-28
 - v4.3.0-beta.3 (pre-release) · 2026-08-28
