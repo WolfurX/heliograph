@@ -1,28 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T17:46:06+00:00",
-  "generated_ts": 1788975966,
+  "generated_at": "2026-09-09T20:52:17+00:00",
+  "generated_ts": 1788987137,
   "baseline": {
-    "runs": 109,
+    "runs": 110,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 445671150,
-    "block_height": 423714701,
+    "slot": 445706243,
+    "block_height": 423749713,
     "epoch": 1031,
-    "epoch_progress_pct": 64.62,
-    "tx_count_total": 546766970745,
-    "tps": 3967.9,
-    "nonvote_tps": 1837.1,
-    "slot_time_ms": 317.3,
+    "epoch_progress_pct": 72.74,
+    "tx_count_total": 546815610044,
+    "tps": 4468.3,
+    "nonvote_tps": 2386.5,
+    "slot_time_ms": 319.3,
     "node_version": "4.2.2"
   },
   "validators": {
-    "active": 679,
-    "delinquent": 9,
-    "delinquent_stake_pct": 0.01,
+    "active": 673,
+    "delinquent": 15,
+    "delinquent_stake_pct": 0.23,
     "total_stake_sol": 438653505,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -91,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 633736523,
-    "circulating_sol": 586250297,
+    "total_sol": 633736395,
+    "circulating_sol": 586250168,
     "non_circulating_sol": 47486226
   },
   "economics": {
-    "sol_price_usd": 103.35,
-    "sol_24h_change_pct": -0.38,
-    "market_cap_usd": 60591575730,
-    "volume_24h_usd": 2933379777,
-    "tvl_usd": 5943325856,
+    "sol_price_usd": 102.18,
+    "sol_24h_change_pct": -1.03,
+    "market_cap_usd": 59913754663,
+    "volume_24h_usd": 2954860364,
+    "tvl_usd": 5940813989,
     "dex_volume_24h_usd": 2710734376,
     "dex_volume_change_1d_pct": -0.36,
     "chain_fees_24h_usd": 16561493,
-    "stablecoin_supply_usd": 16110910920,
+    "stablecoin_supply_usd": 16143222837,
     "rev_24h_usd": 6742363
   },
   "ecosystem": {
@@ -139,9 +139,9 @@
       }
     ],
     "recent_simds": [],
-    "daily_active_wallets": 2265072,
-    "daily_active_wallets_date": "2026-09-07",
-    "daily_active_wallets_fetched_at": 1788961932
+    "daily_active_wallets": 2279811,
+    "daily_active_wallets_date": "2026-09-08",
+    "daily_active_wallets_fetched_at": 1788987152
   },
   "sources": {
     "solana_rpc_network": "ok",
