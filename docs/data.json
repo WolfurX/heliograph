@@ -1,28 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-10T19:13:36+00:00",
-  "generated_ts": 1789067616,
+  "generated_at": "2026-09-10T21:48:45+00:00",
+  "generated_ts": 1789076925,
   "baseline": {
-    "runs": 116,
+    "runs": 117,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 445960733,
-    "block_height": 424004088,
+    "slot": 445990161,
+    "block_height": 424033488,
     "epoch": 1032,
-    "epoch_progress_pct": 31.65,
-    "tx_count_total": 547137074925,
-    "tps": 4083.3,
-    "nonvote_tps": 1943.6,
-    "slot_time_ms": 315.0,
+    "epoch_progress_pct": 38.46,
+    "tx_count_total": 547174704535,
+    "tps": 3798.2,
+    "nonvote_tps": 1681.9,
+    "slot_time_ms": 318.4,
     "node_version": "4.2.2"
   },
   "validators": {
     "active": 677,
     "delinquent": 12,
-    "delinquent_stake_pct": 0.07,
+    "delinquent_stake_pct": 0.02,
     "total_stake_sol": 439188213,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -91,20 +91,20 @@
     ]
   },
   "supply": {
-    "total_sol": 633830652,
-    "circulating_sol": 586335379,
+    "total_sol": 633830552,
+    "circulating_sol": 586335280,
     "non_circulating_sol": 47495273
   },
   "economics": {
-    "sol_price_usd": 99.71,
-    "sol_24h_change_pct": -3.36,
-    "market_cap_usd": 58465596195,
-    "volume_24h_usd": 3308670098,
-    "tvl_usd": 5783628946,
+    "sol_price_usd": 99.93,
+    "sol_24h_change_pct": -2.06,
+    "market_cap_usd": 58590093335,
+    "volume_24h_usd": 3064764689,
+    "tvl_usd": 5786004389,
     "dex_volume_24h_usd": 3000435430,
     "dex_volume_change_1d_pct": 10.69,
     "chain_fees_24h_usd": 15717207,
-    "stablecoin_supply_usd": 15953573004,
+    "stablecoin_supply_usd": 15950866511,
     "rev_24h_usd": 6738782
   },
   "ecosystem": {
@@ -112,6 +112,11 @@
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.4.0-alpha.4",
+        "date": "2026-09-10",
+        "prerelease": true
+      },
       {
         "tag": "v4.3.0-rc.0",
         "date": "2026-09-04",
@@ -131,17 +136,12 @@
         "tag": "v4.3.0-beta.3",
         "date": "2026-08-28",
         "prerelease": true
-      },
-      {
-        "tag": "v4.2.2",
-        "date": "2026-08-28",
-        "prerelease": false
       }
     ],
     "recent_simds": [],
-    "daily_active_wallets": 2279811,
-    "daily_active_wallets_date": "2026-09-08",
-    "daily_active_wallets_fetched_at": 1789057163
+    "daily_active_wallets": 2469932,
+    "daily_active_wallets_date": "2026-09-09",
+    "daily_active_wallets_fetched_at": 1789076939
   },
   "sources": {
     "solana_rpc_network": "ok",
