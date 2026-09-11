@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T13:29:43+00:00",
-  "generated_ts": 1789133383,
+  "generated_at": "2026-09-11T17:09:05+00:00",
+  "generated_ts": 1789146545,
   "baseline": {
-    "runs": 121,
+    "runs": 122,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
       "metric": "validators.delinquent_stake_pct",
-      "headline": "Delinquent stake spiked to 0%, 3.0 standard deviations above its recent norm of 0%.",
-      "detail": "baseline n=120, mean=0.1, current=0.5, z=+3.03"
+      "headline": "Delinquent stake spiked to 0%, 2.6 standard deviations above its recent norm of 0%.",
+      "detail": "baseline n=121, mean=0.1, current=0.4, z=+2.61"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 446168633,
-    "block_height": 424211827,
+    "slot": 446210049,
+    "block_height": 424253115,
     "epoch": 1032,
-    "epoch_progress_pct": 79.78,
-    "tx_count_total": 547388723329,
-    "tps": 4141.3,
-    "nonvote_tps": 2045.6,
-    "slot_time_ms": 319.1,
+    "epoch_progress_pct": 89.36,
+    "tx_count_total": 547449236780,
+    "tps": 4396.9,
+    "nonvote_tps": 2277.4,
+    "slot_time_ms": 316.3,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
-    "active": 673,
-    "delinquent": 16,
-    "delinquent_stake_pct": 0.45,
+    "active": 676,
+    "delinquent": 14,
+    "delinquent_stake_pct": 0.41,
     "total_stake_sol": 439188213,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -98,27 +98,32 @@
     ]
   },
   "supply": {
-    "total_sol": 633829989,
-    "circulating_sol": 586537424,
+    "total_sol": 633829829,
+    "circulating_sol": 586537264,
     "non_circulating_sol": 47292565
   },
   "economics": {
-    "sol_price_usd": 101.23,
-    "sol_24h_change_pct": 1.77,
-    "market_cap_usd": 59392343821,
-    "volume_24h_usd": 3179933465,
-    "tvl_usd": 5789949039,
+    "sol_price_usd": 102.32,
+    "sol_24h_change_pct": 2.64,
+    "market_cap_usd": 59977268422,
+    "volume_24h_usd": 4202706986,
+    "tvl_usd": 5879189135,
     "dex_volume_24h_usd": 2921890110,
     "dex_volume_change_1d_pct": -2.61,
-    "chain_fees_24h_usd": 14614985,
-    "stablecoin_supply_usd": 15972407571,
-    "rev_24h_usd": 5775738
+    "chain_fees_24h_usd": 14614973,
+    "stablecoin_supply_usd": 16149305803,
+    "rev_24h_usd": 5775726
   },
   "ecosystem": {
     "status_indicator": "none",
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.3.0-rc.1",
+        "date": "2026-09-11",
+        "prerelease": true
+      },
       {
         "tag": "v4.4.0-alpha.4",
         "date": "2026-09-10",
@@ -136,11 +141,6 @@
       },
       {
         "tag": "v4.4.0-alpha.2",
-        "date": "2026-08-28",
-        "prerelease": true
-      },
-      {
-        "tag": "v4.3.0-beta.3",
         "date": "2026-08-28",
         "prerelease": true
       }
