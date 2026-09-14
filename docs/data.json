@@ -1,28 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T23:28:52+00:00",
-  "generated_ts": 1789342132,
+  "generated_at": "2026-09-14T01:32:33+00:00",
+  "generated_ts": 1789349553,
   "baseline": {
-    "runs": 139,
+    "runs": 140,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 446828327,
-    "block_height": 424870892,
+    "slot": 446851821,
+    "block_height": 424894378,
     "epoch": 1034,
-    "epoch_progress_pct": 32.48,
-    "tx_count_total": 548184489935,
-    "tps": 3890.6,
-    "nonvote_tps": 1766.8,
-    "slot_time_ms": 318.0,
+    "epoch_progress_pct": 37.92,
+    "tx_count_total": 548213127710,
+    "tps": 3793.3,
+    "nonvote_tps": 1654.8,
+    "slot_time_ms": 316.2,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
-    "active": 678,
-    "delinquent": 12,
-    "delinquent_stake_pct": 0.44,
+    "active": 679,
+    "delinquent": 11,
+    "delinquent_stake_pct": 0.43,
     "total_stake_sol": 438740367,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -91,21 +91,21 @@
     ]
   },
   "supply": {
-    "total_sol": 634017952,
-    "circulating_sol": 586730711,
-    "non_circulating_sol": 47287241
+    "total_sol": 634017877,
+    "circulating_sol": 586893132,
+    "non_circulating_sol": 47124745
   },
   "economics": {
-    "sol_price_usd": 99.64,
-    "sol_24h_change_pct": -2.08,
-    "market_cap_usd": 58476802900,
-    "volume_24h_usd": 2058021952,
-    "tvl_usd": 5885153928,
-    "dex_volume_24h_usd": 1743644853,
-    "dex_volume_change_1d_pct": -45.23,
-    "chain_fees_24h_usd": 13515701,
-    "stablecoin_supply_usd": 16039832807,
-    "rev_24h_usd": 5156667
+    "sol_price_usd": 99.59,
+    "sol_24h_change_pct": -2.34,
+    "market_cap_usd": 58445848283,
+    "volume_24h_usd": 2144147000,
+    "tvl_usd": 5824171217,
+    "dex_volume_24h_usd": 1685555315,
+    "dex_volume_change_1d_pct": -3.33,
+    "chain_fees_24h_usd": 13812889,
+    "stablecoin_supply_usd": 16025986170,
+    "rev_24h_usd": 5142115
   },
   "ecosystem": {
     "status_indicator": "none",
