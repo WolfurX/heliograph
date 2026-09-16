@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T23:39:11+00:00",
-  "generated_ts": 1789515551,
+  "generated_at": "2026-09-16T04:40:54+00:00",
+  "generated_ts": 1789533654,
   "baseline": {
-    "runs": 150,
+    "runs": 151,
     "status": "active"
   },
   "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 447376892,
-    "block_height": 425418556,
+    "slot": 447433859,
+    "block_height": 425475374,
     "epoch": 1035,
-    "epoch_progress_pct": 59.47,
-    "tx_count_total": 548867377505,
-    "tps": 4061.3,
-    "nonvote_tps": 1930.2,
-    "slot_time_ms": 317.3,
+    "epoch_progress_pct": 72.65,
+    "tx_count_total": 548944616141,
+    "tps": 3625.4,
+    "nonvote_tps": 1503.6,
+    "slot_time_ms": 318.0,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
@@ -91,21 +91,21 @@
     ]
   },
   "supply": {
-    "total_sol": 634111113,
-    "circulating_sol": 587027557,
-    "non_circulating_sol": 47083556
+    "total_sol": 634110911,
+    "circulating_sol": 587064852,
+    "non_circulating_sol": 47046059
   },
   "economics": {
-    "sol_price_usd": 96.93,
-    "sol_24h_change_pct": -5.59,
-    "market_cap_usd": 56957330624,
-    "volume_24h_usd": 3801689208,
-    "tvl_usd": 5729451384,
-    "dex_volume_24h_usd": 2511771256,
-    "dex_volume_change_1d_pct": 40.24,
-    "chain_fees_24h_usd": 13579951,
-    "stablecoin_supply_usd": 15556264051,
-    "rev_24h_usd": 5204519
+    "sol_price_usd": 97.39,
+    "sol_24h_change_pct": -3.81,
+    "market_cap_usd": 57158547662,
+    "volume_24h_usd": 3967112014,
+    "tvl_usd": 5716085146,
+    "dex_volume_24h_usd": 2501403355,
+    "dex_volume_change_1d_pct": -0.41,
+    "chain_fees_24h_usd": 14217472,
+    "stablecoin_supply_usd": 15489482812,
+    "rev_24h_usd": 5423452
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -141,7 +141,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2464545,
     "daily_active_wallets_date": "2026-09-14",
-    "daily_active_wallets_fetched_at": 1789515565
+    "daily_active_wallets_fetched_at": 1789533668
   },
   "sources": {
     "solana_rpc_network": "ok",
