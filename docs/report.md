@@ -1,33 +1,32 @@
 # Heliograph
 
-Solana state report · generated 2026-09-17 19:13 UTC · run #160 · baseline active
+Solana state report · generated 2026-09-17 22:24 UTC · run #161 · baseline active
 
 ## What needs your attention
 
-- 🟠 **Stablecoin supply dropped to 15,288,762,254 USD, 2.5 standard deviations below its recent norm of 15,956,549,188 USD.**
-  - evidence: baseline n=159, mean=15,956,549,188.0, current=15,288,762,254.0, z=-2.51
+Nothing. Every watched metric is inside its normal band. You can skip the rest of this report.
 
 ## Network
 
-The chain looks healthy: 4,388 TPS (2,264 non-vote) at 317.2 ms per slot, epoch 1036 is 74.04% done.
+The chain looks healthy: 4,517 TPS (2,394 non-vote) at 317.3 ms per slot, epoch 1036 is 82.37% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 447,871,833 |
-| Block height | 425,912,965 |
-| Epoch | 1036 (74.04% complete) |
-| TPS (all / non-vote) | 4,387.9 / 2,263.7 |
-| Slot time | 317.2 ms |
+| Slot | 447,907,836 |
+| Block height | 425,948,936 |
+| Epoch | 1036 (82.37% complete) |
+| TPS (all / non-vote) | 4,517.3 / 2,394.2 |
+| Slot time | 317.3 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-678 validators are voting, 12 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+677 validators are voting, 13 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 678 / 12 |
+| Active / delinquent | 677 / 13 |
 | Delinquent stake | 0.04% |
 | Total stake | 439,761,083 SOL |
 | Nakamoto coefficient | 18 |
@@ -36,31 +35,31 @@ The chain looks healthy: 4,388 TPS (2,264 non-vote) at 317.2 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $100.78 (+2.9% 24h), $5.86B locked, $2.80B traded on DEXs.
+A moving day: SOL at $100.82 (+3.2% 24h), $5.86B locked, $2.80B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $100.78 (+2.9% 24h) |
+| SOL price | $100.82 (+3.2% 24h) |
 | Market cap | $59.18B |
 | TVL | $5.86B |
 | DEX volume 24h | $2.80B (+3.6% 1d) |
 | Chain fees 24h | $14.07M |
 | Real economic value 24h | $4.91M |
-| Stablecoin supply | $15.29B |
+| Stablecoin supply | $15.34B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,211,894 SOL |
+| Circulating | 587,211,755 SOL |
 | Non-circulating | 46,992,427 SOL |
-| Total | 634,204,320 SOL |
+| Total | 634,204,183 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,504,455 (2026-09-15, via Dune).
+Daily active wallets: 2,677,019 (2026-09-16, via Dune).
 
 Recent agave client releases:
 
