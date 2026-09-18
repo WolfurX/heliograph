@@ -1,52 +1,52 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T14:56:12+00:00",
-  "generated_ts": 1789743372,
+  "generated_at": "2026-09-18T18:19:56+00:00",
+  "generated_ts": 1789755596,
   "baseline": {
-    "runs": 165,
+    "runs": 166,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
       "metric": "economics.sol_price_usd",
-      "headline": "SOL is up 9.3% in 24h to $110.7. Moves this size usually have a cause worth knowing.",
-      "detail": "24h change +9.3%, threshold warn>=8% crit>=15%"
+      "headline": "SOL is up 10.8% in 24h to $112.42. Moves this size usually have a cause worth knowing.",
+      "detail": "24h change +10.8%, threshold warn>=8% crit>=15%"
     },
     {
       "severity": "warn",
       "metric": "economics.stablecoin_supply_usd",
-      "headline": "Stablecoin supply dropped to 15,179,276,791 USD, 2.6 standard deviations below its recent norm of 15,935,857,915 USD.",
-      "detail": "baseline n=164, mean=15,935,857,915.2, current=15,179,276,791.0, z=-2.63"
-    },
-    {
-      "severity": "info",
-      "metric": "network.tps",
-      "headline": "TPS spiked to 5,273, 3.1 standard deviations above its recent norm of 3,895.",
-      "detail": "baseline n=164, mean=3,894.6, current=5,272.9, z=+3.12"
+      "headline": "Stablecoin supply dropped to 15,191,561,516 USD, 2.5 standard deviations below its recent norm of 15,931,272,575 USD.",
+      "detail": "baseline n=165, mean=15,931,272,575.0, current=15,191,561,516.0, z=-2.53"
     },
     {
       "severity": "info",
       "metric": "network.slot_time_ms",
-      "headline": "Slot time dropped to 267 ms, 2.8 standard deviations below its recent norm of 326 ms.",
-      "detail": "baseline n=164, mean=325.9, current=266.8, z=-2.80"
+      "headline": "Slot time dropped to 268 ms, 2.7 standard deviations below its recent norm of 326 ms.",
+      "detail": "baseline n=165, mean=325.6, current=268.1, z=-2.67"
+    },
+    {
+      "severity": "info",
+      "metric": "economics.tvl_usd",
+      "headline": "TVL spiked to 6,166,004,311 USD, 3.9 standard deviations above its recent norm of 5,851,517,387 USD.",
+      "detail": "baseline n=165, mean=5,851,517,386.9, current=6,166,004,311.0, z=+3.88"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 448116732,
-    "block_height": 426157679,
+    "slot": 448162494,
+    "block_height": 426203425,
     "epoch": 1037,
-    "epoch_progress_pct": 30.73,
-    "tx_count_total": 549825044579,
-    "tps": 5272.9,
-    "nonvote_tps": 2749.6,
-    "slot_time_ms": 266.8,
+    "epoch_progress_pct": 41.32,
+    "tx_count_total": 549887396252,
+    "tps": 5004.8,
+    "nonvote_tps": 2492.9,
+    "slot_time_ms": 268.1,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
-    "active": 677,
-    "delinquent": 11,
+    "active": 676,
+    "delinquent": 12,
     "delinquent_stake_pct": 0.04,
     "total_stake_sol": 439612408,
     "nakamoto_coefficient": 18,
@@ -116,20 +116,20 @@
     ]
   },
   "supply": {
-    "total_sol": 634298375,
-    "circulating_sol": 587297121,
+    "total_sol": 634298212,
+    "circulating_sol": 587296958,
     "non_circulating_sol": 47001254
   },
   "economics": {
-    "sol_price_usd": 110.7,
-    "sol_24h_change_pct": 9.34,
-    "market_cap_usd": 65005609963,
-    "volume_24h_usd": 5218071394,
-    "tvl_usd": 6048835080,
+    "sol_price_usd": 112.42,
+    "sol_24h_change_pct": 10.83,
+    "market_cap_usd": 66021829687,
+    "volume_24h_usd": 6049845210,
+    "tvl_usd": 6166004311,
     "dex_volume_24h_usd": 2592123183,
     "dex_volume_change_1d_pct": -7.41,
     "chain_fees_24h_usd": 14675830,
-    "stablecoin_supply_usd": 15179276791,
+    "stablecoin_supply_usd": 15191561516,
     "rev_24h_usd": 6233019
   },
   "ecosystem": {
@@ -137,6 +137,11 @@
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.4.0-alpha.5",
+        "date": "2026-09-18",
+        "prerelease": true
+      },
       {
         "tag": "v4.3.0",
         "date": "2026-09-18",
@@ -156,17 +161,12 @@
         "tag": "v4.3.0-rc.0",
         "date": "2026-09-04",
         "prerelease": false
-      },
-      {
-        "tag": "v4.4.0-alpha.3",
-        "date": "2026-09-03",
-        "prerelease": true
       }
     ],
     "recent_simds": [],
     "daily_active_wallets": 2677019,
     "daily_active_wallets_date": "2026-09-16",
-    "daily_active_wallets_fetched_at": 1789729480
+    "daily_active_wallets_fetched_at": 1789755606
   },
   "sources": {
     "solana_rpc_network": "ok",
