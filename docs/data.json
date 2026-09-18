@@ -1,111 +1,124 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T00:44:23+00:00",
-  "generated_ts": 1789692263,
+  "generated_at": "2026-09-18T05:49:03+00:00",
+  "generated_ts": 1789710543,
   "baseline": {
-    "runs": 162,
+    "runs": 163,
     "status": "active"
   },
-  "anomalies": [],
+  "anomalies": [
+    {
+      "severity": "warn",
+      "metric": "economics.stablecoin_supply_usd",
+      "headline": "Stablecoin supply dropped to 15,226,738,274 USD, 2.6 standard deviations below its recent norm of 15,944,821,820 USD.",
+      "detail": "baseline n=162, mean=15,944,821,820.0, current=15,226,738,274.0, z=-2.59"
+    },
+    {
+      "severity": "info",
+      "metric": "network.slot_time_ms",
+      "headline": "Slot time dropped to 268 ms, 2.9 standard deviations below its recent norm of 327 ms.",
+      "detail": "baseline n=162, mean=326.7, current=268.0, z=-2.91"
+    }
+  ],
   "network": {
     "health": "ok",
-    "slot": 447934365,
-    "block_height": 425975461,
-    "epoch": 1036,
-    "epoch_progress_pct": 88.51,
-    "tx_count_total": 549605977142,
-    "tps": 4008.2,
-    "nonvote_tps": 1886.1,
-    "slot_time_ms": 317.6,
+    "slot": 447993474,
+    "block_height": 426034504,
+    "epoch": 1037,
+    "epoch_progress_pct": 2.19,
+    "tx_count_total": 549682626177,
+    "tps": 4265.7,
+    "nonvote_tps": 1750.6,
+    "slot_time_ms": 268.0,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
     "active": 677,
-    "delinquent": 13,
+    "delinquent": 11,
     "delinquent_stake_pct": 0.04,
-    "total_stake_sol": 439761083,
+    "total_stake_sol": 439612408,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
     "median_prioritization_fee_microlamports": 0,
     "top_by_stake": [
       {
         "vote_pubkey": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
-        "stake_sol": 17767428,
-        "stake_pct": 4.04,
+        "stake_sol": 17815472,
+        "stake_pct": 4.05,
         "commission": 7
       },
       {
         "vote_pubkey": "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk",
-        "stake_sol": 16352114,
-        "stake_pct": 3.72,
+        "stake_sol": 15816148,
+        "stake_pct": 3.6,
         "commission": 0
       },
       {
         "vote_pubkey": "3N7s9zXMZ4QqvHQR15t5GNHyqc89KduzMP7423eWiD5g",
-        "stake_sol": 12485145,
-        "stake_pct": 2.84,
+        "stake_sol": 12510308,
+        "stake_pct": 2.85,
         "commission": 0
       },
       {
         "vote_pubkey": "CatzoSMUkTRidT5DwBxAC2pEtnwMBTpkCepHkFgZDiqb",
-        "stake_sol": 11383247,
+        "stake_sol": 11398202,
         "stake_pct": 2.59,
         "commission": 5
       },
       {
         "vote_pubkey": "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
-        "stake_sol": 9740877,
-        "stake_pct": 2.22,
+        "stake_sol": 9784908,
+        "stake_pct": 2.23,
         "commission": 0
       },
       {
         "vote_pubkey": "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",
-        "stake_sol": 9256273,
-        "stake_pct": 2.1,
+        "stake_sol": 9254526,
+        "stake_pct": 2.11,
         "commission": 7
       },
       {
         "vote_pubkey": "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
-        "stake_sol": 9049051,
+        "stake_sol": 9077527,
         "stake_pct": 2.06,
         "commission": 10
       },
       {
         "vote_pubkey": "9QU2QSxhb24FUX3Tu2FpczXjpK3VYrvRudywSZaM29mF",
-        "stake_sol": 7386183,
+        "stake_sol": 7397869,
         "stake_pct": 1.68,
         "commission": 7
       },
       {
         "vote_pubkey": "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB",
-        "stake_sol": 7076306,
+        "stake_sol": 7085578,
         "stake_pct": 1.61,
         "commission": 5
       },
       {
         "vote_pubkey": "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a",
-        "stake_sol": 6558592,
+        "stake_sol": 6557940,
         "stake_pct": 1.49,
         "commission": 0
       }
     ]
   },
   "supply": {
-    "total_sol": 634204088,
-    "circulating_sol": 587211661,
-    "non_circulating_sol": 46992427
+    "total_sol": 634298746,
+    "circulating_sol": 587297769,
+    "non_circulating_sol": 47000977
   },
   "economics": {
-    "sol_price_usd": 101.08,
-    "sol_24h_change_pct": 2.21,
-    "market_cap_usd": 59341941539,
-    "volume_24h_usd": 3232728389,
-    "tvl_usd": 5876184419,
-    "dex_volume_24h_usd": 2800249070,
-    "dex_volume_change_1d_pct": 3.59,
-    "chain_fees_24h_usd": 14206081,
-    "stablecoin_supply_usd": 15337216337,
-    "rev_24h_usd": 5198859
+    "sol_price_usd": 105.39,
+    "sol_24h_change_pct": 5.88,
+    "market_cap_usd": 61926264343,
+    "volume_24h_usd": 4050390016,
+    "tvl_usd": 5966513747,
+    "dex_volume_24h_usd": 2553904323,
+    "dex_volume_change_1d_pct": -8.77,
+    "chain_fees_24h_usd": 13890506,
+    "stablecoin_supply_usd": 15226738274,
+    "rev_24h_usd": 5643076
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -141,7 +154,7 @@
     "recent_simds": [],
     "daily_active_wallets": 2677019,
     "daily_active_wallets_date": "2026-09-16",
-    "daily_active_wallets_fetched_at": 1789683859
+    "daily_active_wallets_fetched_at": 1789710553
   },
   "sources": {
     "solana_rpc_network": "ok",
