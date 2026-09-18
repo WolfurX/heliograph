@@ -1,35 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-18T11:04:30+00:00",
-  "generated_ts": 1789729470,
+  "generated_at": "2026-09-18T14:56:12+00:00",
+  "generated_ts": 1789743372,
   "baseline": {
-    "runs": 164,
+    "runs": 165,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "warn",
+      "metric": "economics.sol_price_usd",
+      "headline": "SOL is up 9.3% in 24h to $110.7. Moves this size usually have a cause worth knowing.",
+      "detail": "24h change +9.3%, threshold warn>=8% crit>=15%"
+    },
+    {
+      "severity": "warn",
       "metric": "economics.stablecoin_supply_usd",
-      "headline": "Stablecoin supply dropped to 15,192,824,980 USD, 2.6 standard deviations below its recent norm of 15,940,416,399 USD.",
-      "detail": "baseline n=163, mean=15,940,416,399.5, current=15,192,824,980.0, z=-2.65"
+      "headline": "Stablecoin supply dropped to 15,179,276,791 USD, 2.6 standard deviations below its recent norm of 15,935,857,915 USD.",
+      "detail": "baseline n=164, mean=15,935,857,915.2, current=15,179,276,791.0, z=-2.63"
+    },
+    {
+      "severity": "info",
+      "metric": "network.tps",
+      "headline": "TPS spiked to 5,273, 3.1 standard deviations above its recent norm of 3,895.",
+      "detail": "baseline n=164, mean=3,894.6, current=5,272.9, z=+3.12"
     },
     {
       "severity": "info",
       "metric": "network.slot_time_ms",
-      "headline": "Slot time dropped to 266 ms, 2.9 standard deviations below its recent norm of 326 ms.",
-      "detail": "baseline n=163, mean=326.3, current=266.0, z=-2.92"
+      "headline": "Slot time dropped to 267 ms, 2.8 standard deviations below its recent norm of 326 ms.",
+      "detail": "baseline n=164, mean=325.9, current=266.8, z=-2.80"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 448064669,
-    "block_height": 426105653,
+    "slot": 448116732,
+    "block_height": 426157679,
     "epoch": 1037,
-    "epoch_progress_pct": 18.67,
-    "tx_count_total": 549760579411,
-    "tps": 3988.1,
-    "nonvote_tps": 1453.8,
-    "slot_time_ms": 266.0,
+    "epoch_progress_pct": 30.73,
+    "tx_count_total": 549825044579,
+    "tps": 5272.9,
+    "nonvote_tps": 2749.6,
+    "slot_time_ms": 266.8,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
@@ -104,27 +116,32 @@
     ]
   },
   "supply": {
-    "total_sol": 634298543,
-    "circulating_sol": 587297289,
+    "total_sol": 634298375,
+    "circulating_sol": 587297121,
     "non_circulating_sol": 47001254
   },
   "economics": {
-    "sol_price_usd": 106.18,
-    "sol_24h_change_pct": 6.23,
-    "market_cap_usd": 62357281130,
-    "volume_24h_usd": 4361231791,
-    "tvl_usd": 6037922753,
-    "dex_volume_24h_usd": 2553904323,
-    "dex_volume_change_1d_pct": -8.77,
-    "chain_fees_24h_usd": 13898915,
-    "stablecoin_supply_usd": 15192824980,
-    "rev_24h_usd": 5644021
+    "sol_price_usd": 110.7,
+    "sol_24h_change_pct": 9.34,
+    "market_cap_usd": 65005609963,
+    "volume_24h_usd": 5218071394,
+    "tvl_usd": 6048835080,
+    "dex_volume_24h_usd": 2592123183,
+    "dex_volume_change_1d_pct": -7.41,
+    "chain_fees_24h_usd": 14675830,
+    "stablecoin_supply_usd": 15179276791,
+    "rev_24h_usd": 6233019
   },
   "ecosystem": {
     "status_indicator": "none",
     "status_description": "All Systems Operational",
     "incidents": [],
     "agave_releases": [
+      {
+        "tag": "v4.3.0",
+        "date": "2026-09-18",
+        "prerelease": true
+      },
       {
         "tag": "v4.3.0-rc.1",
         "date": "2026-09-11",
@@ -143,11 +160,6 @@
       {
         "tag": "v4.4.0-alpha.3",
         "date": "2026-09-03",
-        "prerelease": true
-      },
-      {
-        "tag": "v4.4.0-alpha.2",
-        "date": "2026-08-28",
         "prerelease": true
       }
     ],
