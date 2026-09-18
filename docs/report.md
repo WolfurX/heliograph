@@ -1,39 +1,37 @@
 # Heliograph
 
-Solana state report · generated 2026-09-18 21:11 UTC · run #167 · baseline active
+Solana state report · generated 2026-09-18 23:32 UTC · run #168 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 12.5% in 24h to $113.65. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +12.5%, threshold warn>=8% crit>=15%
-- 🔵 **TPS spiked to 5,302, 3.0 standard deviations above its recent norm of 3,910.**
-  - evidence: baseline n=166, mean=3,909.5, current=5,301.7, z=+3.03
-- 🔵 **Slot time dropped to 269 ms, 2.6 standard deviations below its recent norm of 325 ms.**
-  - evidence: baseline n=166, mean=325.2, current=268.8, z=-2.58
-- 🔵 **TVL spiked to 6,269,643,982 USD, 4.9 standard deviations above its recent norm of 5,853,411,886 USD.**
-  - evidence: baseline n=166, mean=5,853,411,886.5, current=6,269,643,982.0, z=+4.93
+- 🟠 **SOL is up 11.5% in 24h to $113.08. Moves this size usually have a cause worth knowing.**
+  - evidence: 24h change +11.5%, threshold warn>=8% crit>=15%
+- 🔵 **Slot time dropped to 267 ms, 2.6 standard deviations below its recent norm of 325 ms.**
+  - evidence: baseline n=167, mean=324.9, current=267.0, z=-2.60
+- 🔵 **TVL spiked to 6,286,658,066 USD, 4.8 standard deviations above its recent norm of 5,855,904,294 USD.**
+  - evidence: baseline n=167, mean=5,855,904,294.2, current=6,286,658,066.0, z=+4.78
 
 ## Network
 
-The chain looks healthy: 5,302 TPS (2,803 non-vote) at 268.8 ms per slot, epoch 1037 is 50.21% done.
+The chain looks healthy: 4,494 TPS (1,969 non-vote) at 267.0 ms per slot, epoch 1037 is 57.58% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 448,200,906 |
-| Block height | 426,241,813 |
-| Epoch | 1037 (50.21% complete) |
-| TPS (all / non-vote) | 5,301.7 / 2,802.9 |
-| Slot time | 268.8 ms |
+| Slot | 448,232,765 |
+| Block height | 426,273,652 |
+| Epoch | 1037 (57.58% complete) |
+| TPS (all / non-vote) | 4,493.5 / 1,968.8 |
+| Slot time | 267.0 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-676 validators are voting, 12 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+677 validators are voting, 11 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 676 / 12 |
+| Active / delinquent | 677 / 11 |
 | Delinquent stake | 0.04% |
 | Total stake | 439,612,408 SOL |
 | Nakamoto coefficient | 18 |
@@ -42,31 +40,31 @@ The chain looks healthy: 5,302 TPS (2,803 non-vote) at 268.8 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $113.65 (+12.5% 24h), $6.27B locked, $2.59B traded on DEXs.
+A volatile day: SOL at $113.08 (+11.5% 24h), $6.29B locked, $2.59B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $113.65 (+12.5% 24h) |
-| Market cap | $66.75B |
-| TVL | $6.27B |
+| SOL price | $113.08 (+11.5% 24h) |
+| Market cap | $66.43B |
+| TVL | $6.29B |
 | DEX volume 24h | $2.59B (-7.4% 1d) |
 | Chain fees 24h | $14.68M |
 | Real economic value 24h | $6.23M |
-| Stablecoin supply | $15.77B |
+| Stablecoin supply | $15.49B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,296,826 SOL |
-| Non-circulating | 47,001,254 SOL |
-| Total | 634,298,080 SOL |
+| Circulating | 587,296,724 SOL |
+| Non-circulating | 47,001,249 SOL |
+| Total | 634,297,974 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,677,019 (2026-09-16, via Dune).
+Daily active wallets: 3,035,062 (2026-09-17, via Dune).
 
 Recent agave client releases:
 
