@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-19 20:31 UTC · run #174 · baseline active
+Solana state report · generated 2026-09-19 22:27 UTC · run #175 · baseline active
 
 ## What needs your attention
 
-- 🔵 **TVL spiked to 6,239,907,422 USD, 3.1 standard deviations above its recent norm of 5,870,872,261 USD.**
-  - evidence: baseline n=173, mean=5,870,872,261.2, current=6,239,907,422.0, z=+3.10
+- 🔵 **TVL spiked to 6,223,827,289 USD, 2.9 standard deviations above its recent norm of 5,872,993,153 USD.**
+  - evidence: baseline n=174, mean=5,872,993,152.9, current=6,223,827,289.0, z=+2.87
 
 ## Network
 
-The chain looks healthy: 4,512 TPS (1,991 non-vote) at 267.8 ms per slot, epoch 1038 is 23.19% done.
+The chain looks healthy: 5,050 TPS (2,531 non-vote) at 267.2 ms per slot, epoch 1038 is 29.23% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 448,516,187 |
-| Block height | 426,556,953 |
-| Epoch | 1038 (23.19% complete) |
-| TPS (all / non-vote) | 4,512.2 / 1,990.7 |
-| Slot time | 267.8 ms |
+| Slot | 448,542,281 |
+| Block height | 426,583,031 |
+| Epoch | 1038 (29.23% complete) |
+| TPS (all / non-vote) | 5,049.9 / 2,531.0 |
+| Slot time | 267.2 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
@@ -36,31 +36,31 @@ The chain looks healthy: 4,512 TPS (1,991 non-vote) at 267.8 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $111.05 (-2.1% 24h), $6.24B locked, $3.54B traded on DEXs.
+A quiet day: SOL at $110.11 (-2.8% 24h), $6.22B locked, $3.54B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $111.05 (-2.1% 24h) |
-| Market cap | $65.22B |
-| TVL | $6.24B |
+| SOL price | $110.11 (-2.8% 24h) |
+| Market cap | $64.70B |
+| TVL | $6.22B |
 | DEX volume 24h | $3.54B (+36.4% 1d) |
 | Chain fees 24h | $17.46M |
 | Real economic value 24h | $6.17M |
-| Stablecoin supply | $15.41B |
+| Stablecoin supply | $16.50B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,367,671 SOL |
+| Circulating | 587,367,585 SOL |
 | Non-circulating | 47,008,472 SOL |
-| Total | 634,376,143 SOL |
+| Total | 634,376,056 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 3,035,062 (2026-09-17, via Dune).
+Daily active wallets: 2,930,086 (2026-09-18, via Dune).
 
 Recent agave client releases:
 
