@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-19T06:32:11+00:00",
-  "generated_ts": 1789799531,
+  "generated_at": "2026-09-19T11:26:31+00:00",
+  "generated_ts": 1789817191,
   "baseline": {
-    "runs": 170,
+    "runs": 171,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "info",
-      "metric": "network.slot_time_ms",
-      "headline": "Slot time dropped to 266 ms, 2.5 standard deviations below its recent norm of 324 ms.",
-      "detail": "baseline n=169, mean=324.2, current=266.4, z=-2.51"
+      "metric": "economics.tvl_usd",
+      "headline": "TVL spiked to 6,248,220,574 USD, 3.5 standard deviations above its recent norm of 5,864,259,356 USD.",
+      "detail": "baseline n=170, mean=5,864,259,355.8, current=6,248,220,574.0, z=+3.52"
     },
     {
       "severity": "info",
-      "metric": "economics.tvl_usd",
-      "headline": "TVL spiked to 6,305,117,589 USD, 4.3 standard deviations above its recent norm of 5,861,650,727 USD.",
-      "detail": "baseline n=169, mean=5,861,650,727.2, current=6,305,117,589.0, z=+4.26"
+      "metric": "economics.dex_volume_24h_usd",
+      "headline": "DEX volume spiked to 3,536,797,881 USD, 2.6 standard deviations above its recent norm of 2,437,848,890 USD.",
+      "detail": "baseline n=170, mean=2,437,848,889.6, current=3,536,797,881.0, z=+2.57"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 448327194,
-    "block_height": 426368049,
+    "slot": 448393672,
+    "block_height": 426434506,
     "epoch": 1037,
-    "epoch_progress_pct": 79.44,
-    "tx_count_total": 550087241733,
-    "tps": 4087.3,
-    "nonvote_tps": 1559.8,
-    "slot_time_ms": 266.4,
+    "epoch_progress_pct": 94.83,
+    "tx_count_total": 550155971776,
+    "tps": 3717.9,
+    "nonvote_tps": 1189.9,
+    "slot_time_ms": 266.2,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
@@ -104,21 +104,21 @@
     ]
   },
   "supply": {
-    "total_sol": 634297690,
-    "circulating_sol": 587296440,
+    "total_sol": 634297510,
+    "circulating_sol": 587296260,
     "non_circulating_sol": 47001249
   },
   "economics": {
-    "sol_price_usd": 111.45,
-    "sol_24h_change_pct": 5.62,
-    "market_cap_usd": 65444556706,
-    "volume_24h_usd": 5856058758,
-    "tvl_usd": 6305117589,
-    "dex_volume_24h_usd": 3257762192,
-    "dex_volume_change_1d_pct": 25.68,
-    "chain_fees_24h_usd": 17919652,
-    "stablecoin_supply_usd": 15468064369,
-    "rev_24h_usd": 6643630
+    "sol_price_usd": 111.98,
+    "sol_24h_change_pct": 6.23,
+    "market_cap_usd": 65774628061,
+    "volume_24h_usd": 5409047984,
+    "tvl_usd": 6248220574,
+    "dex_volume_24h_usd": 3536797881,
+    "dex_volume_change_1d_pct": 36.44,
+    "chain_fees_24h_usd": 17352634,
+    "stablecoin_supply_usd": 15480483854,
+    "rev_24h_usd": 6162025
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -154,7 +154,7 @@
     "recent_simds": [],
     "daily_active_wallets": 3035062,
     "daily_active_wallets_date": "2026-09-17",
-    "daily_active_wallets_fetched_at": 1789799542
+    "daily_active_wallets_fetched_at": 1789817203
   },
   "sources": {
     "solana_rpc_network": "ok",
