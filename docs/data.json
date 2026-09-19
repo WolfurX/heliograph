@@ -1,124 +1,124 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-19T11:26:31+00:00",
-  "generated_ts": 1789817191,
+  "generated_at": "2026-09-19T14:43:40+00:00",
+  "generated_ts": 1789829020,
   "baseline": {
-    "runs": 171,
+    "runs": 172,
     "status": "active"
   },
   "anomalies": [
     {
       "severity": "info",
       "metric": "economics.tvl_usd",
-      "headline": "TVL spiked to 6,248,220,574 USD, 3.5 standard deviations above its recent norm of 5,864,259,356 USD.",
-      "detail": "baseline n=170, mean=5,864,259,355.8, current=6,248,220,574.0, z=+3.52"
+      "headline": "TVL spiked to 6,246,016,501 USD, 3.4 standard deviations above its recent norm of 5,866,504,743 USD.",
+      "detail": "baseline n=171, mean=5,866,504,743.1, current=6,246,016,501.0, z=+3.36"
     },
     {
       "severity": "info",
       "metric": "economics.dex_volume_24h_usd",
-      "headline": "DEX volume spiked to 3,536,797,881 USD, 2.6 standard deviations above its recent norm of 2,437,848,890 USD.",
-      "detail": "baseline n=170, mean=2,437,848,889.6, current=3,536,797,881.0, z=+2.57"
+      "headline": "DEX volume spiked to 3,536,797,881 USD, 2.5 standard deviations above its recent norm of 2,444,275,492 USD.",
+      "detail": "baseline n=171, mean=2,444,275,491.9, current=3,536,797,881.0, z=+2.52"
     }
   ],
   "network": {
     "health": "ok",
-    "slot": 448393672,
-    "block_height": 426434506,
-    "epoch": 1037,
-    "epoch_progress_pct": 94.83,
-    "tx_count_total": 550155971776,
-    "tps": 3717.9,
-    "nonvote_tps": 1189.9,
-    "slot_time_ms": 266.2,
+    "slot": 448438090,
+    "block_height": 426478900,
+    "epoch": 1038,
+    "epoch_progress_pct": 5.11,
+    "tx_count_total": 550204187725,
+    "tps": 4366.5,
+    "nonvote_tps": 1829.6,
+    "slot_time_ms": 265.7,
     "node_version": "4.3.0-rc.0"
   },
   "validators": {
     "active": 677,
-    "delinquent": 11,
+    "delinquent": 13,
     "delinquent_stake_pct": 0.04,
-    "total_stake_sol": 439612408,
+    "total_stake_sol": 440227371,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
     "median_prioritization_fee_microlamports": 0,
     "top_by_stake": [
       {
         "vote_pubkey": "CcaHc2L43ZWjwCHART3oZoJvHLAe9hzT2DJNUpBzoTN1",
-        "stake_sol": 17815472,
+        "stake_sol": 17849776,
         "stake_pct": 4.05,
         "commission": 7
       },
       {
         "vote_pubkey": "he1iusunGwqrNtafDtLdhsUQDFvo13z9sUa36PauBtk",
-        "stake_sol": 15816148,
-        "stake_pct": 3.6,
+        "stake_sol": 15819247,
+        "stake_pct": 3.59,
         "commission": 0
       },
       {
         "vote_pubkey": "3N7s9zXMZ4QqvHQR15t5GNHyqc89KduzMP7423eWiD5g",
-        "stake_sol": 12510308,
-        "stake_pct": 2.85,
+        "stake_sol": 12500805,
+        "stake_pct": 2.84,
         "commission": 0
       },
       {
         "vote_pubkey": "CatzoSMUkTRidT5DwBxAC2pEtnwMBTpkCepHkFgZDiqb",
-        "stake_sol": 11398202,
-        "stake_pct": 2.59,
+        "stake_sol": 11362749,
+        "stake_pct": 2.58,
         "commission": 5
       },
       {
         "vote_pubkey": "8GbwASqdpw4dVcwbWUxbHXMrjyQx2aKkoBR5H1GJF8iD",
-        "stake_sol": 9784908,
-        "stake_pct": 2.23,
+        "stake_sol": 9786807,
+        "stake_pct": 2.22,
         "commission": 0
       },
       {
         "vote_pubkey": "26pV97Ce83ZQ6Kz9XT4td8tdoUFPTng8Fb8gPyc53dJx",
-        "stake_sol": 9254526,
-        "stake_pct": 2.11,
+        "stake_sol": 9252843,
+        "stake_pct": 2.1,
         "commission": 7
       },
       {
         "vote_pubkey": "51JBzSTU5rAM8gLAVQKgp4WoZerQcSqWC7BitBzgUNAm",
-        "stake_sol": 9077527,
-        "stake_pct": 2.06,
+        "stake_sol": 9116740,
+        "stake_pct": 2.07,
         "commission": 10
       },
       {
         "vote_pubkey": "9QU2QSxhb24FUX3Tu2FpczXjpK3VYrvRudywSZaM29mF",
-        "stake_sol": 7397869,
-        "stake_pct": 1.68,
+        "stake_sol": 7434776,
+        "stake_pct": 1.69,
         "commission": 7
       },
       {
         "vote_pubkey": "CvSb7wdQAFpHuSpTYTJnX5SYH4hCfQ9VuGnqrKaKwycB",
-        "stake_sol": 7085578,
+        "stake_sol": 7086871,
         "stake_pct": 1.61,
         "commission": 5
       },
       {
-        "vote_pubkey": "DumiCKHVqoCQKD8roLApzR5Fit8qGV5fVQsJV9sTZk4a",
-        "stake_sol": 6557940,
-        "stake_pct": 1.49,
-        "commission": 0
+        "vote_pubkey": "HZKopZYvv8v6un2H6KUNVQCnK5zM9emKKezvqhTBSpEc",
+        "stake_sol": 6627951,
+        "stake_pct": 1.51,
+        "commission": 100
       }
     ]
   },
   "supply": {
-    "total_sol": 634297510,
-    "circulating_sol": 587296260,
-    "non_circulating_sol": 47001249
+    "total_sol": 634376398,
+    "circulating_sol": 587367926,
+    "non_circulating_sol": 47008472
   },
   "economics": {
-    "sol_price_usd": 111.98,
-    "sol_24h_change_pct": 6.23,
-    "market_cap_usd": 65774628061,
-    "volume_24h_usd": 5409047984,
-    "tvl_usd": 6248220574,
+    "sol_price_usd": 111.71,
+    "sol_24h_change_pct": 1.76,
+    "market_cap_usd": 65616292640,
+    "volume_24h_usd": 4519604668,
+    "tvl_usd": 6246016501,
     "dex_volume_24h_usd": 3536797881,
     "dex_volume_change_1d_pct": 36.44,
-    "chain_fees_24h_usd": 17352634,
-    "stablecoin_supply_usd": 15480483854,
-    "rev_24h_usd": 6162025
+    "chain_fees_24h_usd": 17457812,
+    "stablecoin_supply_usd": 16524786648,
+    "rev_24h_usd": 6167298
   },
   "ecosystem": {
     "status_indicator": "none",
