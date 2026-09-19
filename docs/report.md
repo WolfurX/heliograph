@@ -1,28 +1,26 @@
 # Heliograph
 
-Solana state report · generated 2026-09-19 01:31 UTC · run #169 · baseline active
+Solana state report · generated 2026-09-19 06:32 UTC · run #170 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 11.4% in 24h to $113.36. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +11.4%, threshold warn>=8% crit>=15%
-- 🔵 **Slot time dropped to 268 ms, 2.5 standard deviations below its recent norm of 325 ms.**
-  - evidence: baseline n=168, mean=324.5, current=267.8, z=-2.50
-- 🔵 **TVL spiked to 6,396,297,697 USD, 5.6 standard deviations above its recent norm of 5,858,468,305 USD.**
-  - evidence: baseline n=168, mean=5,858,468,304.8, current=6,396,297,697.0, z=+5.61
+- 🔵 **Slot time dropped to 266 ms, 2.5 standard deviations below its recent norm of 324 ms.**
+  - evidence: baseline n=169, mean=324.2, current=266.4, z=-2.51
+- 🔵 **TVL spiked to 6,305,117,589 USD, 4.3 standard deviations above its recent norm of 5,861,650,727 USD.**
+  - evidence: baseline n=169, mean=5,861,650,727.2, current=6,305,117,589.0, z=+4.26
 
 ## Network
 
-The chain looks healthy: 4,537 TPS (2,020 non-vote) at 267.8 ms per slot, epoch 1037 is 63.74% done.
+The chain looks healthy: 4,087 TPS (1,560 non-vote) at 266.4 ms per slot, epoch 1037 is 79.44% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 448,259,366 |
-| Block height | 426,300,237 |
-| Epoch | 1037 (63.74% complete) |
-| TPS (all / non-vote) | 4,537.3 / 2,020.1 |
-| Slot time | 267.8 ms |
+| Slot | 448,327,194 |
+| Block height | 426,368,049 |
+| Epoch | 1037 (79.44% complete) |
+| TPS (all / non-vote) | 4,087.3 / 1,559.8 |
+| Slot time | 266.4 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
@@ -40,25 +38,25 @@ The chain looks healthy: 4,537 TPS (2,020 non-vote) at 267.8 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $113.36 (+11.4% 24h), $6.40B locked, $3.09B traded on DEXs.
+A moving day: SOL at $111.45 (+5.6% 24h), $6.31B locked, $3.26B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $113.36 (+11.4% 24h) |
-| Market cap | $66.60B |
-| TVL | $6.40B |
-| DEX volume 24h | $3.09B (+19.0% 1d) |
-| Chain fees 24h | $15.27M |
-| Real economic value 24h | $6.10M |
-| Stablecoin supply | $15.50B |
+| SOL price | $111.45 (+5.6% 24h) |
+| Market cap | $65.44B |
+| TVL | $6.31B |
+| DEX volume 24h | $3.26B (+25.7% 1d) |
+| Chain fees 24h | $17.92M |
+| Real economic value 24h | $6.64M |
+| Stablecoin supply | $15.47B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,296,639 SOL |
+| Circulating | 587,296,440 SOL |
 | Non-circulating | 47,001,249 SOL |
-| Total | 634,297,889 SOL |
+| Total | 634,297,690 SOL |
 
 ## Ecosystem
 
