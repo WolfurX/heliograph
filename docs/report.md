@@ -1,34 +1,33 @@
 # Heliograph
 
-Solana state report · generated 2026-09-20 00:20 UTC · run #176 · baseline active
+Solana state report · generated 2026-09-20 05:20 UTC · run #177 · baseline active
 
 ## What needs your attention
 
-- 🔵 **TVL spiked to 6,202,671,603 USD, 2.6 standard deviations above its recent norm of 5,874,997,919 USD.**
-  - evidence: baseline n=175, mean=5,874,997,919.4, current=6,202,671,603.0, z=+2.63
+Nothing. Every watched metric is inside its normal band. You can skip the rest of this report.
 
 ## Network
 
-The chain looks healthy: 4,584 TPS (2,055 non-vote) at 267.0 ms per slot, epoch 1038 is 35.06% done.
+The chain looks healthy: 3,967 TPS (1,430 non-vote) at 266.1 ms per slot, epoch 1038 is 50.7% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 448,567,473 |
-| Block height | 426,608,217 |
-| Epoch | 1038 (35.06% complete) |
-| TPS (all / non-vote) | 4,583.5 / 2,054.9 |
-| Slot time | 267.0 ms |
+| Slot | 448,635,025 |
+| Block height | 426,675,749 |
+| Epoch | 1038 (50.7% complete) |
+| TPS (all / non-vote) | 3,966.7 / 1,429.5 |
+| Slot time | 266.1 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-678 validators are voting, 12 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+678 validators are voting, 12 are delinquent (0.01% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
 | Active / delinquent | 678 / 12 |
-| Delinquent stake | 0.04% |
+| Delinquent stake | 0.01% |
 | Total stake | 440,227,371 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -36,25 +35,25 @@ The chain looks healthy: 4,584 TPS (2,055 non-vote) at 267.0 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $110.8 (-2.0% 24h), $6.20B locked, $3.54B traded on DEXs.
+A moving day: SOL at $108.92 (-3.3% 24h), $6.19B locked, $3.23B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $110.8 (-2.0% 24h) |
-| Market cap | $65.09B |
-| TVL | $6.20B |
-| DEX volume 24h | $3.54B (+36.4% 1d) |
-| Chain fees 24h | $17.46M |
-| Real economic value 24h | $6.17M |
-| Stablecoin supply | $16.50B |
+| SOL price | $108.92 (-3.3% 24h) |
+| Market cap | $63.97B |
+| TVL | $6.19B |
+| DEX volume 24h | $3.23B (-8.6% 1d) |
+| Chain fees 24h | $15.22M |
+| Real economic value 24h | $5.52M |
+| Stablecoin supply | $15.45B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,367,297 SOL |
-| Non-circulating | 47,008,678 SOL |
-| Total | 634,375,975 SOL |
+| Circulating | 587,367,099 SOL |
+| Non-circulating | 47,008,679 SOL |
+| Total | 634,375,778 SOL |
 
 ## Ecosystem
 
