@@ -1,6 +1,6 @@
 # Heliograph
 
-Solana state report · generated 2026-09-20 17:38 UTC · run #180 · baseline active
+Solana state report · generated 2026-09-20 20:43 UTC · run #181 · baseline active
 
 ## What needs your attention
 
@@ -8,26 +8,26 @@ Nothing. Every watched metric is inside its normal band. You can skip the rest o
 
 ## Network
 
-The chain looks healthy: 4,708 TPS (2,187 non-vote) at 266.8 ms per slot, epoch 1038 is 89.2% done.
+The chain looks healthy: 5,129 TPS (2,598 non-vote) at 266.1 ms per slot, epoch 1038 is 98.83% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 448,801,335 |
-| Block height | 426,842,038 |
-| Epoch | 1038 (89.2% complete) |
-| TPS (all / non-vote) | 4,707.8 / 2,187.2 |
-| Slot time | 266.8 ms |
+| Slot | 448,842,924 |
+| Block height | 426,883,585 |
+| Epoch | 1038 (98.83% complete) |
+| TPS (all / non-vote) | 5,128.9 / 2,598.5 |
+| Slot time | 266.1 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-675 validators are voting, 15 are delinquent (0.08% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+676 validators are voting, 14 are delinquent (0.01% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 675 / 15 |
-| Delinquent stake | 0.08% |
+| Active / delinquent | 676 / 14 |
+| Delinquent stake | 0.01% |
 | Total stake | 440,227,371 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -35,13 +35,13 @@ The chain looks healthy: 4,708 TPS (2,187 non-vote) at 266.8 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $109.92 (-1.4% 24h), $6.14B locked, $2.88B traded on DEXs.
+A quiet day: SOL at $110.38 (-0.7% 24h), $6.16B locked, $2.88B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $109.92 (-1.4% 24h) |
-| Market cap | $64.51B |
-| TVL | $6.14B |
+| SOL price | $110.38 (-0.7% 24h) |
+| Market cap | $64.83B |
+| TVL | $6.16B |
 | DEX volume 24h | $2.88B (-18.7% 1d) |
 | Chain fees 24h | $15.28M |
 | Real economic value 24h | $5.47M |
@@ -51,15 +51,15 @@ A quiet day: SOL at $109.92 (-1.4% 24h), $6.14B locked, $2.88B traded on DEXs.
 
 | metric | value |
 |---|---|
-| Circulating | 587,366,627 SOL |
+| Circulating | 587,366,485 SOL |
 | Non-circulating | 47,008,679 SOL |
-| Total | 634,375,306 SOL |
+| Total | 634,375,165 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,930,086 (2026-09-18, via Dune).
+Daily active wallets: 3,119,087 (2026-09-19, via Dune).
 
 Recent agave client releases:
 
