@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-21 19:18 UTC · run #186 · baseline active
+Solana state report · generated 2026-09-21 22:47 UTC · run #187 · baseline active
 
 ## What needs your attention
 
-- 🔵 **TVL spiked to 6,471,661,222 USD, 4.0 standard deviations above its recent norm of 5,892,868,634 USD.**
-  - evidence: baseline n=185, mean=5,892,868,633.6, current=6,471,661,222.0, z=+4.02
+- 🔵 **TVL spiked to 6,497,366,194 USD, 4.0 standard deviations above its recent norm of 5,895,980,422 USD.**
+  - evidence: baseline n=186, mean=5,895,980,421.7, current=6,497,366,194.0, z=+4.02
 
 ## Network
 
-The chain looks healthy: 5,017 TPS (2,487 non-vote) at 266.0 ms per slot, epoch 1039 is 69.26% done.
+The chain looks healthy: 4,515 TPS (2,012 non-vote) at 268.0 ms per slot, epoch 1039 is 80.08% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 449,147,191 |
-| Block height | 427,187,787 |
-| Epoch | 1039 (69.26% complete) |
-| TPS (all / non-vote) | 5,017.2 / 2,486.8 |
-| Slot time | 266.0 ms |
+| Slot | 449,193,960 |
+| Block height | 427,234,507 |
+| Epoch | 1039 (80.08% complete) |
+| TPS (all / non-vote) | 4,514.8 / 2,011.5 |
+| Slot time | 268.0 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 5,017 TPS (2,487 non-vote) at 266.0 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $117.66 (+7.1% 24h), $6.47B locked, $2.80B traded on DEXs.
+A moving day: SOL at $119.13 (+7.9% 24h), $6.50B locked, $2.80B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $117.66 (+7.1% 24h) |
-| Market cap | $69.08B |
-| TVL | $6.47B |
+| SOL price | $119.13 (+7.9% 24h) |
+| Market cap | $70.02B |
+| TVL | $6.50B |
 | DEX volume 24h | $2.80B (-2.8% 1d) |
 | Chain fees 24h | $14.46M |
 | Real economic value 24h | $5.35M |
-| Stablecoin supply | $15.96B |
+| Stablecoin supply | $15.91B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,437,069 SOL |
+| Circulating | 587,436,913 SOL |
 | Non-circulating | 47,016,105 SOL |
-| Total | 634,453,174 SOL |
+| Total | 634,453,018 SOL |
 
 ## Ecosystem
 
