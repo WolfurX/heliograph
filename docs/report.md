@@ -1,36 +1,34 @@
 # Heliograph
 
-Solana state report · generated 2026-09-21 13:58 UTC · run #185 · baseline active
+Solana state report · generated 2026-09-21 19:18 UTC · run #186 · baseline active
 
 ## What needs your attention
 
-- 🟠 **SOL is up 9.1% in 24h to $117.89. Moves this size usually have a cause worth knowing.**
-  - evidence: 24h change +9.1%, threshold warn>=8% crit>=15%
-- 🔵 **TVL spiked to 6,427,697,289 USD, 3.9 standard deviations above its recent norm of 5,889,961,956 USD.**
-  - evidence: baseline n=184, mean=5,889,961,956.1, current=6,427,697,289.0, z=+3.87
+- 🔵 **TVL spiked to 6,471,661,222 USD, 4.0 standard deviations above its recent norm of 5,892,868,634 USD.**
+  - evidence: baseline n=185, mean=5,892,868,633.6, current=6,471,661,222.0, z=+4.02
 
 ## Network
 
-The chain looks healthy: 5,183 TPS (2,673 non-vote) at 268.5 ms per slot, epoch 1039 is 52.68% done.
+The chain looks healthy: 5,017 TPS (2,487 non-vote) at 266.0 ms per slot, epoch 1039 is 69.26% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 449,075,562 |
-| Block height | 427,116,185 |
-| Epoch | 1039 (52.68% complete) |
-| TPS (all / non-vote) | 5,183.3 / 2,672.9 |
-| Slot time | 268.5 ms |
+| Slot | 449,147,191 |
+| Block height | 427,187,787 |
+| Epoch | 1039 (69.26% complete) |
+| TPS (all / non-vote) | 5,017.2 / 2,486.8 |
+| Slot time | 266.0 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-677 validators are voting, 13 are delinquent (0.04% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+676 validators are voting, 14 are delinquent (0.05% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 677 / 13 |
-| Delinquent stake | 0.04% |
+| Active / delinquent | 676 / 14 |
+| Delinquent stake | 0.05% |
 | Total stake | 439,905,519 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -38,31 +36,31 @@ The chain looks healthy: 5,183 TPS (2,673 non-vote) at 268.5 ms per slot, epoch 
 
 ## Economics
 
-A volatile day: SOL at $117.89 (+9.1% 24h), $6.43B locked, $2.80B traded on DEXs.
+A moving day: SOL at $117.66 (+7.1% 24h), $6.47B locked, $2.80B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $117.89 (+9.1% 24h) |
-| Market cap | $69.26B |
-| TVL | $6.43B |
+| SOL price | $117.66 (+7.1% 24h) |
+| Market cap | $69.08B |
+| TVL | $6.47B |
 | DEX volume 24h | $2.80B (-2.8% 1d) |
 | Chain fees 24h | $14.46M |
 | Real economic value 24h | $5.35M |
-| Stablecoin supply | $16.08B |
+| Stablecoin supply | $15.96B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,437,326 SOL |
+| Circulating | 587,437,069 SOL |
 | Non-circulating | 47,016,105 SOL |
-| Total | 634,453,431 SOL |
+| Total | 634,453,174 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 3,119,087 (2026-09-19, via Dune).
+Daily active wallets: 2,621,134 (2026-09-20, via Dune).
 
 Recent agave client releases:
 
