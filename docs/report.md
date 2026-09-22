@@ -1,36 +1,36 @@
 # Heliograph
 
-Solana state report · generated 2026-09-22 12:32 UTC · run #190 · baseline active
+Solana state report · generated 2026-09-22 17:13 UTC · run #191 · baseline active
 
 ## What needs your attention
 
-- 🔵 **TVL spiked to 6,444,925,413 USD, 3.3 standard deviations above its recent norm of 5,905,177,473 USD.**
-  - evidence: baseline n=189, mean=5,905,177,472.8, current=6,444,925,413.0, z=+3.26
-- 🔵 **Real economic value spiked to 7,786,715 USD, 2.6 standard deviations above its recent norm of 5,664,307 USD.**
-  - evidence: baseline n=184, mean=5,664,306.5, current=7,786,715.0, z=+2.58
+- 🔵 **TVL spiked to 6,463,684,870 USD, 3.3 standard deviations above its recent norm of 5,908,018,251 USD.**
+  - evidence: baseline n=190, mean=5,908,018,251.4, current=6,463,684,870.0, z=+3.28
+- 🔵 **Real economic value spiked to 7,791,477 USD, 2.5 standard deviations above its recent norm of 5,675,779 USD.**
+  - evidence: baseline n=185, mean=5,675,779.0, current=7,791,477.0, z=+2.54
 
 ## Network
 
-The chain looks healthy: 4,126 TPS (1,593 non-vote) at 264.7 ms per slot, epoch 1040 is 23.11% done.
+The chain looks healthy: 5,015 TPS (2,486 non-vote) at 266.4 ms per slot, epoch 1040 is 37.7% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 449,379,824 |
-| Block height | 427,420,227 |
-| Epoch | 1040 (23.11% complete) |
-| TPS (all / non-vote) | 4,126.3 / 1,592.8 |
-| Slot time | 264.7 ms |
+| Slot | 449,442,863 |
+| Block height | 427,483,212 |
+| Epoch | 1040 (37.7% complete) |
+| TPS (all / non-vote) | 5,015.2 / 2,485.9 |
+| Slot time | 266.4 ms |
 | Node version | 4.3.0-rc.0 |
 
 ## Validators
 
-676 validators are voting, 13 are delinquent (0.09% of stake, nothing alarming). It takes 18 validators to control a third of stake.
+677 validators are voting, 12 are delinquent (0.05% of stake, nothing alarming). It takes 18 validators to control a third of stake.
 
 | metric | value |
 |---|---|
-| Active / delinquent | 676 / 13 |
-| Delinquent stake | 0.09% |
+| Active / delinquent | 677 / 12 |
+| Delinquent stake | 0.05% |
 | Total stake | 439,861,749 SOL |
 | Nakamoto coefficient | 18 |
 | Median commission | 5% |
@@ -38,31 +38,31 @@ The chain looks healthy: 4,126 TPS (1,593 non-vote) at 264.7 ms per slot, epoch 
 
 ## Economics
 
-A quiet day: SOL at $117.45 (+0.7% 24h), $6.44B locked, $3.43B traded on DEXs.
+A quiet day: SOL at $117.7 (-0.0% 24h), $6.46B locked, $3.43B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $117.45 (+0.7% 24h) |
-| Market cap | $68.97B |
-| TVL | $6.44B |
+| SOL price | $117.7 (-0.0% 24h) |
+| Market cap | $69.15B |
+| TVL | $6.46B |
 | DEX volume 24h | $3.43B (+22.7% 1d) |
-| Chain fees 24h | $18.55M |
+| Chain fees 24h | $18.64M |
 | Real economic value 24h | $7.79M |
-| Stablecoin supply | $15.78B |
+| Stablecoin supply | $15.77B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,507,780 SOL |
+| Circulating | 587,507,571 SOL |
 | Non-circulating | 47,023,628 SOL |
-| Total | 634,531,408 SOL |
+| Total | 634,531,198 SOL |
 
 ## Ecosystem
 
 Cluster status: All Systems Operational.
 
-Daily active wallets: 2,621,134 (2026-09-20, via Dune).
+Daily active wallets: 3,109,934 (2026-09-21, via Dune).
 
 Recent agave client releases:
 
