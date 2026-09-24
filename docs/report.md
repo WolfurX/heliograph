@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-24 04:35 UTC · run #200 · baseline active
+Solana state report · generated 2026-09-24 09:30 UTC · run #201 · baseline active
 
 ## What needs your attention
 
-- 🔵 **Stablecoin supply spiked to 17,167,737,638 USD, 3.9 standard deviations above its recent norm of 15,927,890,371 USD.**
-  - evidence: baseline n=199, mean=15,927,890,370.6, current=17,167,737,638.0, z=+3.86
+- 🔵 **Stablecoin supply spiked to 17,111,094,132 USD, 3.5 standard deviations above its recent norm of 15,934,575,622 USD.**
+  - evidence: baseline n=199, mean=15,934,575,622.3, current=17,111,094,132.0, z=+3.54
 
 ## Network
 
-The chain looks healthy: 4,225 TPS (1,695 non-vote) at 265.9 ms per slot, epoch 1041 is 48.56% done.
+The chain looks healthy: 4,231 TPS (1,700 non-vote) at 266.1 ms per slot, epoch 1041 is 64.0% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 449,921,768 |
-| Block height | 427,961,900 |
-| Epoch | 1041 (48.56% complete) |
-| TPS (all / non-vote) | 4,225.0 / 1,695.2 |
-| Slot time | 265.9 ms |
+| Slot | 449,988,480 |
+| Block height | 428,028,600 |
+| Epoch | 1041 (64.0% complete) |
+| TPS (all / non-vote) | 4,230.6 / 1,700.1 |
+| Slot time | 266.1 ms |
 | Node version | 4.3.0 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 4,225 TPS (1,695 non-vote) at 265.9 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $114.89 (-4.0% 24h), $6.40B locked, $2.68B traded on DEXs.
+A moving day: SOL at $113.41 (-3.5% 24h), $6.40B locked, $2.68B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $114.89 (-4.0% 24h) |
-| Market cap | $67.49B |
+| SOL price | $113.41 (-3.5% 24h) |
+| Market cap | $66.61B |
 | TVL | $6.40B |
 | DEX volume 24h | $2.68B (-16.0% 1d) |
-| Chain fees 24h | $16.53M |
+| Chain fees 24h | $16.52M |
 | Real economic value 24h | $6.17M |
-| Stablecoin supply | $17.17B |
+| Stablecoin supply | $17.11B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,577,502 SOL |
+| Circulating | 587,577,312 SOL |
 | Non-circulating | 47,031,112 SOL |
-| Total | 634,608,614 SOL |
+| Total | 634,608,423 SOL |
 
 ## Ecosystem
 
