@@ -1,35 +1,28 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-24T22:15:13+00:00",
-  "generated_ts": 1790288113,
+  "generated_at": "2026-09-25T00:44:49+00:00",
+  "generated_ts": 1790297089,
   "baseline": {
-    "runs": 204,
+    "runs": 205,
     "status": "active"
   },
-  "anomalies": [
-    {
-      "severity": "info",
-      "metric": "economics.tvl_usd",
-      "headline": "TVL spiked to 6,489,139,367 USD, 2.6 standard deviations above its recent norm of 5,945,952,019 USD.",
-      "detail": "baseline n=199, mean=5,945,952,019.4, current=6,489,139,367.0, z=+2.57"
-    }
-  ],
+  "anomalies": [],
   "network": {
     "health": "ok",
-    "slot": 450160836,
-    "block_height": 428200853,
+    "slot": 450194467,
+    "block_height": 428234472,
     "epoch": 1042,
-    "epoch_progress_pct": 3.9,
-    "tx_count_total": 552256033139,
-    "tps": 4795.4,
-    "nonvote_tps": 2272.6,
-    "slot_time_ms": 266.5,
+    "epoch_progress_pct": 11.68,
+    "tx_count_total": 552295746735,
+    "tps": 4399.2,
+    "nonvote_tps": 1884.7,
+    "slot_time_ms": 267.1,
     "node_version": "4.3.0"
   },
   "validators": {
     "active": 675,
     "delinquent": 10,
-    "delinquent_stake_pct": 0.06,
+    "delinquent_stake_pct": 0.02,
     "total_stake_sol": 440637196,
     "nakamoto_coefficient": 18,
     "median_commission": 5,
@@ -98,21 +91,21 @@
     ]
   },
   "supply": {
-    "total_sol": 634686740,
-    "circulating_sol": 587648304,
-    "non_circulating_sol": 47038436
+    "total_sol": 634686636,
+    "circulating_sol": 587648094,
+    "non_circulating_sol": 47038542
   },
   "economics": {
-    "sol_price_usd": 116.58,
-    "sol_24h_change_pct": 1.08,
-    "market_cap_usd": 68510560659,
-    "volume_24h_usd": 4301490113,
-    "tvl_usd": 6489139367,
-    "dex_volume_24h_usd": 2552816117,
-    "dex_volume_change_1d_pct": -20.1,
-    "chain_fees_24h_usd": 16120233,
-    "stablecoin_supply_usd": 15933909009,
-    "rev_24h_usd": 5844317
+    "sol_price_usd": 117.56,
+    "sol_24h_change_pct": 2.2,
+    "market_cap_usd": 69085349739,
+    "volume_24h_usd": 4386385066,
+    "tvl_usd": 6466925808,
+    "dex_volume_24h_usd": 2444326595,
+    "dex_volume_change_1d_pct": -4.25,
+    "chain_fees_24h_usd": 16260897,
+    "stablecoin_supply_usd": 16384412430,
+    "rev_24h_usd": 5977051
   },
   "ecosystem": {
     "status_indicator": "none",
@@ -148,7 +141,7 @@
     "recent_simds": [],
     "daily_active_wallets": 3440230,
     "daily_active_wallets_date": "2026-09-22",
-    "daily_active_wallets_fetched_at": 1790275070
+    "daily_active_wallets_fetched_at": 1790297101
   },
   "sources": {
     "solana_rpc_network": "ok",
