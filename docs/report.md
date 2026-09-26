@@ -1,24 +1,24 @@
 # Heliograph
 
-Solana state report · generated 2026-09-25 23:28 UTC · run #210 · baseline active
+Solana state report · generated 2026-09-26 01:54 UTC · run #211 · baseline active
 
 ## What needs your attention
 
-- 🔵 **TVL spiked to 6,606,641,791 USD, 2.8 standard deviations above its recent norm of 5,968,599,207 USD.**
-  - evidence: baseline n=199, mean=5,968,599,206.8, current=6,606,641,791.0, z=+2.77
+- 🔵 **TVL spiked to 6,640,492,679 USD, 2.8 standard deviations above its recent norm of 5,972,773,840 USD.**
+  - evidence: baseline n=199, mean=5,972,773,839.9, current=6,640,492,679.0, z=+2.85
 
 ## Network
 
-The chain looks healthy: 4,373 TPS (1,871 non-vote) at 268.8 ms per slot, epoch 1042 is 82.54% done.
+The chain looks healthy: 5,202 TPS (2,717 non-vote) at 270.7 ms per slot, epoch 1042 is 90.03% done.
 
 | metric | value |
 |---|---|
 | Health | ok |
-| Slot | 450,500,569 |
-| Block height | 428,540,433 |
-| Epoch | 1042 (82.54% complete) |
-| TPS (all / non-vote) | 4,373.1 / 1,870.8 |
-| Slot time | 268.8 ms |
+| Slot | 450,532,933 |
+| Block height | 428,572,769 |
+| Epoch | 1042 (90.03% complete) |
+| TPS (all / non-vote) | 5,201.8 / 2,717.4 |
+| Slot time | 270.7 ms |
 | Node version | 4.3.0 |
 
 ## Validators
@@ -36,25 +36,25 @@ The chain looks healthy: 4,373 TPS (1,871 non-vote) at 268.8 ms per slot, epoch 
 
 ## Economics
 
-A moving day: SOL at $121.98 (+4.3% 24h), $6.61B locked, $2.45B traded on DEXs.
+A moving day: SOL at $121.94 (+3.9% 24h), $6.64B locked, $2.80B traded on DEXs.
 
 | metric | value |
 |---|---|
-| SOL price | $121.98 (+4.3% 24h) |
-| Market cap | $71.66B |
-| TVL | $6.61B |
-| DEX volume 24h | $2.45B (-4.0% 1d) |
-| Chain fees 24h | $15.98M |
-| Real economic value 24h | $5.90M |
-| Stablecoin supply | $16.61B |
+| SOL price | $121.94 (+3.9% 24h) |
+| Market cap | $71.64B |
+| TVL | $6.64B |
+| DEX volume 24h | $2.80B (+14.3% 1d) |
+| Chain fees 24h | $14.93M |
+| Real economic value 24h | $6.00M |
+| Stablecoin supply | $16.64B |
 
 ## Supply
 
 | metric | value |
 |---|---|
-| Circulating | 587,641,929 SOL |
+| Circulating | 587,641,818 SOL |
 | Non-circulating | 47,043,757 SOL |
-| Total | 634,685,687 SOL |
+| Total | 634,685,576 SOL |
 
 ## Ecosystem
 
